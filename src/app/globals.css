@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-lm-white text-lm-dark font-sans;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .rubrique-label {
+    @apply text-xs font-bold uppercase tracking-wider text-lm-red;
+  }
+
+  .article-title {
+    @apply font-serif font-bold text-lm-dark leading-tight;
+  }
+
+  .article-chapeau {
+    @apply font-serif text-lm-gray leading-relaxed;
+  }
+
+  .section-title {
+    @apply font-sans text-sm font-bold uppercase tracking-wider text-lm-dark border-b-2 border-lm-dark pb-2 mb-4;
+  }
+
+  .nav-link {
+    @apply text-sm font-sans hover:text-lm-red transition-colors duration-200;
+  }
+}
