@@ -281,3 +281,85 @@ describe('SignInPage — edge cases', () => {
     });
   });
 });
+
+// ─── Sécurité — inputs malveillants ───────────────────────────────────────────
+
+describe('SignInPage — sécurité', () => {
+  it('un payload XSS dans le mot de passe ne s\'exécute pas dans le DOM', async () => {
+    // Le champ email impose type="email" — on met le XSS dans le password
+    const xssPassword = '<script>alert("xss")</script>123456';
+    mockSignIn.mockResolvedValueOnce({ error: 'CredentialsSignin' });
+    renderPage();
+    fillForm('test@example.com', xssPassword);
+    submitForm();
+
+    await waitFor(() => {
+      expect(mockSignIn).toHaveBeenCalledWith(
+        'credentials',
+        expect.objectContaining({ password: xssPassword })
+      );
+    });
+    // React échappe le contenu — aucun <script> ne s'insère dans le DOM
+    expect(document.querySelector('script')).not.toBeInTheDocument();
+  });
+
+  it('transmet un mot de passe très long (1000 chars) à signIn', async () => {
+    const longPassword = 'a'.repeat(1000);
+    mockSignIn.mockResolvedValueOnce({ error: 'CredentialsSignin' });
+    renderPage();
+    fillForm('test@example.com', longPassword);
+    submitForm();
+
+    await waitFor(() => {
+      expect(mockSignIn).toHaveBeenCalledWith(
+        'credentials',
+        expect.objectContaining({ password: longPassword })
+      );
+    });
+  });
+
+  it('transmet un mot de passe avec caractères unicode à signIn', async () => {
+    // L'email valide (ASCII) permet la soumission du formulaire
+    const unicodePassword = 'mötdëpässë42';
+    mockSignIn.mockResolvedValueOnce({ error: 'CredentialsSignin' });
+    renderPage();
+    fillForm('test@example.com', unicodePassword);
+    submitForm();
+
+    await waitFor(() => {
+      expect(mockSignIn).toHaveBeenCalledWith(
+        'credentials',
+        expect.objectContaining({ password: unicodePassword })
+      );
+    });
+  });
+
+  it('transmet un mot de passe avec émojis à signIn', async () => {
+    const emojiPassword = '🔐secret🔑42';
+    mockSignIn.mockResolvedValueOnce({ error: 'CredentialsSignin' });
+    renderPage();
+    fillForm('test@example.com', emojiPassword);
+    submitForm();
+
+    await waitFor(() => {
+      expect(mockSignIn).toHaveBeenCalledWith(
+        'credentials',
+        expect.objectContaining({ password: emojiPassword })
+      );
+    });
+  });
+
+  it('passe redirect: false à signIn (pas de redirect serveur côté client)', async () => {
+    mockSignIn.mockResolvedValueOnce({ error: null });
+    renderPage();
+    fillForm('test@example.com', 'password123');
+    submitForm();
+
+    await waitFor(() => {
+      expect(mockSignIn).toHaveBeenCalledWith(
+        'credentials',
+        expect.objectContaining({ redirect: false })
+      );
+    });
+  });
+});
