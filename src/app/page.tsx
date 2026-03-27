@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/home/HeroSection";
 import CategorySection from "@/components/home/CategorySection";
+
+export const metadata: Metadata = {
+  title:
+    "Le Monde.fr \u2014 Actualit\u00e9s et Infos en France et dans le monde",
+  description:
+    "Le Monde.fr - 1er site d\u2019information fran\u00e7ais. Actu en continu, archives gratuites, galeries photo, vid\u00e9o. Retrouvez l\u2019actualit\u00e9 politique, internationale, \u00e9conomique, culturelle, sportive et scientifique.",
+};
 
 export default async function HomePage() {
   // Article à la une : le plus récent
