@@ -93,7 +93,7 @@ export default function SignUpPage() {
             name="password"
             type="password"
             required
-            minLength={6}
+            minLength={8}
             aria-invalid={error ? "true" : undefined}
             aria-describedby={error ? "signup-error" : undefined}
             className="w-full border border-[var(--lemonde-border)] px-3 py-2 text-sm"

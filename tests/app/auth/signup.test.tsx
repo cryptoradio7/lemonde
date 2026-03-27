@@ -78,10 +78,10 @@ describe('SignUpPage — structure', () => {
     expect(input).toHaveAttribute('minLength', '2');
   });
 
-  it('le champ Mot de passe a minLength=6', () => {
+  it('le champ Mot de passe a minLength=8', () => {
     renderPage();
     const input = screen.getByLabelText(/^mot de passe$/i);
-    expect(input).toHaveAttribute('minLength', '6');
+    expect(input).toHaveAttribute('minLength', '8');
   });
 
   it('le champ Email a type=email', () => {

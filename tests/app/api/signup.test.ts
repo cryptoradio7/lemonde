@@ -114,7 +114,7 @@ describe('POST /api/auth/signup', () => {
     expect(mockCreate).not.toHaveBeenCalled();
   });
 
-  it('400 — rejette un mot de passe trop court (< 6 chars)', async () => {
+  it('400 — rejette un mot de passe trop court (< 8 chars)', async () => {
     const req = makeRequest({ name: 'Alice', email: 'alice@example.com', password: '123' });
     const res = await POST(req as never);
 
@@ -122,11 +122,19 @@ describe('POST /api/auth/signup', () => {
     expect(mockCreate).not.toHaveBeenCalled();
   });
 
-  it('201 — accepte un mot de passe de exactement 6 caractères (borne inclusive)', async () => {
+  it('400 — rejette un mot de passe de 7 caractères (< min 8)', async () => {
+    const req = makeRequest({ name: 'Alice', email: 'alice@example.com', password: '1234567' });
+    const res = await POST(req as never);
+
+    expect(res.status).toBe(400);
+    expect(mockCreate).not.toHaveBeenCalled();
+  });
+
+  it('201 — accepte un mot de passe de exactement 8 caractères (borne inclusive)', async () => {
     mockFindUnique.mockResolvedValue(null);
     mockCreate.mockResolvedValue({ id: '1', name: 'Alice', email: 'alice@example.com' });
 
-    const req = makeRequest({ name: 'Alice', email: 'alice@example.com', password: '123456' });
+    const req = makeRequest({ name: 'Alice', email: 'alice@example.com', password: '12345678' });
     const res = await POST(req as never);
 
     expect(res.status).toBe(201);
