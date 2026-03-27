@@ -1,0 +1,334 @@
+[     879ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[     881ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[     881ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[     883ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[     883ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[     884ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[    1408ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/politique/:0
+[    1411ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/politique/:0
+[    1412ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/politique/:0
+[    1412ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/politique/:0
+[    1412ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/politique/:0
+[    1412ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/politique/:0
+[    1412ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/politique/:0
+[    1412ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/politique/:0
+[    1413ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/politique/:0
+[    1413ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[    1413ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1414ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1416ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[    1416ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[    1417ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[    1417ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[    1417ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[    1419ms] [ERROR] Attestation check for Protected Audience on https://a.teads.tv failed. @ https://www.lemonde.fr/politique/:0
+[    1460ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[    1460ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[    1460ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[    1461ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[    1461ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/politique/:0
+[    1745ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.lemonde.fr/politique/:0
+[    1745ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.lemonde.fr/politique/:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   29161ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/politique/:0
+[   29161ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/politique/:0
+[   29161ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   29162ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   29162ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[   29164ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/politique/:0
+[   29165ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/politique/:0
+[   29193ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/politique/:0
+[   29193ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   54873ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&redir=https%3A%2F%2Fcm.g.doubleclick.net%2Fpixel%3Fgoogle_nid%3Dspotxchange_dbm%26google_hm%3D%24SPOTX_BASE64_USER_ID:0
+[   54874ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&uid=CAESEMLLQxbAJKVwBXJDoe6B0Ls&google_cver=1:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/politique/:0
+[   57428ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/politique/:0
+[   57429ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/politique/:0
+[   57429ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   57429ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   57439ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[   57440ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/politique/:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   54873ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&redir=https%3A%2F%2Fcm.g.doubleclick.net%2Fpixel%3Fgoogle_nid%3Dspotxchange_dbm%26google_hm%3D%24SPOTX_BASE64_USER_ID:0
+[   54874ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&uid=CAESEMLLQxbAJKVwBXJDoe6B0Ls&google_cver=1:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   61129ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   85639ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/politique/:0
+[   85640ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/politique/:0
+[   85645ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/politique/:0
+[   85645ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   61129ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   88828ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   54873ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&redir=https%3A%2F%2Fcm.g.doubleclick.net%2Fpixel%3Fgoogle_nid%3Dspotxchange_dbm%26google_hm%3D%24SPOTX_BASE64_USER_ID:0
+[   54874ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&uid=CAESEMLLQxbAJKVwBXJDoe6B0Ls&google_cver=1:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   61129ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   88828ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   89178ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  113892ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/politique/:0
+[  113892ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/politique/:0
+[  113892ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  113893ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/politique/:0
+[  113903ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[  113906ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/politique/:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   61129ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   88828ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   89178ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117238ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   54873ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&redir=https%3A%2F%2Fcm.g.doubleclick.net%2Fpixel%3Fgoogle_nid%3Dspotxchange_dbm%26google_hm%3D%24SPOTX_BASE64_USER_ID:0
+[   54874ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&uid=CAESEMLLQxbAJKVwBXJDoe6B0Ls&google_cver=1:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   61129ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   88828ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   89178ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117238ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117722ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117930ms] [ERROR] Failed to load resource: the server responded with a status of 410 (Gone) @ https://ads.stickyadstv.com/user-matching?id=11:0
+[  117940ms] [ERROR] Failed to load resource: the server responded with a status of 410 (Gone) @ https://ads.stickyadstv.com/user-registering?dataProviderId=141&userId=CAESEFIq1Pv5sc4StRTo4_3wIYs&google_cver=1:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/politique/:0
+[  142338ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/politique/:0
+[  142339ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/politique/:0
+[  142339ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/politique/:0
+[  142339ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/politique/:0
+[  142339ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/politique/:0
+[  142339ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/politique/:0
+[  142349ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[  142349ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/politique/:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   61129ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   88828ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   89178ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117238ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117722ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  145497ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   54873ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&redir=https%3A%2F%2Fcm.g.doubleclick.net%2Fpixel%3Fgoogle_nid%3Dspotxchange_dbm%26google_hm%3D%24SPOTX_BASE64_USER_ID:0
+[   54874ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&uid=CAESEMLLQxbAJKVwBXJDoe6B0Ls&google_cver=1:0
+[  117930ms] [ERROR] Failed to load resource: the server responded with a status of 410 (Gone) @ https://ads.stickyadstv.com/user-matching?id=11:0
+[  117940ms] [ERROR] Failed to load resource: the server responded with a status of 410 (Gone) @ https://ads.stickyadstv.com/user-registering?dataProviderId=141&userId=CAESEFIq1Pv5sc4StRTo4_3wIYs&google_cver=1:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   61129ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   88828ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   89178ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117238ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117722ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  145497ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  145871ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  170512ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/politique/:0
+[  170521ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/politique/:0
+[  170522ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/politique/:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   61129ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   88828ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   89178ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117238ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117722ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  145497ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  145871ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  173701ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   54873ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&redir=https%3A%2F%2Fcm.g.doubleclick.net%2Fpixel%3Fgoogle_nid%3Dspotxchange_dbm%26google_hm%3D%24SPOTX_BASE64_USER_ID:0
+[   54874ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7025&uid=CAESEMLLQxbAJKVwBXJDoe6B0Ls&google_cver=1:0
+[  117930ms] [ERROR] Failed to load resource: the server responded with a status of 410 (Gone) @ https://ads.stickyadstv.com/user-matching?id=11:0
+[  117940ms] [ERROR] Failed to load resource: the server responded with a status of 410 (Gone) @ https://ads.stickyadstv.com/user-registering?dataProviderId=141&userId=CAESEFIq1Pv5sc4StRTo4_3wIYs&google_cver=1:0
+[    4076ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4250ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    4570ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32433ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   32811ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   60628ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   61129ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   88828ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   89178ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117238ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117722ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  145497ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  145871ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  173701ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  174309ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0

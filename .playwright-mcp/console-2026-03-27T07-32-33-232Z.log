@@ -1,0 +1,83 @@
+[     866ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[     868ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[     868ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[     869ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[     872ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[     873ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[    1800ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/international/:0
+[    1800ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/international/:0
+[    1800ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1801ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1801ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1801ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1801ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1801ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/international/:0
+[    1801ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/international/:0
+[    1802ms] [ERROR] Attestation check for Protected Audience on https://a.teads.tv failed. @ https://www.lemonde.fr/international/:0
+[    1802ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/international/:0
+[    1803ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/international/:0
+[    1803ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/international/:0
+[    1803ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/international/:0
+[    1805ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/international/:0
+[    1806ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/international/:0
+[    1807ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/international/:0
+[    1814ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1814ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1815ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1815ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1815ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/international/:0
+[    1816ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/international/:0
+[    1816ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/international/:0
+[    1817ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/international/:0
+[    1817ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/international/:0
+[    1818ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/international/:0
+[    1886ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/international/:0
+[    1889ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/international/:0
+[    1889ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/international/:0
+[    1889ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/international/:0
+[    1889ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/international/:0
+[    2339ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.lemonde.fr/international/:0
+[    2349ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.lemonde.fr/international/:0
+[    3665ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0

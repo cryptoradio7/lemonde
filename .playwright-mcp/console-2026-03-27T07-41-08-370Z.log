@@ -1,0 +1,137 @@
+[    1742ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[    1743ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[    1745ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[    1746ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[    1748ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[    1750ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261257)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260901)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260579)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319717)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319929)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319933)
+[    2644ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2644ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2644ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2644ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2644ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2644ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/:0
+[    2644ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/:0
+[    2644ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/:0
+[    2645ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/:0
+[    2645ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/:0
+[    2645ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/:0
+[    2645ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[    2645ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[    2645ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/:0
+[    2645ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[    2645ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://a.teads.tv failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/:0
+[    2646ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/:0
+[    2658ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.lemonde.fr/:0
+[    2658ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.lemonde.fr/:0
+[    2669ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/:0
+[    2669ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/:0
+[    2669ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/:0
+[    2671ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/:0
+[    2671ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/:0
+[    5143ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    5161ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    5143ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    5161ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    6731ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    5143ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    5161ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    6731ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    6936ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[    6954ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    5143ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    5161ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    6731ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    6954ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    7497ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   27411ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://cs.lkqd.net/cs?partnerId=59&redirect=https%3A%2F%2Fcm.g.doubleclick.net%2Fpixel%3Fgoogle_nid%3Dlkqd_dbm%26google_hm%3D%24%24rawlkqduserid%7Cbase64%24%24:0
+[   27411ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://cs.lkqd.net/cs?partnerId=59&partnerUserId=CAESEAghiZxRJAUbuEN7_EgMqeQ&google_cver=1:0
+[   29955ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/:0
+[   29955ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[   29955ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[   29955ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/:0
+[   29955ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[   29955ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[   29955ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[   29956ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/:0
+[   29962ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/:0
+[   29962ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/:0
+[    5143ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    5161ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    6731ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    6954ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    7497ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   33068ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   27411ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://cs.lkqd.net/cs?partnerId=59&redirect=https%3A%2F%2Fcm.g.doubleclick.net%2Fpixel%3Fgoogle_nid%3Dlkqd_dbm%26google_hm%3D%24%24rawlkqduserid%7Cbase64%24%24:0
+[   27411ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://cs.lkqd.net/cs?partnerId=59&partnerUserId=CAESEAghiZxRJAUbuEN7_EgMqeQ&google_cver=1:0
+[    5143ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    5161ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    6731ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    6954ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[    7497ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   33068ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   33488ms] [WARNING] Mixed Content: The page at 'https://ssum-sec.casalemedia.com/usermatch?ix_um=1&cb=https%3A%2F%2Fjs-sec.indexww.com%2Fht%2Fhtw-pixel.gif%3F&s=197794&gdpr=0' was loaded over HTTPS, but requested an insecure element 'http://rtb2-useast.delivrdsp.ai/sync?exchange=1378&r=https%3A%2F%2Fdsum-sec.casalemedia.com%2Fcrum%3Fcm_dsp_id%3D282%26external_user_id%3D%7BUID%7D&us_privacy='. This request was automatically upgraded to HTTPS, For more information see https://blog.chromium.org/2019/10/no-more-mixed-messages-about-https.html @ https://ssum-sec.casalemedia.com/usermatch?ix_um=1&cb=https%3A%2F%2Fjs-sec.indexww.com%2Fht%2Fhtw-pixel.gif%3F&s=197794&gdpr=0:0
+[   33492ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   33495ms] [WARNING] Mixed Content: The page at 'https://ssum-sec.casalemedia.com/usermatch?ix_um=1&cb=https%3A%2F%2Fjs-sec.indexww.com%2Fht%2Fhtw-pixel.gif%3F&s=197794&gdpr=0' was loaded over HTTPS, but requested an insecure element 'http://rtb2-useast.delivrdsp.ai/sync?exchange=1378&r=https%3A%2F%2Fdsum-sec.casalemedia.com%2Fcrum%3Fcm_dsp_id%3D282%26external_user_id%3D%7BUID%7D&us_privacy='. This request was automatically upgraded to HTTPS, For more information see https://blog.chromium.org/2019/10/no-more-mixed-messages-about-https.html @ https://ssum-sec.casalemedia.com/usermatch?ix_um=1&cb=https%3A%2F%2Fjs-sec.indexww.com%2Fht%2Fhtw-pixel.gif%3F&s=197794&gdpr=0:0
+[   39802ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[   49556ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
