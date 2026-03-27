@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Playfair_Display } from "next/font/google";
+import { Libre_Bodoni } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 
-const playfair = Playfair_Display({
+const libreBodoni = Libre_Bodoni({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-playfair",
+  variable: "--font-masthead",
   display: "swap",
 });
 
@@ -47,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={playfair.variable}>
+    <html lang="fr" className={libreBodoni.variable}>
       <body className="antialiased min-h-screen flex flex-col">
         <a
           href="#main-content"

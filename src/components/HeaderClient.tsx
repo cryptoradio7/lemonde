@@ -86,8 +86,13 @@ export default function HeaderClient({ formattedDate, userName }: HeaderClientPr
           {/* Centre : Logo Le Monde */}
           <Link href="/" className="flex justify-center">
             <span
-              className="text-[28px] sm:text-[34px] md:text-[40px] font-normal tracking-tight text-white leading-none"
-              style={{ fontFamily: "var(--font-playfair), Georgia, 'Times New Roman', serif", fontWeight: 400 }}
+              className="text-[28px] sm:text-[36px] md:text-[44px] font-normal text-white leading-none"
+              style={{
+                fontFamily: "var(--font-masthead), 'Libre Bodoni', Georgia, serif",
+                fontWeight: 400,
+                letterSpacing: '0.04em',
+                fontStyle: 'italic',
+              }}
             >
               Le Monde
             </span>
