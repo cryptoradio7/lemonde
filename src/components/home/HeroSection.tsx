@@ -1,17 +1,10 @@
 import Link from 'next/link';
+import { formatDateShort } from '@/lib/utils';
 import type { ArticleWithCategory } from '@/components/ArticleCard';
 
 interface HeroSectionProps {
   mainArticle: ArticleWithCategory;
   sidebarArticles: ArticleWithCategory[];
-}
-
-function formatDateShort(date: Date): string {
-  return date.toLocaleDateString('fr-FR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
 }
 
 export default function HeroSection({ mainArticle, sidebarArticles }: HeroSectionProps) {

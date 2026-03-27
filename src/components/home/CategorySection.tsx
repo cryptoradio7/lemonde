@@ -1,19 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Article, Category } from '@prisma/client';
+import { formatDateShort } from '@/lib/utils';
 
 type CategoryWithArticles = Category & { articles: Article[] };
 
 interface CategorySectionProps {
   category: CategoryWithArticles;
-}
-
-function formatDateShort(date: Date): string {
-  return date.toLocaleDateString('fr-FR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
 }
 
 function ArticleImage({
