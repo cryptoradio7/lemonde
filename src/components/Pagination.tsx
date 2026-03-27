@@ -105,6 +105,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
               key={page}
               className="inline-flex items-center justify-center w-10 h-10 text-sm font-sans font-bold text-white bg-[#1D1D1B]"
               aria-current="page"
+              aria-label={`Page ${page}, page courante`}
             >
               {page}
             </span>
@@ -112,6 +113,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
             <Link
               key={page}
               href={getPageUrl(page)}
+              aria-label={`Page ${page}`}
               className="inline-flex items-center justify-center w-10 h-10 text-sm font-sans text-[#1D1D1B] border border-[#D5D5D5] hover:bg-[#F5F5F5] transition-colors"
             >
               {page}
@@ -120,8 +122,8 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
         })}
       </div>
 
-      <span className="sm:hidden text-sm font-sans text-[#6B6B6B] px-2">
-        {currentPage} / {totalPages}
+      <span className="sm:hidden text-sm font-sans text-[#6B6B6B] px-2" aria-live="polite" aria-atomic="true">
+        <span className="sr-only">Page</span>{currentPage} / {totalPages}
       </span>
 
       {currentPage < totalPages ? (

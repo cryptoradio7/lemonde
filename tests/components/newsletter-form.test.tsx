@@ -75,7 +75,7 @@ describe('NewsletterForm — soumission', () => {
     fireEvent.click(screen.getByRole('button', { name: /s'inscrire/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent('Cette adresse est déjà inscrite');
+      expect(screen.getByRole('alert')).toHaveTextContent('Cette adresse est déjà inscrite');
     });
   });
 
@@ -91,7 +91,7 @@ describe('NewsletterForm — soumission', () => {
     fireEvent.submit(container.querySelector('form')!);
 
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent('Veuillez saisir une adresse e-mail valide.');
+      expect(screen.getByRole('alert')).toHaveTextContent('Veuillez saisir une adresse e-mail valide.');
     });
   });
 
@@ -105,7 +105,7 @@ describe('NewsletterForm — soumission', () => {
     fireEvent.click(screen.getByRole('button', { name: /s'inscrire/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent('Une erreur est survenue');
+      expect(screen.getByRole('alert')).toHaveTextContent('Une erreur est survenue');
     });
   });
 
@@ -119,7 +119,7 @@ describe('NewsletterForm — soumission', () => {
     fireEvent.click(screen.getByRole('button', { name: /s'inscrire/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent('Une erreur est survenue');
+      expect(screen.getByRole('alert')).toHaveTextContent('Une erreur est survenue');
     });
   });
 

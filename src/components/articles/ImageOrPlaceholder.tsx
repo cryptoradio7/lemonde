@@ -28,7 +28,7 @@ export default function ImageOrPlaceholder({
     );
   }
   return (
-    <div className="absolute inset-0 bg-[#D5D5D5] flex items-center justify-center">
+    <div className="absolute inset-0 bg-[#D5D5D5] flex items-center justify-center" aria-hidden="true">
       <span className="text-[#6B6B6B] text-xs font-sans uppercase tracking-wider">
         {categoryName}
       </span>

@@ -23,6 +23,7 @@ export default function CategorySection({ category }: CategorySectionProps) {
         <Link
           href={`/rubrique/${category.slug}`}
           className="text-xs text-[#6B6B6B] hover:text-[#1D1D1B] transition-colors font-sans"
+          aria-label={`Voir tous les articles ${category.name}`}
         >
           Voir tout →
         </Link>

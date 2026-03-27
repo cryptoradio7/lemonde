@@ -41,8 +41,16 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className="antialiased min-h-screen flex flex-col">
+        <a
+          href="#main-content"
+          className="skip-to-content"
+        >
+          Aller au contenu principal
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
         <CookieBanner />
       </body>

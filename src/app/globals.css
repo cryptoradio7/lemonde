@@ -177,3 +177,45 @@ h1, h2, h3, h4 {
   border-top: 1px solid var(--lm-gray-border);
   margin: 2em 0;
 }
+
+/* ─── Accessibilité — Skip-to-content ─────────────────────────── */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+}
+
+.skip-to-content:focus,
+.skip-to-content:active {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0.5rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--lm-dark);
+  color: #ffffff;
+  font-family: var(--font-family-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #ffffff;
+  outline: none;
+}
+
+/* ─── Accessibilité — Focus visible ───────────────────────────── */
+*:focus-visible {
+  outline: 3px solid var(--lm-blue-link);
+  outline-offset: 2px;
+}
+
+/* Pas d'outline sur les éléments non-interactifs ciblés programmatiquement */
+main:focus {
+  outline: none;
+}

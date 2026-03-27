@@ -37,16 +37,25 @@ function SignInForm() {
   return (
     <>
       {successMessage && (
-        <p className="text-green-700 text-sm mb-4 text-center bg-green-50 border border-green-200 px-3 py-2">
+        <p
+          role="status"
+          aria-live="polite"
+          className="text-green-700 text-sm mb-4 text-center bg-green-50 border border-green-200 px-3 py-2"
+        >
           {successMessage}
         </p>
       )}
       {error && (
-        <p className="text-[var(--lemonde-red)] text-sm mb-4 text-center">
+        <p
+          id="signin-error"
+          role="alert"
+          aria-live="assertive"
+          className="text-[var(--lemonde-red)] text-sm mb-4 text-center"
+        >
           {error}
         </p>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         <div>
           <label htmlFor="email" className="block text-sm font-medium mb-1">
             Email
@@ -56,6 +65,8 @@ function SignInForm() {
             name="email"
             type="email"
             required
+            aria-invalid={error ? "true" : undefined}
+            aria-describedby={error ? "signin-error" : undefined}
             className="w-full border border-[var(--lemonde-border)] px-3 py-2 text-sm"
           />
         </div>
@@ -69,12 +80,15 @@ function SignInForm() {
             type="password"
             required
             minLength={6}
+            aria-invalid={error ? "true" : undefined}
+            aria-describedby={error ? "signin-error" : undefined}
             className="w-full border border-[var(--lemonde-border)] px-3 py-2 text-sm"
           />
         </div>
         <button
           type="submit"
           disabled={loading}
+          aria-busy={loading}
           className="w-full bg-[var(--lemonde-black)] text-white py-2 text-sm font-medium hover:bg-[var(--lemonde-dark)] disabled:opacity-50"
         >
           {loading ? "Connexion..." : "Se connecter"}

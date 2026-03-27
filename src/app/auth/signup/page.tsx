@@ -45,11 +45,16 @@ export default function SignUpPage() {
     <main className="max-w-[400px] mx-auto px-4 py-16">
       <h1 className="text-2xl font-bold mb-8 text-center">Créer un compte</h1>
       {error && (
-        <p className="text-[var(--lemonde-red)] text-sm mb-4 text-center">
+        <p
+          id="signup-error"
+          role="alert"
+          aria-live="assertive"
+          className="text-[var(--lemonde-red)] text-sm mb-4 text-center"
+        >
           {error}
         </p>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-1">
             Nom
@@ -60,6 +65,8 @@ export default function SignUpPage() {
             type="text"
             required
             minLength={2}
+            aria-invalid={error ? "true" : undefined}
+            aria-describedby={error ? "signup-error" : undefined}
             className="w-full border border-[var(--lemonde-border)] px-3 py-2 text-sm"
           />
         </div>
@@ -72,6 +79,8 @@ export default function SignUpPage() {
             name="email"
             type="email"
             required
+            aria-invalid={error ? "true" : undefined}
+            aria-describedby={error ? "signup-error" : undefined}
             className="w-full border border-[var(--lemonde-border)] px-3 py-2 text-sm"
           />
         </div>
@@ -85,12 +94,15 @@ export default function SignUpPage() {
             type="password"
             required
             minLength={6}
+            aria-invalid={error ? "true" : undefined}
+            aria-describedby={error ? "signup-error" : undefined}
             className="w-full border border-[var(--lemonde-border)] px-3 py-2 text-sm"
           />
         </div>
         <button
           type="submit"
           disabled={loading}
+          aria-busy={loading}
           className="w-full bg-[var(--lemonde-black)] text-white py-2 text-sm font-medium hover:bg-[var(--lemonde-dark)] disabled:opacity-50"
         >
           {loading ? "Création..." : "Créer mon compte"}

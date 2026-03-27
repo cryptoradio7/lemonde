@@ -20,11 +20,16 @@ export default function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[100] bg-white border-t-2 border-[#1D1D1B] shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cookie-banner-title"
+      className="fixed bottom-0 left-0 right-0 z-[100] bg-white border-t-2 border-[#1D1D1B] shadow-[0_-4px_20px_rgba(0,0,0,0.15)]"
+    >
       <div className="max-w-5xl mx-auto px-4 py-5">
         <div className="flex flex-col md:flex-row md:items-center gap-4">
           <div className="flex-1">
-            <h3 className="text-base font-bold text-[#1D1D1B] font-sans mb-1">
+            <h3 id="cookie-banner-title" className="text-base font-bold text-[#1D1D1B] font-sans mb-1">
               Gestion des cookies
             </h3>
             <p className="text-sm text-[#6B6B6B] font-sans leading-relaxed">

@@ -20,9 +20,9 @@ export default function SearchBar({ defaultValue = '' }: SearchBarProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
+    <form onSubmit={handleSubmit} className="w-full" role="search">
       <div className="relative flex items-center">
-        <div className="absolute left-3 text-[#6B6B6B] pointer-events-none">
+        <div className="absolute left-3 text-[#6B6B6B] pointer-events-none" aria-hidden="true">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -33,6 +33,7 @@ export default function SearchBar({ defaultValue = '' }: SearchBarProps) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            aria-hidden="true"
           >
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />

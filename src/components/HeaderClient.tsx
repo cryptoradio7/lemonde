@@ -99,6 +99,7 @@ export default function HeaderClient({ formattedDate, userName }: HeaderClientPr
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {mobileMenuOpen ? (
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -138,7 +139,7 @@ export default function HeaderClient({ formattedDate, userName }: HeaderClientPr
 
       {/* Menu mobile déroulant */}
       {mobileMenuOpen && (
-        <nav className="md:hidden bg-[#1D1D1B] border-t border-[#333]" aria-label="Navigation mobile">
+        <nav id="mobile-menu" className="md:hidden bg-[#1D1D1B] border-t border-[#333]" aria-label="Navigation mobile">
           <ul className="flex flex-col">
             {RUBRIQUES.map((rubrique) => (
               <li key={rubrique.href} className="border-b border-[#333] last:border-b-0">

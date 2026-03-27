@@ -53,8 +53,16 @@ export default function NewsletterForm() {
     }
   };
 
+  const hasMessage = status !== 'idle' && status !== 'loading';
+  const hasError = hasMessage && status !== 'success';
+
   return (
-    <form className="flex flex-col gap-3" onSubmit={handleSubmit} noValidate>
+    <form
+      className="flex flex-col gap-3"
+      onSubmit={handleSubmit}
+      noValidate
+      aria-label="Inscription à la newsletter"
+    >
       <div className="flex flex-col sm:flex-row gap-2">
         <input
           type="email"
@@ -63,6 +71,8 @@ export default function NewsletterForm() {
           placeholder="Votre adresse e-mail"
           className="flex-1 px-4 py-2.5 bg-[#2a2a28] border border-[#444] text-white text-sm font-sans placeholder-[#888] focus:outline-none focus:border-[#E9322D] transition-colors"
           aria-label="Adresse e-mail"
+          aria-describedby={hasMessage ? 'newsletter-status' : undefined}
+          aria-invalid={hasError ? 'true' : undefined}
           required
           disabled={status === 'loading' || status === 'success'}
         />
@@ -74,11 +84,12 @@ export default function NewsletterForm() {
           {status === 'loading' ? 'Envoi…' : "S'inscrire"}
         </button>
       </div>
-      {status !== 'idle' && status !== 'loading' && (
+      {hasMessage && (
         <p
+          id="newsletter-status"
           className={`text-sm font-sans ${status === 'success' ? 'text-green-400' : 'text-[#E9322D]'}`}
-          role="status"
-          aria-live="polite"
+          role={hasError ? 'alert' : 'status'}
+          aria-live={hasError ? 'assertive' : 'polite'}
         >
           {statusMessages[status]}
         </p>
