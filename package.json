@@ -17,7 +17,9 @@
   "dependencies": {
     "@auth/prisma-adapter": "^2.9.0",
     "@prisma/client": "^6.9.0",
+    "@types/dompurify": "^3.0.5",
     "bcryptjs": "^3.0.2",
+    "isomorphic-dompurify": "^3.7.1",
     "next": "^16.1.0",
     "next-auth": "^5.0.0-beta.25",
     "react": "^19.1.0",
