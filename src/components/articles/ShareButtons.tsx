@@ -6,12 +6,42 @@ interface ShareButtonsProps {
   title: string;
 }
 
+type CopyState = 'idle' | 'copied' | 'error';
+
 export default function ShareButtons({ title }: ShareButtonsProps) {
   const [url, setUrl] = useState('');
+  const [copyState, setCopyState] = useState<CopyState>('idle');
+  const [supportsClipboard, setSupportsClipboard] = useState(true);
 
   useEffect(() => {
     setUrl(window.location.href);
+    setSupportsClipboard(
+      !!(navigator.clipboard || document.queryCommandSupported?.('copy'))
+    );
   }, []);
+
+  async function handleCopy() {
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = url;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        const success = document.execCommand('copy');
+        document.body.removeChild(textarea);
+        if (!success) throw new Error('execCommand failed');
+      }
+      setCopyState('copied');
+    } catch {
+      setCopyState('error');
+    } finally {
+      setTimeout(() => setCopyState('idle'), 2000);
+    }
+  }
 
   if (!url) return null;
 
@@ -58,6 +88,13 @@ export default function ShareButtons({ title }: ShareButtonsProps) {
     },
   ];
 
+  const copyLabel =
+    copyState === 'copied'
+      ? 'Lien copié !'
+      : copyState === 'error'
+        ? 'Erreur, copiez manuellement'
+        : 'Copier le lien';
+
   return (
     <div className="flex items-center gap-2 py-4 border-t border-b border-[#D5D5D5] my-6">
       <span
@@ -78,6 +115,28 @@ export default function ShareButtons({ title }: ShareButtonsProps) {
           {icon}
         </a>
       ))}
+      {supportsClipboard && (
+        <button
+          onClick={handleCopy}
+          aria-label={copyLabel}
+          title={copyLabel}
+          className={`flex items-center gap-1.5 px-3 h-8 rounded-full border text-xs font-medium transition-colors ${
+            copyState === 'copied'
+              ? 'border-green-600 text-green-700 bg-green-50'
+              : copyState === 'error'
+                ? 'border-red-500 text-red-600 bg-red-50'
+                : 'border-[#D5D5D5] text-[#6B6B6B] hover:text-[#1A5276] hover:border-[#1A5276]'
+          }`}
+        >
+          {copyState === 'idle' && (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 shrink-0">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+          )}
+          <span className="whitespace-nowrap">{copyLabel}</span>
+        </button>
+      )}
     </div>
   );
 }
