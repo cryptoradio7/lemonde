@@ -83,7 +83,7 @@ function makeArticle(overrides: Record<string, unknown> = {}) {
 
 const getArticleBySlugMock = getArticleBySlug as jest.Mock;
 const getCategoryBySlugMock = getCategoryBySlug as jest.Mock;
-const prismaArticleFindManyMock = (prisma.article.findMany as jest.Mock);
+const prismaArticleFindManyMock = prisma.article.findMany as jest.Mock;
 const prismaCategoryFindManyMock = (prisma.category.findMany as jest.Mock);
 
 beforeEach(() => {

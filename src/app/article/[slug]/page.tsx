@@ -74,7 +74,7 @@ export default async function ArticlePage({ params }: Props) {
   ];
 
   return (
-    <main>
+    <>
       {/* Fil d'Ariane */}
       <div className="max-w-[760px] mx-auto px-4 pt-6">
         <Breadcrumb items={breadcrumbItems} />
@@ -166,6 +166,6 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         </section>
       )}
-    </main>
+    </>
   );
 }
