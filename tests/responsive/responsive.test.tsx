@@ -743,6 +743,123 @@ describe('Edge cases — contenu étroit et débordement', () => {
 });
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// RECHERCHE PAGE — PAGINATION RESPONSIVE
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * La page /recherche utilise une pagination inline (non le composant Pagination)
+ * car les URLs sont composées (q + rubrique + page). On teste sa structure responsive
+ * via un composant témoin qui reflète fidèlement le rendu produit.
+ */
+
+interface SearchPaginationProps {
+  currentPage: number;
+  totalPages: number;
+}
+
+function SearchPaginationFixture({ currentPage, totalPages }: SearchPaginationProps) {
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  return (
+    <div className="flex justify-center items-center gap-2 mt-10">
+      {currentPage > 1 && (
+        <a
+          href={`/recherche?page=${currentPage - 1}`}
+          className="min-h-[44px] flex items-center px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
+        >
+          ← Précédent
+        </a>
+      )}
+      <span className="sm:hidden text-sm text-[#6B6B6B] font-sans px-2">
+        {currentPage} / {totalPages}
+      </span>
+      {pages.map((p) => (
+        <a
+          key={p}
+          href={`/recherche?page=${p}`}
+          className={`hidden sm:inline-flex items-center min-h-[44px] px-3 py-2 text-sm border font-sans ${
+            p === currentPage
+              ? 'bg-[#1D1D1B] text-white border-[#1D1D1B]'
+              : 'border-[#D5D5D5] hover:bg-[#F5F5F5]'
+          }`}
+        >
+          {p}
+        </a>
+      ))}
+      {currentPage < totalPages && (
+        <a
+          href={`/recherche?page=${currentPage + 1}`}
+          className="min-h-[44px] flex items-center px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
+        >
+          Suivant →
+        </a>
+      )}
+    </div>
+  );
+}
+
+describe('RecherchePage — pagination responsive', () => {
+  it('les numéros de page ont la classe hidden sm:inline-flex (masqués mobile)', () => {
+    const { container } = render(
+      <SearchPaginationFixture currentPage={2} totalPages={5} />
+    );
+    const pageNumbers = container.querySelectorAll('a.hidden.sm\\:inline-flex');
+    expect(pageNumbers.length).toBe(5);
+  });
+
+  it('le compteur mobile X/Y a la classe sm:hidden', () => {
+    const { container } = render(
+      <SearchPaginationFixture currentPage={2} totalPages={5} />
+    );
+    const counter = container.querySelector('.sm\\:hidden');
+    expect(counter).toBeInTheDocument();
+    expect(counter?.textContent).toMatch(/2/);
+    expect(counter?.textContent).toMatch(/5/);
+  });
+
+  it('le lien Précédent est toujours visible (pas de classe hidden)', () => {
+    const { container } = render(
+      <SearchPaginationFixture currentPage={3} totalPages={5} />
+    );
+    const prevLink = container.querySelector('a[href*="page=2"]');
+    expect(prevLink?.className).not.toMatch(/\bhidden\b(?!.*sm)/);
+  });
+
+  it('le lien Suivant est toujours visible (pas de classe hidden)', () => {
+    const { container } = render(
+      <SearchPaginationFixture currentPage={2} totalPages={5} />
+    );
+    const nextLink = container.querySelector('a[href*="page=3"]');
+    expect(nextLink?.className).not.toMatch(/\bhidden\b(?!.*sm)/);
+  });
+
+  it('Précédent et Suivant ont min-h-[44px] (touch target)', () => {
+    const { container } = render(
+      <SearchPaginationFixture currentPage={3} totalPages={5} />
+    );
+    const prevLink = container.querySelector('a[href*="page=2"]');
+    const nextLink = container.querySelector('a[href*="page=4"]');
+    expect(prevLink?.className).toMatch(/min-h-\[44px\]/);
+    expect(nextLink?.className).toMatch(/min-h-\[44px\]/);
+  });
+
+  it('page 1 : lien Précédent absent', () => {
+    const { container } = render(
+      <SearchPaginationFixture currentPage={1} totalPages={5} />
+    );
+    const prevLink = container.querySelector('a[href*="page=0"]');
+    expect(prevLink).not.toBeInTheDocument();
+  });
+
+  it('dernière page : lien Suivant absent', () => {
+    const { container } = render(
+      <SearchPaginationFixture currentPage={5} totalPages={5} />
+    );
+    const nextLink = container.querySelector('a[href*="page=6"]');
+    expect(nextLink).not.toBeInTheDocument();
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // INTÉGRATION — INTERACTION HAMBURGER → MENU MOBILE
 // ═══════════════════════════════════════════════════════════════════════════════
 

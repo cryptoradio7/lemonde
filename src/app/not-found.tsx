@@ -56,7 +56,7 @@ export default async function NotFound() {
           <h2 className="section-title mb-6">À lire également</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {recentArticles.map((article) => (
-              <ArticleCard key={article.id} article={article} variant="medium" />
+              <ArticleCard key={article.id} article={article} />
             ))}
           </div>
         </section>

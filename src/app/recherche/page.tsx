@@ -117,16 +117,21 @@ export default async function RecherchePage({ searchParams }: Props) {
               {currentPage > 1 && (
                 <a
                   href={`/recherche?${rawQuery ? `q=${encodeURIComponent(rawQuery)}&` : ''}${rubriqueFilter ? `rubrique=${encodeURIComponent(rubriqueFilter)}&` : ''}page=${currentPage - 1}`}
-                  className="px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
+                  className="min-h-[44px] flex items-center px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
                 >
                   ← Précédent
                 </a>
               )}
+              {/* Compteur mobile : masqué sur tablette+ */}
+              <span className="sm:hidden text-sm text-[#6B6B6B] font-sans px-2">
+                {currentPage} / {totalPages}
+              </span>
+              {/* Numéros de page : masqués sur mobile */}
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
                 <a
                   key={p}
                   href={`/recherche?${rawQuery ? `q=${encodeURIComponent(rawQuery)}&` : ''}${rubriqueFilter ? `rubrique=${encodeURIComponent(rubriqueFilter)}&` : ''}page=${p}`}
-                  className={`px-3 py-2 text-sm border font-sans ${
+                  className={`hidden sm:inline-flex items-center min-h-[44px] px-3 py-2 text-sm border font-sans ${
                     p === currentPage
                       ? 'bg-[#1D1D1B] text-white border-[#1D1D1B]'
                       : 'border-[#D5D5D5] hover:bg-[#F5F5F5]'
@@ -138,7 +143,7 @@ export default async function RecherchePage({ searchParams }: Props) {
               {currentPage < totalPages && (
                 <a
                   href={`/recherche?${rawQuery ? `q=${encodeURIComponent(rawQuery)}&` : ''}${rubriqueFilter ? `rubrique=${encodeURIComponent(rubriqueFilter)}&` : ''}page=${currentPage + 1}`}
-                  className="px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
+                  className="min-h-[44px] flex items-center px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
                 >
                   Suivant →
                 </a>
