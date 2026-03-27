@@ -1,64 +1,81 @@
-<<<<<<< HEAD
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body {
-    @apply bg-lm-white text-lm-dark font-sans;
-  }
-
-  h1, h2, h3, h4 {
-    @apply font-serif;
-  }
-}
-
-@layer components {
-  .rubrique-label {
-    @apply text-xs font-bold uppercase tracking-wider text-lm-red;
-  }
-
-  .article-title {
-    @apply font-serif font-bold text-lm-dark leading-tight;
-  }
-
-  .article-chapeau {
-    @apply font-serif text-lm-gray leading-relaxed;
-  }
-
-  .section-title {
-    @apply font-sans text-sm font-bold uppercase tracking-wider text-lm-dark border-b-2 border-lm-dark pb-2 mb-4;
-  }
-
-  .nav-link {
-    @apply text-sm font-sans hover:text-lm-red transition-colors duration-200;
-  }
-=======
 @import "tailwindcss";
 
 :root {
-  --lemonde-black: #1a1a1a;
-  --lemonde-dark: #2a2a2a;
-  --lemonde-gray: #6b6b6b;
-  --lemonde-light: #f5f5f5;
-  --lemonde-border: #d4d4d4;
-  --lemonde-accent: #d4a843;
-  --lemonde-blue: #0055a4;
-  --lemonde-red: #c03939;
+  --lm-dark: #1D1D1B;
+  --lm-red: #E9322D;
+  --lm-white: #FFFFFF;
+  --lm-gray-light: #F5F5F5;
+  --lm-gray: #6B6B6B;
+  --lm-gray-border: #D5D5D5;
+  --lm-blue-link: #1A5276;
+}
+
+@theme {
+  --color-lm-dark: #1D1D1B;
+  --color-lm-red: #E9322D;
+  --color-lm-white: #FFFFFF;
+  --color-lm-gray-light: #F5F5F5;
+  --color-lm-gray: #6B6B6B;
+  --color-lm-gray-border: #D5D5D5;
+  --color-lm-blue-link: #1A5276;
+  --font-family-serif: Georgia, "Times New Roman", serif;
+  --font-family-sans: "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: "Georgia", "Times New Roman", serif;
-  color: var(--lemonde-black);
+  font-family: var(--font-family-sans);
+  color: var(--lm-dark);
   background: #ffffff;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Georgia", "Times New Roman", serif;
->>>>>>> b8af92a (Init : structure projet lemonde — Next.js 16, Prisma, Auth.js, Tailwind)
+h1, h2, h3, h4 {
+  font-family: var(--font-family-serif);
+}
+
+.rubrique-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--lm-red);
+}
+
+.article-title {
+  font-family: var(--font-family-serif);
+  font-weight: 700;
+  color: var(--lm-dark);
+  line-height: 1.25;
+}
+
+.article-chapeau {
+  font-family: var(--font-family-serif);
+  color: var(--lm-gray);
+  line-height: 1.625;
+}
+
+.section-title {
+  font-family: var(--font-family-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--lm-dark);
+  border-bottom: 2px solid var(--lm-dark);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-family: var(--font-family-sans);
+  transition: color 200ms;
+}
+
+.nav-link:hover {
+  color: var(--lm-red);
 }

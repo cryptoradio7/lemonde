@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-<<<<<<< HEAD
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
-import PlausibleAnalytics from "@/components/PlausibleAnalytics";
 
 export const metadata: Metadata = {
   title: {
@@ -33,14 +31,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-=======
-
-export const metadata: Metadata = {
-  title: "Le Monde — Actualités et Informations en continu",
-  description:
-    "Toute l'actualité en France et dans le monde. Politique, international, société, économie, culture, environnement, sport.",
-  keywords: ["actualités", "france", "monde", "politique", "société"],
->>>>>>> b8af92a (Init : structure projet lemonde — Next.js 16, Prisma, Auth.js, Tailwind)
 };
 
 export default function RootLayout({
@@ -50,17 +40,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-<<<<<<< HEAD
       <body className="antialiased min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />
-        <PlausibleAnalytics />
       </body>
-=======
-      <body className="antialiased">{children}</body>
->>>>>>> b8af92a (Init : structure projet lemonde — Next.js 16, Prisma, Auth.js, Tailwind)
     </html>
   );
 }

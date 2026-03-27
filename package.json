@@ -3,28 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-<<<<<<< HEAD
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.35"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.35"
-  }
-=======
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
@@ -67,5 +45,4 @@
     "seed": "tsx prisma/seed.ts"
   },
   "postinstall": "[ ! -f .env ] && cp .env.example .env || true; prisma generate"
->>>>>>> b8af92a (Init : structure projet lemonde — Next.js 16, Prisma, Auth.js, Tailwind)
 }
