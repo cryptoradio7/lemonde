@@ -11,15 +11,9 @@ export default function CookieBanner() {
     setVisible(shouldShowBanner());
   }, []);
 
-  const handleAccept = () => {
-    setConsent('true');
-    try { window.dispatchEvent(new Event('consent-updated')); } catch { /* SSR guard */ }
-    setVisible(false);
-  };
-
-  const handleRefuse = () => {
-    setConsent('false');
-    try { window.dispatchEvent(new Event('consent-updated')); } catch { /* SSR guard */ }
+  const handleChoice = (value: 'true' | 'false') => {
+    setConsent(value);
+    window.dispatchEvent(new Event('consent-updated'));
     setVisible(false);
   };
 
@@ -48,13 +42,13 @@ export default function CookieBanner() {
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
             <button
-              onClick={handleRefuse}
+              onClick={() => handleChoice('false')}
               className="px-5 py-2.5 border border-[#D5D5D5] text-[#1D1D1B] text-sm font-sans font-semibold hover:bg-[#F5F5F5] transition-colors"
             >
               Refuser
             </button>
             <button
-              onClick={handleAccept}
+              onClick={() => handleChoice('true')}
               className="px-5 py-2.5 bg-[#1D1D1B] text-white text-sm font-sans font-semibold hover:bg-[#333] transition-colors"
             >
               Accepter
