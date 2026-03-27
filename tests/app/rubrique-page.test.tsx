@@ -459,8 +459,7 @@ describe('RubriquePage — Tags : aucun article pour ce tag', () => {
 
   it('affiche le message "Aucun article pour le tag" quand le tag filtre donne 0 résultats', async () => {
     await renderPage('politique', undefined, 'Retraites');
-    expect(screen.getByText(/Aucun article pour le tag/)).toBeInTheDocument();
-    expect(screen.getByText(/Retraites/)).toBeInTheDocument();
+    expect(screen.getByText(/Aucun article pour le tag « Retraites »/)).toBeInTheDocument();
   });
 
   it('n\'affiche pas de cartes articles', async () => {

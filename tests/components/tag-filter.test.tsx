@@ -143,17 +143,18 @@ describe('TagFilter — désélection du tag actif', () => {
 describe('TagFilter — bouton Tout voir', () => {
   it('affiche "Tout voir" si un tag est actif', () => {
     render(<TagFilter tags={['Politique', 'Économie']} activeTag="Politique" />);
-    expect(screen.getByRole('button', { name: /Tout voir/i })).toBeInTheDocument();
+    // Le bouton porte aria-label="Effacer le filtre" mais affiche le texte "Tout voir"
+    expect(screen.getByText('Tout voir')).toBeInTheDocument();
   });
 
   it('n\'affiche pas "Tout voir" si aucun tag n\'est actif', () => {
     render(<TagFilter tags={['Politique', 'Économie']} />);
-    expect(screen.queryByRole('button', { name: /Tout voir/i })).not.toBeInTheDocument();
+    expect(screen.queryByText('Tout voir')).not.toBeInTheDocument();
   });
 
   it('supprime le paramètre tag au clic sur "Tout voir"', () => {
     render(<TagFilter tags={['Politique']} activeTag="Politique" />);
-    fireEvent.click(screen.getByRole('button', { name: /Tout voir/i }));
+    fireEvent.click(screen.getByText('Tout voir'));
     const pushedUrl = mockPush.mock.calls[0][0];
     expect(pushedUrl).not.toContain('tag=');
   });
