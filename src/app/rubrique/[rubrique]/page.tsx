@@ -1,20 +1,24 @@
 import { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
+import { Suspense } from 'react';
 import ArticleCard from '@/components/ArticleCard';
 import Breadcrumb from '@/components/Breadcrumb';
 import Pagination from '@/components/Pagination';
+import TagFilter from '@/components/TagFilter';
 import {
   getCategoryBySlug,
   countCategoryArticles,
   getCategoryArticles,
+  getCategoryArticleTagsData,
   getAllCategorySlugs,
   ARTICLES_PER_PAGE,
 } from '@/lib/categories';
+import { extractTagsFromArticles } from '@/lib/tags';
 import { slugify } from '@/lib/utils';
 
 interface Props {
   params: Promise<{ rubrique: string }>;
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; tag?: string }>;
 }
 
 export async function generateStaticParams() {
@@ -39,30 +43,49 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function RubriquePage({ params, searchParams }: Props) {
   const { rubrique } = await params;
-  const { page } = await searchParams;
+  const { page, tag } = await searchParams;
 
   // Normalisation slug accentué : société → societe
   const normalizedSlug = slugify(rubrique);
   if (normalizedSlug !== rubrique) {
-    const queryStr = page && page !== '1' ? `?page=${page}` : '';
+    const queryParts: string[] = [];
+    if (page && page !== '1') queryParts.push(`page=${page}`);
+    if (tag) queryParts.push(`tag=${encodeURIComponent(tag)}`);
+    const queryStr = queryParts.length > 0 ? `?${queryParts.join('&')}` : '';
     redirect(`/rubrique/${normalizedSlug}${queryStr}`);
   }
 
   const category = await getCategoryBySlug(normalizedSlug);
   if (!category) notFound();
 
-  const totalCount = await countCategoryArticles(category.id);
+  // Tags disponibles dans la rubrique (basés sur tous les articles, pas la page courante)
+  const tagData = await getCategoryArticleTagsData(category.id);
+  const availableTags = extractTagsFromArticles(tagData);
+
+  // Validation du tag sélectionné : doit exister dans les tags disponibles
+  const activeTag = tag && availableTags.some(
+    (t) => t.toLowerCase() === tag.toLowerCase()
+  ) ? tag : undefined;
+
+  const totalCount = await countCategoryArticles(category.id, activeTag);
   const totalPages = Math.max(1, Math.ceil(totalCount / ARTICLES_PER_PAGE));
   const rawPage = parseInt(page || '1', 10);
   const currentPage = isNaN(rawPage) || rawPage < 1 ? 1 : rawPage;
 
   // Redirect si page demandée dépasse le total
   if (currentPage > totalPages) {
-    redirect(`/rubrique/${normalizedSlug}?page=${totalPages}`);
+    const queryParts = [`page=${totalPages}`];
+    if (activeTag) queryParts.push(`tag=${encodeURIComponent(activeTag)}`);
+    redirect(`/rubrique/${normalizedSlug}?${queryParts.join('&')}`);
   }
 
-  const articles = await getCategoryArticles(category.id, currentPage);
+  const articles = await getCategoryArticles(category.id, currentPage, ARTICLES_PER_PAGE, activeTag);
   const remainingArticles = currentPage === 1 ? articles.slice(1) : articles;
+
+  // URL de base pour la pagination (conserve le tag actif)
+  const paginationBase = activeTag
+    ? `/rubrique/${normalizedSlug}?tag=${encodeURIComponent(activeTag)}`
+    : `/rubrique/${normalizedSlug}`;
 
   return (
     <div className="max-w-[1200px] mx-auto px-4 py-6">
@@ -73,7 +96,7 @@ export default async function RubriquePage({ params, searchParams }: Props) {
         ]}
       />
 
-      <div className="mt-4 mb-8">
+      <div className="mt-4 mb-6">
         <h1
           className="text-4xl md:text-5xl font-bold uppercase tracking-wide text-[#1D1D1B]"
           style={{ fontFamily: 'Georgia, serif' }}
@@ -83,9 +106,18 @@ export default async function RubriquePage({ params, searchParams }: Props) {
         <div className="mt-3 h-[3px] w-16 bg-[#005C9C]" />
       </div>
 
+      {/* Section tags — Suspense requis car TagFilter lit useSearchParams */}
+      {availableTags.length > 0 && (
+        <Suspense fallback={null}>
+          <TagFilter tags={availableTags} activeTag={activeTag} />
+        </Suspense>
+      )}
+
       {articles.length === 0 ? (
         <p className="text-[#6B6B6B] text-center py-12 font-sans">
-          Aucun article dans cette rubrique.
+          {activeTag
+            ? `Aucun article pour le tag « ${activeTag} ».`
+            : 'Aucun article dans cette rubrique.'}
         </p>
       ) : (
         <>
@@ -106,7 +138,7 @@ export default async function RubriquePage({ params, searchParams }: Props) {
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
-            baseUrl={`/rubrique/${normalizedSlug}`}
+            baseUrl={paginationBase}
           />
         </>
       )}
