@@ -125,12 +125,14 @@ export default async function ArticlePage({ params }: Props) {
           )}
         </div>
 
-        {/* Boutons de partage */}
-        <ShareButtons title={article.title} />
+        {/* Boutons de partage — desktop : avant l'image */}
+        <div className="hidden sm:block">
+          <ShareButtons title={article.title} />
+        </div>
 
         {/* Image principale */}
         {article.imageUrl && (
-          <figure className="mb-8 -mx-4 md:mx-0">
+          <figure className="mb-8 -mx-4 sm:mx-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={article.imageUrl}
@@ -155,7 +157,10 @@ export default async function ArticlePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: safeContent }}
         />
 
-        {/* Tags — pas de champ tags dans le schéma, section omise */}
+        {/* Boutons de partage — mobile : après le contenu */}
+        <div className="sm:hidden mt-6">
+          <ShareButtons title={article.title} />
+        </div>
       </article>
 
       {/* Articles liés */}

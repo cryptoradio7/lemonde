@@ -29,8 +29,8 @@ export default function CategorySection({ category }: CategorySectionProps) {
         </Link>
       </div>
 
-      {/* Grille 3 colonnes */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Grille : 1 col mobile / 2 cols tablette / 3 cols desktop */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {category.articles.map((article) => (
           <Link key={article.id} href={`/article/${article.slug}`} className="group block">
             <article>

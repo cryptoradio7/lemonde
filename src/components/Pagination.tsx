@@ -46,7 +46,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
       {currentPage > 1 ? (
         <Link
           href={getPageUrl(currentPage - 1)}
-          className="inline-flex items-center px-3 py-2 text-sm font-sans text-[#1D1D1B] border border-[#D5D5D5] hover:bg-[#F5F5F5] transition-colors"
+          className="inline-flex items-center px-3 min-h-[44px] text-sm font-sans text-[#1D1D1B] border border-[#D5D5D5] hover:bg-[#F5F5F5] transition-colors"
           aria-label="Page précédente"
         >
           <svg
@@ -66,7 +66,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
           Précédent
         </Link>
       ) : (
-        <span className="inline-flex items-center px-3 py-2 text-sm font-sans text-[#D5D5D5] border border-[#D5D5D5] cursor-not-allowed">
+        <span className="inline-flex items-center px-3 min-h-[44px] text-sm font-sans text-[#D5D5D5] border border-[#D5D5D5] cursor-not-allowed">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -129,7 +129,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
       {currentPage < totalPages ? (
         <Link
           href={getPageUrl(currentPage + 1)}
-          className="inline-flex items-center px-3 py-2 text-sm font-sans text-[#1D1D1B] border border-[#D5D5D5] hover:bg-[#F5F5F5] transition-colors"
+          className="inline-flex items-center px-3 min-h-[44px] text-sm font-sans text-[#1D1D1B] border border-[#D5D5D5] hover:bg-[#F5F5F5] transition-colors"
           aria-label="Page suivante"
         >
           Suivant
@@ -149,7 +149,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
           </svg>
         </Link>
       ) : (
-        <span className="inline-flex items-center px-3 py-2 text-sm font-sans text-[#D5D5D5] border border-[#D5D5D5] cursor-not-allowed">
+        <span className="inline-flex items-center px-3 min-h-[44px] text-sm font-sans text-[#D5D5D5] border border-[#D5D5D5] cursor-not-allowed">
           Suivant
           <svg
             xmlns="http://www.w3.org/2000/svg"

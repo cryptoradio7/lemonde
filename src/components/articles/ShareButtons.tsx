@@ -110,7 +110,7 @@ export default function ShareButtons({ title }: ShareButtonsProps) {
           target={label !== 'Email' ? '_blank' : undefined}
           rel={label !== 'Email' ? 'noopener noreferrer' : undefined}
           aria-label={`Partager sur ${label}`}
-          className="flex items-center justify-center w-8 h-8 rounded-full border border-[#D5D5D5] text-[#6B6B6B] hover:text-[#1A5276] hover:border-[#1A5276] transition-colors"
+          className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full border border-[#D5D5D5] text-[#6B6B6B] hover:text-[#1A5276] hover:border-[#1A5276] transition-colors"
         >
           {icon}
         </a>
@@ -120,7 +120,7 @@ export default function ShareButtons({ title }: ShareButtonsProps) {
           onClick={handleCopy}
           aria-label={copyLabel}
           title={copyLabel}
-          className={`flex items-center gap-1.5 px-3 h-8 rounded-full border text-xs font-medium transition-colors ${
+          className={`flex items-center gap-1.5 px-3 min-h-[44px] rounded-full border text-xs font-medium transition-colors ${
             copyState === 'copied'
               ? 'border-green-600 text-green-700 bg-green-50'
               : copyState === 'error'

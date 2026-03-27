@@ -10,9 +10,9 @@ interface HeroSectionProps {
 export default function HeroSection({ mainArticle, sidebarArticles }: HeroSectionProps) {
   return (
     <section className="py-6 border-b border-[#D5D5D5]">
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Article principal — 65% */}
-        <div className="md:w-[65%]">
+      <div className="flex flex-col sm:flex-row gap-6">
+        {/* Article principal — 50% tablette / 65% desktop */}
+        <div className="sm:w-1/2 lg:w-[65%]">
           <span className="inline-block text-xs font-sans font-semibold uppercase tracking-wider text-[#E9322D] mb-3">
             {mainArticle.category.name}
           </span>
@@ -42,10 +42,10 @@ export default function HeroSection({ mainArticle, sidebarArticles }: HeroSectio
         </div>
 
         {/* Séparateur vertical */}
-        <div className="hidden md:block w-px bg-[#D5D5D5] self-stretch" aria-hidden="true" />
+        <div className="hidden sm:block w-px bg-[#D5D5D5] self-stretch" aria-hidden="true" />
 
-        {/* Sidebar — 35% */}
-        <aside className="md:w-[35%] flex flex-col">
+        {/* Sidebar — 50% tablette / 35% desktop */}
+        <aside className="sm:w-1/2 lg:w-[35%] flex flex-col">
           {sidebarArticles.map((article, index) => (
             <div key={article.id}>
               <Link href={`/article/${article.slug}`} className="group block py-4">

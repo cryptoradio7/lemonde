@@ -39,6 +39,12 @@ body {
   font-family: var(--font-family-sans);
   color: var(--lm-dark);
   background: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Protéger le contenu sur écrans très étroits (< 320px, ex: Galaxy Fold plié) */
+* {
+  min-width: 0;
 }
 
 h1, h2, h3, h4 {
@@ -91,10 +97,16 @@ h1, h2, h3, h4 {
 /* ─── Styles prose éditoriaux (page article) ─────────────────── */
 .article-prose {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.75;
   color: var(--lm-dark);
   max-width: 760px;
+}
+
+@media (min-width: 640px) {
+  .article-prose {
+    font-size: 18px;
+  }
 }
 
 .article-prose p {
