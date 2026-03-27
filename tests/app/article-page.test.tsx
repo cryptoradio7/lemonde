@@ -49,9 +49,9 @@ jest.mock('@/components/Breadcrumb', () => {
   return MockBreadcrumb;
 });
 
-jest.mock('@/components/ShareButtons', () => {
-  const MockShareButtons = ({ title, url }: { title: string; url: string }) => (
-    <div data-testid="share-buttons" data-title={title} data-url={url}>Partager</div>
+jest.mock('@/components/articles/ShareButtons', () => {
+  const MockShareButtons = ({ title }: { title: string }) => (
+    <div data-testid="share-buttons" data-title={title}>Partager</div>
   );
   MockShareButtons.displayName = 'MockShareButtons';
   return MockShareButtons;
@@ -234,12 +234,12 @@ describe('ArticlePage — ShareButtons', () => {
     expect(shareButtons).toHaveAttribute('data-title', 'La réforme de l\'éducation nationale');
   });
 
-  it('passe l\'URL de l\'article à ShareButtons', async () => {
+  it('ShareButtons récupère l\'URL via window.location (pas de prop url)', async () => {
+    // Le nouveau composant (articles/ShareButtons) ne reçoit pas de prop url —
+    // il lit window.location.href via useEffect. On vérifie qu'il est bien rendu.
     getArticleBySlugMock.mockResolvedValue(makeArticle());
     await renderPage('reforme-education');
-    const shareButtons = screen.getByTestId('share-buttons');
-    const url = shareButtons.getAttribute('data-url') ?? '';
-    expect(url).toContain('/article/reforme-education');
+    expect(screen.getByTestId('share-buttons')).toBeInTheDocument();
   });
 });
 

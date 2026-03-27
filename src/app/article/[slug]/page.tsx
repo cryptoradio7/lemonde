@@ -5,7 +5,7 @@ import DOMPurify from 'isomorphic-dompurify';
 
 import { getArticleBySlug, getRelatedArticles, getAllArticleSlugs } from '@/lib/articles';
 import Breadcrumb from '@/components/Breadcrumb';
-import ShareButtons from '@/components/ShareButtons';
+import ShareButtons from '@/components/articles/ShareButtons';
 import ArticleCard from '@/components/ArticleCard';
 import { formatDateShort } from '@/lib/utils';
 
@@ -121,7 +121,7 @@ export default async function ArticlePage({ params }: Props) {
         </div>
 
         {/* Boutons de partage */}
-        <ShareButtons url={articleUrl} title={article.title} />
+        <ShareButtons title={article.title} />
 
         {/* Image principale */}
         {article.imageUrl && (
