@@ -97,6 +97,31 @@ export default function PolitiqueConfidentialitePage() {
             Dernière mise à jour : mars 2026
           </p>
         </section>
+
+        <section>
+          <h2 className="text-xl font-bold mt-8 mb-3">8. Contact</h2>
+          <p>
+            Pour toute question concernant cette politique de confidentialité ou
+            pour exercer vos droits, vous pouvez nous contacter :
+          </p>
+          <ul className="list-disc pl-6 mt-3 space-y-2">
+            <li>
+              <strong>Par courrier</strong> : Le Monde, 67-69 avenue Pierre-Mendès-France, 75013 Paris
+            </li>
+            <li>
+              <strong>Par email</strong> : confidentialite@lemonde.fr
+            </li>
+            <li>
+              <strong>Délégué à la Protection des Données (DPO)</strong> : dpo@lemonde.fr
+            </li>
+          </ul>
+          <p className="mt-3">
+            Vous pouvez également adresser une réclamation à la{' '}
+            <strong>CNIL (Commission Nationale de l&apos;Informatique et des Libertés)</strong>{' '}
+            à l&apos;adresse{' '}
+            <strong>www.cnil.fr</strong>.
+          </p>
+        </section>
       </div>
     </div>
   );

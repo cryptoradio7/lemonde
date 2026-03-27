@@ -2,26 +2,24 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { shouldShowBanner, setConsent } from '@/lib/cookieConsent';
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookie_consent');
-    if (consent === null) {
-      setVisible(true);
-    }
+    setVisible(shouldShowBanner());
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('cookie_consent', 'true');
-    window.dispatchEvent(new Event('consent-updated'));
+    setConsent('true');
+    try { window.dispatchEvent(new Event('consent-updated')); } catch { /* SSR guard */ }
     setVisible(false);
   };
 
   const handleRefuse = () => {
-    localStorage.setItem('cookie_consent', 'false');
-    window.dispatchEvent(new Event('consent-updated'));
+    setConsent('false');
+    try { window.dispatchEvent(new Event('consent-updated')); } catch { /* SSR guard */ }
     setVisible(false);
   };
 
