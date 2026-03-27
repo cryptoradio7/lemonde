@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -39,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={playfair.variable}>
       <body className="antialiased min-h-screen flex flex-col">
         <a
           href="#main-content"
