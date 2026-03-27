@@ -14,7 +14,14 @@ jest.mock('next/link', () => {
 });
 
 jest.mock('next/image', () => {
-  const MockImage = ({ src, alt, ...props }: { src: string; alt: string; [key: string]: unknown }) => (
+  const MockImage = ({ src, alt, fill: _fill, unoptimized: _unoptimized, sizes: _sizes, ...props }: {
+    src: string;
+    alt: string;
+    fill?: boolean;
+    unoptimized?: boolean;
+    sizes?: string;
+    [key: string]: unknown;
+  }) => (
     // eslint-disable-next-line @next/next/no-img-element
     <img src={src} alt={alt} {...props} />
   );
