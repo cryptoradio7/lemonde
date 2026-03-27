@@ -13,11 +13,12 @@ import '@testing-library/jest-dom';
 // ─── Mocks infrastructure ─────────────────────────────────────────────────────
 
 jest.mock('@/lib/categories', () => ({
-  getCategoryBySlug:     jest.fn(),
-  countCategoryArticles: jest.fn(),
-  getCategoryArticles:   jest.fn(),
-  getAllCategorySlugs:    jest.fn(),
-  ARTICLES_PER_PAGE:     12,
+  getCategoryBySlug:          jest.fn(),
+  countCategoryArticles:      jest.fn(),
+  getCategoryArticles:        jest.fn(),
+  getAllCategorySlugs:         jest.fn(),
+  getCategoryArticleTagsData: jest.fn(),
+  ARTICLES_PER_PAGE:          12,
 }));
 
 const mockNotFound  = jest.fn(() => { throw new Error('NEXT_NOT_FOUND'); });
@@ -81,12 +82,28 @@ jest.mock('@/components/Pagination', () => {
   return MockPagination;
 });
 
+jest.mock('@/components/TagFilter', () => {
+  const MockTagFilter = ({
+    tags,
+    activeTag,
+  }: { tags: string[]; activeTag?: string }) => (
+    <div data-testid="tag-filter" data-active={activeTag ?? ''}>
+      {tags.map((tag) => (
+        <span key={tag} data-testid="tag-badge">{tag}</span>
+      ))}
+    </div>
+  );
+  MockTagFilter.displayName = 'MockTagFilter';
+  return MockTagFilter;
+});
+
 // ─── Imports après mocks ──────────────────────────────────────────────────────
 
 import {
   getCategoryBySlug,
   countCategoryArticles,
   getCategoryArticles,
+  getCategoryArticleTagsData,
 } from '@/lib/categories';
 import RubriquePage, { generateMetadata } from '@/app/rubrique/[rubrique]/page';
 
@@ -123,17 +140,19 @@ function makeArticles(n: number) {
   return Array.from({ length: n }, (_, i) => makeArticle(i + 1));
 }
 
-const getCategoryBySlugMock     = getCategoryBySlug     as jest.Mock;
-const countCategoryArticlesMock = countCategoryArticles as jest.Mock;
-const getCategoryArticlesMock   = getCategoryArticles   as jest.Mock;
+const getCategoryBySlugMock          = getCategoryBySlug          as jest.Mock;
+const countCategoryArticlesMock      = countCategoryArticles      as jest.Mock;
+const getCategoryArticlesMock        = getCategoryArticles        as jest.Mock;
+const getCategoryArticleTagsDataMock = getCategoryArticleTagsData as jest.Mock;
 
 async function renderPage(
   rubrique = 'politique',
-  page?: string
+  page?: string,
+  tag?: string
 ): Promise<ReturnType<typeof render>> {
   const jsx = await RubriquePage({
     params:       Promise.resolve({ rubrique }),
-    searchParams: Promise.resolve({ page }),
+    searchParams: Promise.resolve({ page, tag }),
   });
   return render(jsx as React.ReactElement);
 }
@@ -143,6 +162,7 @@ beforeEach(() => {
   getCategoryBySlugMock.mockResolvedValue(mockCategory);
   countCategoryArticlesMock.mockResolvedValue(5);
   getCategoryArticlesMock.mockResolvedValue(makeArticles(5));
+  getCategoryArticleTagsDataMock.mockResolvedValue([]);
 });
 
 // ─── 404 ──────────────────────────────────────────────────────────────────────
@@ -328,6 +348,152 @@ describe('RubriquePage — Pagination', () => {
     await renderPage('politique', '2');
     const pagination = screen.getByTestId('pagination');
     expect(pagination).toHaveAttribute('data-current', '2');
+  });
+});
+
+// ─── Tags — Story #15 ─────────────────────────────────────────────────────────
+
+describe('RubriquePage — Tags : section visible', () => {
+  beforeEach(() => {
+    getCategoryArticleTagsDataMock.mockResolvedValue([
+      { tags: '["Retraites","Syndicats","Gouvernement"]' },
+      { tags: '["Retraites","Élections"]' },
+      { tags: '["Syndicats"]' },
+    ]);
+  });
+
+  it('affiche le composant TagFilter si des tags existent', async () => {
+    await renderPage();
+    expect(screen.getByTestId('tag-filter')).toBeInTheDocument();
+  });
+
+  it('passe les tags triés par fréquence à TagFilter', async () => {
+    await renderPage();
+    const badges = screen.getAllByTestId('tag-badge');
+    // Retraites (×2) et Syndicats (×2) en premier, puis Gouvernement et Élections (×1 chacun)
+    expect(badges[0]).toHaveTextContent('Retraites');
+    expect(badges[1]).toHaveTextContent('Syndicats');
+  });
+
+  it('ne passe pas activeTag si aucun tag n\'est sélectionné', async () => {
+    await renderPage();
+    const filter = screen.getByTestId('tag-filter');
+    expect(filter).toHaveAttribute('data-active', '');
+  });
+});
+
+describe('RubriquePage — Tags : section absente', () => {
+  it('n\'affiche pas TagFilter si aucun article n\'a de tags', async () => {
+    getCategoryArticleTagsDataMock.mockResolvedValue([
+      { tags: '[]' },
+      { tags: '[]' },
+    ]);
+    await renderPage();
+    expect(screen.queryByTestId('tag-filter')).not.toBeInTheDocument();
+  });
+
+  it('n\'affiche pas TagFilter si la rubrique est vide', async () => {
+    getCategoryArticleTagsDataMock.mockResolvedValue([]);
+    countCategoryArticlesMock.mockResolvedValue(0);
+    getCategoryArticlesMock.mockResolvedValue([]);
+    await renderPage();
+    expect(screen.queryByTestId('tag-filter')).not.toBeInTheDocument();
+  });
+
+  it('n\'affiche pas TagFilter si les tags JSON sont invalides', async () => {
+    getCategoryArticleTagsDataMock.mockResolvedValue([
+      { tags: 'invalid-json' },
+    ]);
+    await renderPage();
+    expect(screen.queryByTestId('tag-filter')).not.toBeInTheDocument();
+  });
+});
+
+describe('RubriquePage — Tags : filtrage actif', () => {
+  beforeEach(() => {
+    getCategoryArticleTagsDataMock.mockResolvedValue([
+      { tags: '["Retraites","Syndicats"]' },
+      { tags: '["Retraites"]' },
+    ]);
+  });
+
+  it('passe l\'activeTag à TagFilter si le tag est valide', async () => {
+    await renderPage('politique', undefined, 'Retraites');
+    const filter = screen.getByTestId('tag-filter');
+    expect(filter).toHaveAttribute('data-active', 'Retraites');
+  });
+
+  it('inclut le tag dans la baseUrl de pagination', async () => {
+    countCategoryArticlesMock.mockResolvedValue(30); // 3 pages
+    getCategoryArticlesMock.mockResolvedValue(makeArticles(12));
+    await renderPage('politique', undefined, 'Retraites');
+    const pagination = screen.getByTestId('pagination');
+    expect(pagination).toHaveAttribute('data-base', '/rubrique/politique?tag=Retraites');
+  });
+
+  it('ignore un tag qui n\'existe pas dans les articles (activeTag = undefined)', async () => {
+    await renderPage('politique', undefined, 'TagInexistant');
+    // TagFilter toujours affiché (des tags existent)
+    const filter = screen.getByTestId('tag-filter');
+    // Mais activeTag est vide car 'TagInexistant' ne figure pas dans availableTags
+    expect(filter).toHaveAttribute('data-active', '');
+  });
+
+  it('la pagination base n\'inclut pas de tag si le tag est invalide', async () => {
+    countCategoryArticlesMock.mockResolvedValue(30);
+    getCategoryArticlesMock.mockResolvedValue(makeArticles(12));
+    await renderPage('politique', undefined, 'TagInexistant');
+    const pagination = screen.getByTestId('pagination');
+    expect(pagination).toHaveAttribute('data-base', '/rubrique/politique');
+  });
+});
+
+describe('RubriquePage — Tags : aucun article pour ce tag', () => {
+  beforeEach(() => {
+    getCategoryArticleTagsDataMock.mockResolvedValue([
+      { tags: '["Retraites"]' },
+    ]);
+    countCategoryArticlesMock.mockResolvedValue(0);
+    getCategoryArticlesMock.mockResolvedValue([]);
+  });
+
+  it('affiche le message "Aucun article pour le tag" quand le tag filtre donne 0 résultats', async () => {
+    await renderPage('politique', undefined, 'Retraites');
+    expect(screen.getByText(/Aucun article pour le tag/)).toBeInTheDocument();
+    expect(screen.getByText(/Retraites/)).toBeInTheDocument();
+  });
+
+  it('n\'affiche pas de cartes articles', async () => {
+    await renderPage('politique', undefined, 'Retraites');
+    expect(screen.queryByTestId('article-card')).not.toBeInTheDocument();
+  });
+
+  it('n\'affiche pas la pagination', async () => {
+    await renderPage('politique', undefined, 'Retraites');
+    expect(screen.queryByTestId('pagination')).not.toBeInTheDocument();
+  });
+});
+
+describe('RubriquePage — Tags : redirect conserve le tag', () => {
+  beforeEach(() => {
+    getCategoryArticleTagsDataMock.mockResolvedValue([
+      { tags: '["Retraites"]' },
+    ]);
+  });
+
+  it('conserve le tag dans le redirect de normalisation de slug', async () => {
+    await expect(renderPage('société', undefined, 'Retraites')).rejects.toThrow(
+      'NEXT_REDIRECT:/rubrique/societe?tag=Retraites'
+    );
+    expect(mockRedirect).toHaveBeenCalledWith('/rubrique/societe?tag=Retraites');
+  });
+
+  it('conserve le tag ET la page dans le redirect de normalisation', async () => {
+    countCategoryArticlesMock.mockResolvedValue(24);
+    await expect(renderPage('société', '2', 'Retraites')).rejects.toThrow(
+      'NEXT_REDIRECT:/rubrique/societe?page=2&tag=Retraites'
+    );
+    expect(mockRedirect).toHaveBeenCalledWith('/rubrique/societe?page=2&tag=Retraites');
   });
 });
 
