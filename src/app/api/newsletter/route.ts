@@ -23,8 +23,8 @@ export async function POST(request: NextRequest) {
 
   if (existing) {
     return NextResponse.json(
-      { message: "Déjà inscrit à la newsletter" },
-      { status: 200 }
+      { error: "Cette adresse est déjà inscrite" },
+      { status: 409 }
     );
   }
 
