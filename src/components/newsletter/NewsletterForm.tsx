@@ -17,6 +17,11 @@ export default function NewsletterForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const trimmed = email.trim();
+    if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+      setStatus('invalid');
+      return;
+    }
     setStatus('loading');
 
     try {
@@ -49,7 +54,7 @@ export default function NewsletterForm() {
   };
 
   return (
-    <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-3" onSubmit={handleSubmit} noValidate>
       <div className="flex flex-col sm:flex-row gap-2">
         <input
           type="email"
