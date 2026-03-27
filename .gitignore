@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -15,6 +16,22 @@
 
 # production
 /build
+=======
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# testing
+coverage/
+
+# next.js
+.next/
+out/
+
+# production
+build/
+>>>>>>> b8af92a (Init : structure projet lemonde — Next.js 16, Prisma, Auth.js, Tailwind)
 
 # misc
 .DS_Store
@@ -25,7 +42,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+<<<<<<< HEAD
 # local env files
+=======
+# env
+.env
+>>>>>>> b8af92a (Init : structure projet lemonde — Next.js 16, Prisma, Auth.js, Tailwind)
 .env*.local
 
 # vercel
@@ -34,3 +56,24 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+<<<<<<< HEAD
+=======
+
+# database
+prisma/dev.db
+prisma/dev.db-journal
+
+# python
+__pycache__/
+.venv/
+*.pyc
+
+# data
+data/
+
+# logs
+logs/*.log
+
+# state
+state/
+>>>>>>> b8af92a (Init : structure projet lemonde — Next.js 16, Prisma, Auth.js, Tailwind)

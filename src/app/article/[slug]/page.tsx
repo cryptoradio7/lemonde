@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -127,5 +128,114 @@ export default function ArticlePage({ params }: Props) {
         </section>
       )}
     </article>
+=======
+import { prisma } from "@/lib/prisma";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const article = await prisma.article.findUnique({
+    where: { slug },
+    include: { category: true },
+  });
+  if (!article) return {};
+  return {
+    title: `${article.title} — Le Monde`,
+    description: article.excerpt,
+  };
+}
+
+export default async function ArticlePage({ params }: Props) {
+  const { slug } = await params;
+  const article = await prisma.article.findUnique({
+    where: { slug },
+    include: { category: true },
+  });
+
+  if (!article) notFound();
+
+  return (
+    <main className="max-w-[760px] mx-auto px-4 py-8">
+      <div className="mb-4">
+        <span className="text-xs font-bold uppercase tracking-widest text-[var(--lemonde-blue)]">
+          {article.category.name}
+        </span>
+      </div>
+      <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
+        {article.title}
+      </h1>
+      <p className="text-xl text-[var(--lemonde-gray)] mb-6">
+        {article.excerpt}
+      </p>
+      <div className="flex items-center gap-2 text-sm text-[var(--lemonde-gray)] mb-8 pb-4 border-b border-[var(--lemonde-border)]">
+        <span className="font-semibold text-[var(--lemonde-black)]">
+          {article.author}
+        </span>
+        <span>•</span>
+        <time>
+          {new Date(article.publishedAt).toLocaleDateString("fr-FR", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </time>
+      </div>
+
+      {article.imageUrl && (
+        <figure className="mb-8">
+          <img
+            src={article.imageUrl}
+            alt={article.imageAlt || article.title}
+            className="w-full"
+          />
+          {article.imageAlt && (
+            <figcaption className="mt-2 text-sm text-[var(--lemonde-gray)]">
+              {article.imageAlt}
+            </figcaption>
+          )}
+        </figure>
+      )}
+
+      <div
+        className="prose prose-lg max-w-none"
+        dangerouslySetInnerHTML={{ __html: article.content }}
+      />
+
+      {/* Partage social */}
+      <div className="mt-8 pt-4 border-t border-[var(--lemonde-border)] flex gap-4">
+        <a
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(`https://lemonde.fr/article/${article.slug}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-[var(--lemonde-blue)] hover:underline"
+        >
+          Partager sur X
+        </a>
+        <a
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://lemonde.fr/article/${article.slug}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-[var(--lemonde-blue)] hover:underline"
+        >
+          Partager sur Facebook
+        </a>
+        <a
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://lemonde.fr/article/${article.slug}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-[var(--lemonde-blue)] hover:underline"
+        >
+          Partager sur LinkedIn
+        </a>
+      </div>
+    </main>
+>>>>>>> b8af92a (Init : structure projet lemonde — Next.js 16, Prisma, Auth.js, Tailwind)
   );
 }

@@ -1,0 +1,765 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - button "Menu" [ref=e5] [cursor=pointer]:
+        - img [ref=e7]
+        - generic [ref=e10]: Menu
+      - link "Retour à la page d’accueil Le Monde" [ref=e11] [cursor=pointer]:
+        - /url: /
+        - img [ref=e13]
+        - generic [ref=e18]: Retour à la page d’accueil Le Monde
+      - generic [ref=e20]:
+        - link "S’abonner" [ref=e21] [cursor=pointer]:
+          - /url: https://abo.lemonde.fr/subscribe?edi_medium=cta_sabonner&edi_campaign=home_lmfr&edi_position=header&edi_rubrique=5&edi_type_de_page=Home
+          - generic [ref=e22]: S’abonner
+        - link "Se connecter" [ref=e23] [cursor=pointer]:
+          - /url: https://secure.lemonde.fr/sfuser/connexion
+          - img [ref=e25]
+          - generic [ref=e30]: Se connecter
+    - navigation [ref=e31]:
+      - list [ref=e32]:
+        - listitem [ref=e33]:
+          - button "En continu" [ref=e34] [cursor=pointer]:
+            - img [ref=e36]
+            - generic [ref=e38]: En continu
+      - generic [ref=e40]:
+        - list "actualités du moment" [ref=e41]:
+          - listitem [ref=e42]:
+            - link "Guerres au Proche-Orient" [ref=e43] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/guerre-au-proche-orient/
+              - generic [ref=e44]: Guerres au Proche-Orient
+          - listitem [ref=e45]:
+            - link "Guerre en Ukraine" [ref=e46] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/crise-ukrainienne/
+              - generic [ref=e47]: Guerre en Ukraine
+        - list [ref=e48]:
+          - listitem [ref=e49]:
+            - link "International" [ref=e50] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/international/
+              - generic [ref=e51]: International
+          - listitem [ref=e52]:
+            - link "Planète" [ref=e53] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/planete/
+              - generic [ref=e54]: Planète
+          - listitem [ref=e55]:
+            - link "Politique" [ref=e56] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/politique/
+              - generic [ref=e57]: Politique
+          - listitem [ref=e58]:
+            - link "Société" [ref=e59] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/societe/
+              - generic [ref=e60]: Société
+          - listitem [ref=e61]:
+            - link "Économie" [ref=e62] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/economie/
+              - generic [ref=e63]: Économie
+          - listitem [ref=e64]:
+            - link "Idées" [ref=e65] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/idees/
+              - generic [ref=e66]: Idées
+          - listitem [ref=e67]:
+            - link "Culture" [ref=e68] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/culture/
+              - generic [ref=e69]: Culture
+          - listitem [ref=e70]:
+            - link "Le Goût du Monde" [ref=e71] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/m-styles/
+              - generic [ref=e72]: Le Goût du Monde
+          - listitem [ref=e73]:
+            - link "Sciences" [ref=e74] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/sciences/
+              - generic [ref=e75]: Sciences
+          - listitem [ref=e76]:
+            - link "Sport" [ref=e77] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/sport/
+              - generic [ref=e78]: Sport
+          - listitem [ref=e79]:
+            - link "Pixels" [ref=e80] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/pixels/
+              - generic [ref=e81]: Pixels
+  - main [ref=e82]:
+    - iframe [ref=e748]:
+      - generic [active]:
+        - link [ref=f36e2] [cursor=pointer]:
+          - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjsvpRHmizdqXuYiSKi15cyx-Ue1EGIKyxV1KKfxXxdqKHCdN9jPwpYNOsYegmEahFRs_IE8ABOP4WRRFT8N4xRR0dkIWRY3Rb7djjmVOU8YJG-Dl-nBYXZenqegDRQrnc5HTMD2ZyCg0e5IbBobVm3w4HkKFB39N8QIJoo8x5OyNo1h2D-hzF0AUtwCLx8QXVxoYv7dwwHX5GFaXt5GtQBDo6PgH5xemm4DdhQ2NorM5BTmZRqvnFWEXE-NttchdlY6rf_EP4hpSJtOOCerLlG52QUdet05GugTCfp_PoDJtI3K5JKOr3nlr5Iafij_iLI1Bjrd_cS97M31Ys-T87Qoe8DsDR0i4sqQgLwIyovb8adpJL4nJE7G_VsTdDBbW9eDfY5KRZMCL7uYiXb4DEfhx4nHgHpqGr4ZkRan249RJb8H4BEKGbfzMETaGWQ6nXsrtBaWXQH3cHyYbKGT8&sai=AMfl-YQAWbHpb2LQPbtSLZ1Gqe8kGmUMlRsuHzMoQPsIpnEObTHPMorBGB9LCP4Th2emIO9Qb8grBkVdNKno7xqcCVfMQY5L2kZULjw_26CPoT-tiBIxZNYALZgH-r3QiOdkD7dc00rDY6sd2GNjH1QtiXabxnfe9Wqs8Q--RODDSB9bvPFxWbpFFYm-xwBz539cE27HcO4xpW-s_yZpv9la-i_b-MB05A&sig=Cg0ArKJSzEPzbQB72g67&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=http://www.ledroit.com/la-vitrine/2026/03/16/un-laboratoire-doptique-qui-voit-grand-KZYCCZ35ABD5DHRFTFZZHNGURQ/
+        - iframe
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e91]: Article réservé aux abonnés
+            - 'heading "Budget : Sébastien Lecornu sonne la mobilisation à Bercy malgré un déficit public 2025 plus limité que prévu" [level=1] [ref=e92]':
+              - 'link "Budget : Sébastien Lecornu sonne la mobilisation à Bercy malgré un déficit public 2025 plus limité que prévu" [ref=e93] [cursor=pointer]':
+                - /url: https://www.lemonde.fr/politique/article/2026/03/27/budget-sebastien-lecornu-sonne-la-mobilisation-a-bercy-malgre-un-deficit-public-2025-plus-limite-que-prevu_6674482_823448.html
+                - paragraph [ref=e94]: "Budget : Sébastien Lecornu sonne la mobilisation à Bercy malgré un déficit public 2025 plus limité que prévu"
+            - generic [ref=e97]: JULIEN MUGUET POUR « LE MONDE »
+            - paragraph [ref=e98]: Le déficit public n’a pas dépassé 5,1 % du PIB en 2025, au lieu des 5,4 % visés, a annoncé l’Insee vendredi 27 mars. Une bonne surprise qui rend plus crédible la cible de 5 % en 2026, en dépit du choc pétrolier.
+          - list [ref=e99]:
+            - listitem [ref=e100]:
+              - generic [ref=e102]: Article réservé aux abonnés
+              - 'link "Emploi : la France face à l’explosion des contrats de très courte durée" [ref=e103] [cursor=pointer]':
+                - /url: https://www.lemonde.fr/politique/article/2026/03/27/emploi-la-france-face-a-l-explosion-des-contrats-de-tres-courte-duree_6674459_823448.html
+        - generic [ref=e104]:
+          - generic [ref=e106]:
+            - generic [ref=e110]: Article réservé aux abonnés
+            - 'link "Guerre en Iran : Israël et les pays du Golfe s’inquiètent d’une sortie du conflit bâclée par Trump" [ref=e111] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/international/article/2026/03/27/guerre-en-iran-israel-et-les-pays-du-golfe-s-inquietent-d-une-sortie-du-conflit-baclee-par-donald-trump_6674470_3210.html
+              - paragraph [ref=e112]: "Guerre en Iran : Israël et les pays du Golfe s’inquiètent d’une sortie du conflit bâclée par Trump"
+          - generic [ref=e114]:
+            - img "Le premier secrétaire du PS, Olivier Faure, à Limoges, le 12 mars 2026." [ref=e117]
+            - link "Olivier Faure assure qu’il « n’y aura pas d’accord national » entre le PS et LFI pour la présidentielle et les législatives de 2027" [ref=e118] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/politique/article/2026/03/27/olivier-faure-assure-qu-il-n-y-aura-pas-d-accord-national-entre-le-ps-et-lfi-pour-la-presidentielle-et-les-legislatives-de-2027_6674448_823448.html
+              - paragraph [ref=e119]: Olivier Faure assure qu’il « n’y aura pas d’accord national » entre le PS et LFI pour la présidentielle et les législatives de 2027
+        - generic [ref=e120]:
+          - generic [ref=e122]:
+            - generic [ref=e126]: Article réservé aux abonnés
+            - 'link "A Boulogne-sur-Mer, la flambée du prix du carburant dissuade les pêcheurs de prendre la mer : « On brûle du gasoil pour rien »" [ref=e127] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/economie/article/2026/03/27/a-boulogne-sur-mer-la-flambee-du-prix-du-carburant-dissuade-les-pecheurs-de-prendre-la-mer-on-brule-du-gasoil-pour-rien_6674465_3234.html
+              - paragraph [ref=e128]: "A Boulogne-sur-Mer, la flambée du prix du carburant dissuade les pêcheurs de prendre la mer : « On brûle du gasoil pour rien »"
+            - paragraph [ref=e129]: Dans le port boulonnais, la hausse du prix du carburant pèse sur la rentabilité des pêcheurs, au point que certains préfèrent rester à quai.
+          - generic [ref=e131]:
+            - generic [ref=e135]: Article réservé aux abonnés
+            - 'link "Au procès sur la mort d’Olivio Gomes, les lourdes réquisitions contre le policier de la BAC : « Vous savez quels sont les effets possibles en tirant »" [ref=e136] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/societe/article/2026/03/27/au-proces-sur-la-mort-d-olivio-gomes-les-lourdes-requisitions-contre-le-policier-de-la-bac-vous-savez-quels-sont-les-effets-possibles-en-tirant_6674467_3224.html
+              - paragraph [ref=e137]: "Au procès sur la mort d’Olivio Gomes, les lourdes réquisitions contre le policier de la BAC : « Vous savez quels sont les effets possibles en tirant »"
+            - paragraph [ref=e138]: L’avocat général a demandé à la cour d’assises des Yvelines de prononcer une peine de dix ans de réclusion criminelle, et une interdiction définitive d’exercer son métier contre Gilles G., qui a tué l’automobiliste à Poissy, en octobre 2020.
+          - generic [ref=e140]:
+            - generic [ref=e144]: Article réservé aux abonnés
+            - 'link "France-Brésil : les Bleus s’offrent un succès de prestige, de bon augure avant le Mondial nord-américain" [ref=e145] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/football/article/2026/03/27/france-bresil-les-bleus-s-offrent-un-succes-de-prestige-de-bon-augure-avant-le-mondial-nord-americain_6674454_1616938.html
+              - paragraph [ref=e146]: "France-Brésil : les Bleus s’offrent un succès de prestige, de bon augure avant le Mondial nord-américain"
+            - paragraph [ref=e147]: Kylian Mbappé et les siens ont lancé avec brio leur tournée américaine, jeudi, à moins de trois mois du tournoi planétaire. Pauses fraîcheur, publicités omniprésentes… la rencontre a donné à voir ce que serait la compétition aux Etats-Unis.
+          - 'link "podcast | Épisode du 27 mars 2026 Volodymyr Zelensky dans « Le Monde » : analyse et coulisses d’une interview exclusive Écouter l''épisode" [ref=e149] [cursor=pointer]':
+            - /url: https://www.lemonde.fr/podcasts/article/2026/03/27/volodymyr-zelensky-dans-le-monde-analyse-et-coulisses-d-une-interview-exclusive_6674468_5463015.html#origin=podcast_home
+            - generic [ref=e150]:
+              - generic [ref=e151]:
+                - generic [ref=e152]:
+                  - generic [ref=e153]: podcast
+                  - generic [ref=e154]: "| Épisode du 27 mars 2026"
+                - generic [ref=e155]: "Volodymyr Zelensky dans « Le Monde » : analyse et coulisses d’une interview exclusive"
+              - button "Écouter l'épisode" [ref=e156]:
+                - generic [ref=e157]: Écouter l'épisode
+        - generic [ref=e159]:
+          - link "Sélection Article réservé aux abonnés Théâtre, opéra, danse, humour… Dix-huit spectacles à réserver en avril A Paris et en région, les journalistes de la rubrique culture du « Monde » ont sélectionné les rendez-vous à ne pas manquer. 13 min de lecture" [ref=e161] [cursor=pointer]:
+            - /url: https://www.lemonde.fr/culture/article/2026/03/27/theatre-opera-danse-humour-dix-huit-spectacles-a-reserver-en-avril_6674474_3246.html
+            - generic [ref=e164]:
+              - paragraph [ref=e165]: Sélection
+              - generic [ref=e167]: Article réservé aux abonnés
+              - paragraph [ref=e168]: Théâtre, opéra, danse, humour… Dix-huit spectacles à réserver en avril
+              - paragraph [ref=e169]: A Paris et en région, les journalistes de la rubrique culture du « Monde » ont sélectionné les rendez-vous à ne pas manquer.
+            - paragraph [ref=e170]: 13 min de lecture
+          - link "Service Le Monde Comment regarder un tableau Découvrez notre nouveau cours du soir d'histoire de l'art avec Françoise Barbe-Gall Découvrir" [ref=e173] [cursor=pointer]:
+            - /url: https://ateliers.lemonde.fr/francoise-barbe-gall/176
+            - paragraph [ref=e174]: Service Le Monde
+            - paragraph [ref=e175]: Comment regarder un tableau
+            - paragraph [ref=e176]: Découvrez notre nouveau cours du soir d'histoire de l'art avec Françoise Barbe-Gall
+            - paragraph [ref=e177]:
+              - generic [ref=e178]: Découvrir
+        - generic [ref=e179]:
+          - generic [ref=e181]:
+            - paragraph [ref=e184]:
+              - generic [ref=e185]: Live
+              - generic [ref=e186]: Article se déroulant en direct
+            - 'link "En direct : la Russie annonce une réunion du Conseil de sécurité sur l’Iran, vendredi, à sa demande" [ref=e187] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/international/live/2026/03/27/en-direct-guerre-au-moyen-orient-la-russie-annonce-une-reunion-du-conseil-de-securite-de-l-onu-sur-l-iran-vendredi-a-sa-demande_6673056_3210.html
+              - generic [ref=e188]: "En direct : la Russie annonce une réunion du Conseil de sécurité sur l’Iran, vendredi, à sa demande"
+          - generic [ref=e190]:
+            - generic [ref=e194]: Article réservé aux abonnés
+            - link "Volodymyr Zelensky en entretien exclusif avec « Le Monde » sur la guerre en Ukraine" [ref=e195] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/international/video/2026/03/26/volodymyr-zelensky-en-entretien-exclusif-avec-le-monde-sur-la-guerre-en-ukraine_6674435_3210.html
+              - generic [ref=e196]: Volodymyr Zelensky en entretien exclusif avec « Le Monde » sur la guerre en Ukraine
+            - generic [ref=e197]: 20:39
+          - generic [ref=e199]:
+            - generic [ref=e200]:
+              - generic [ref=e201]: Publicité
+              - generic [ref=e202]: proposé par
+            - link "La beauté, un tour en France" [ref=e204] [cursor=pointer]:
+              - /url: https://la-beaute-creatrice.lemonde.fr/la-beaute-un-tour-en-france/
+              - generic [ref=e205]: La beauté, un tour en France
+          - link "Cédric P., l’ex-policier français soupçonné de double féminicide, placé en détention provisoire au Portugal" [ref=e210] [cursor=pointer]:
+            - /url: https://www.lemonde.fr/societe/article/2026/03/27/cedric-p-l-ex-policier-francais-soupconne-de-double-feminicide-place-en-detention-provisoire-au-portugal_6674446_3224.html
+            - generic [ref=e211]: Cédric P., l’ex-policier français soupçonné de double féminicide, placé en détention provisoire au Portugal
+          - generic [ref=e213]:
+            - paragraph [ref=e216]:
+              - generic [ref=e217]: Live
+              - generic [ref=e218]: Article se déroulant en direct
+            - link "Sergueï Lavrov estime que Vladimir Poutine et Donald Trump « ont du respect l’un pour l’autre »" [ref=e219] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/international/live/2026/03/27/en-direct-guerre-en-ukraine-serguei-lavrov-estime-que-vladimir-poutine-et-donald-trump-ont-du-respect-l-un-pour-l-autre_6673450_3210.html
+              - generic [ref=e220]: Sergueï Lavrov estime que Vladimir Poutine et Donald Trump « ont du respect l’un pour l’autre »
+          - generic [ref=e222]:
+            - generic [ref=e224]: Article réservé aux abonnés
+            - link "En Espagne, Noelia Castilla, 25 ans, paraplégique, obtient une aide médicale à mourir au terme d’un long combat judiciaire" [ref=e225] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/international/article/2026/03/26/en-espagne-noelia-castilla-25-ans-paraplegique-obtient-une-aide-medicale-a-mourir-au-terme-d-un-long-combat-judiciaire_6674444_3210.html
+              - generic [ref=e226]: En Espagne, Noelia Castilla, 25 ans, paraplégique, obtient une aide médicale à mourir au terme d’un long combat judiciaire
+          - generic [ref=e228]:
+            - generic [ref=e230]: Article réservé aux abonnés
+            - 'link "Reprise de Vencorex : la CGT demande une commission d’enquête sur un « scandale », le ministre de l’industrie espère encore trouver « une solution »" [ref=e231] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/economie/article/2026/03/27/reprise-de-vencorex-la-cgt-demande-une-commission-d-enquete-sur-un-scandale-le-ministre-de-l-industrie-espere-encore-trouver-une-solution_6674462_3234.html
+              - generic [ref=e232]: "Reprise de Vencorex : la CGT demande une commission d’enquête sur un « scandale », le ministre de l’industrie espère encore trouver « une solution »"
+          - generic [ref=e234]:
+            - generic [ref=e236]: Article réservé aux abonnés
+            - 'link "Accord commercial avec les Etats-Unis : le Parlement européen pose ses conditions" [ref=e237] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/economie/article/2026/03/26/accord-commercial-avec-les-etats-unis-le-parlement-europeen-pose-ses-conditions_6674414_3234.html
+              - generic [ref=e238]: "Accord commercial avec les Etats-Unis : le Parlement européen pose ses conditions"
+          - link "Donald Trump interdit à son administration de travailler avec des entreprises menant des politiques antidiscriminations" [ref=e241] [cursor=pointer]:
+            - /url: https://www.lemonde.fr/international/article/2026/03/27/donald-trump-interdit-a-son-administration-de-travailler-avec-des-entreprises-menant-des-politiques-antidiscriminations_6674475_3210.html
+            - generic [ref=e242]: Donald Trump interdit à son administration de travailler avec des entreprises menant des politiques antidiscriminations
+          - generic [ref=e244]:
+            - generic [ref=e246]: Article réservé aux abonnés
+            - 'link "Hommage national à Lionel Jospin aux Invalides : « Avec lui, c’est une part de nous-même qui s’en va »" [ref=e247] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/politique/article/2026/03/26/hommage-national-a-lionel-jospin-aux-invalides-avec-lui-c-est-une-part-de-nous-meme-qui-s-en-va_6674439_823448.html
+              - generic [ref=e248]: "Hommage national à Lionel Jospin aux Invalides : « Avec lui, c’est une part de nous-même qui s’en va »"
+          - generic [ref=e250]:
+            - generic [ref=e252]: Article réservé aux abonnés
+            - link "L’Union européenne s’attaque aux petits colis des sites de vente en ligne chinois" [ref=e253] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/economie/article/2026/03/26/shein-temu-l-ue-s-attaque-aux-petits-colis-des-sites-de-vente-en-ligne-chinois_6674440_3234.html
+              - generic [ref=e254]: L’Union européenne s’attaque aux petits colis des sites de vente en ligne chinois
+          - generic [ref=e256]:
+            - generic [ref=e258]: Article réservé aux abonnés
+            - 'link "Universités : des assises sous tension, pour tenter de déminer la question du financement public" [ref=e259] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/campus/article/2026/03/26/universites-des-assises-sous-tension-pour-tenter-de-deminer-la-question-du-financement-public_6674437_4401467.html
+              - generic [ref=e260]: "Universités : des assises sous tension, pour tenter de déminer la question du financement public"
+          - generic [ref=e262]:
+            - generic [ref=e264]: Article réservé aux abonnés
+            - 'link "Violences sexuelles : l’évêque Jean-Michel di Falco condamné au civil, l’Eglise à nouveau face à la question des réparations" [ref=e265] [cursor=pointer]':
+              - /url: https://www.lemonde.fr/societe/article/2026/03/26/violences-sexuelles-l-eveque-jean-michel-di-falco-condamne-au-civil-l-eglise-a-nouveau-face-a-la-question-des-reparations_6674432_3224.html
+              - generic [ref=e266]: "Violences sexuelles : l’évêque Jean-Michel di Falco condamné au civil, l’Eglise à nouveau face à la question des réparations"
+      - generic [ref=e270]:
+        - generic [ref=e271]:
+          - heading "Le Monde en partenariat avec Magnum Photos" [level=4] [ref=e272]
+          - link "Tous les tirages" [ref=e273] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/pages/square-print-sale?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e274]:
+            - button [disabled]
+            - button [ref=e275] [cursor=pointer]
+        - group "Le Monde en partenariat avec Magnum Photos" [ref=e276]:
+          - link "MAGNUM PHOTOS Vente exceptionnelle de tirages signés jusqu'au 29 mars." [ref=e277] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/pages/square-print-sale?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+            - generic [ref=e278]:
+              - paragraph [ref=e279]: MAGNUM PHOTOS
+              - paragraph [ref=e280]: Vente exceptionnelle de tirages signés jusqu'au 29 mars.
+          - link "CHRIS KILLIP Northumberland, UK, 1984." [ref=e281] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-chris-killip?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+            - generic [ref=e282]:
+              - paragraph [ref=e283]: CHRIS KILLIP
+              - paragraph [ref=e284]: Northumberland, UK, 1984.
+          - link "CRISTINA DE MIDDEL Oaxaca, Mexico, 2018." [ref=e285] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-cristina-de-middel?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+            - generic [ref=e286]:
+              - paragraph [ref=e287]: CRISTINA DE MIDDEL
+              - paragraph [ref=e288]: Oaxaca, Mexico, 2018.
+          - link "ELLIOTT ERWITT New Jersey, USA, 1966." [ref=e289] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-elliott-erwitt?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+            - generic [ref=e290]:
+              - paragraph [ref=e291]: ELLIOTT ERWITT
+              - paragraph [ref=e292]: New Jersey, USA, 1966.
+          - link "EVE ARNOLD Long Island, New York, USA, 1955." [ref=e293] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-eve-arnold?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+            - generic [ref=e294]:
+              - paragraph [ref=e295]: EVE ARNOLD
+              - paragraph [ref=e296]: Long Island, New York, USA, 1955.
+          - link "JEAN GAUMY France, March 2011." [ref=e297] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-jean-gaumy?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+            - generic [ref=e298]:
+              - paragraph [ref=e299]: JEAN GAUMY
+              - paragraph [ref=e300]: France, March 2011.
+          - link "STEVE MCCURRY Pol-e-Khomri, Afghanistan, 2002." [ref=e301] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-steve-mccurry?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+            - generic [ref=e302]:
+              - paragraph [ref=e303]: STEVE MCCURRY
+              - paragraph [ref=e304]: Pol-e-Khomri, Afghanistan, 2002.
+          - link "LARRY TOWELL New York City, USA, September 11, 2001." [ref=e305] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-larry-towell?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+            - generic [ref=e306]:
+              - paragraph [ref=e307]: LARRY TOWELL
+              - paragraph [ref=e308]: New York City, USA, September 11, 2001.
+          - link "MARK POWER Pobierowo, Poland, September 2008." [ref=e309] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-mark-power?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+            - generic [ref=e310]:
+              - paragraph [ref=e311]: MARK POWER
+              - paragraph [ref=e312]: Pobierowo, Poland, September 2008.
+      - generic [ref=e313]:
+        - generic [ref=e314]:
+          - heading "Sélection de la rédaction" [level=4] [ref=e315]
+          - 'link "Témoignages Louise Couvelaire Article réservé aux abonnés « J’ai compris que, quoi que je fasse, je serai toujours perçu comme un Arabe qui fout le bordel » : le récit de Youssef et Eyob, rattrapés par leurs origines Youssef Dridi et Eyob Bressy, tous deux adoptés et élevés dans des familles à fort capital culturel en région parisienne, racontent comment ils ont été confrontés, dès l’adolescence, à des discriminations liées à la couleur de leur peau. 5 min de lecture" [ref=e317] [cursor=pointer]':
+            - /url: https://www.lemonde.fr/societe/article/2026/03/26/racisme-j-ai-compris-que-quoi-que-je-fasse-je-serai-toujours-percu-comme-un-arabe-qui-fout-le-bordel_6674296_3224.html
+            - generic [ref=e320]:
+              - paragraph [ref=e321]: Témoignages
+              - paragraph [ref=e322]: Louise Couvelaire
+              - generic [ref=e324]: Article réservé aux abonnés
+              - paragraph [ref=e325]: "« J’ai compris que, quoi que je fasse, je serai toujours perçu comme un Arabe qui fout le bordel » : le récit de Youssef et Eyob, rattrapés par leurs origines"
+              - paragraph [ref=e326]: Youssef Dridi et Eyob Bressy, tous deux adoptés et élevés dans des familles à fort capital culturel en région parisienne, racontent comment ils ont été confrontés, dès l’adolescence, à des discriminations liées à la couleur de leur peau.
+            - paragraph [ref=e327]: 5 min de lecture
+          - 'link "Sélection Léo Pajon Article réservé aux abonnés Chaque arrondissement de Paris a son restaurant qui vaut le déplacement : les 20 adresses choisies par « Le Monde » Des beignets de butternut dans le 2ᵉ, une choucroute déconstruite dans le 10ᵉ, une soupe tom yum dans le 13ᵉ… Nos adresses pour gourmets et gourmands dans la capitale. 25 min de lecture" [ref=e329] [cursor=pointer]':
+            - /url: https://www.lemonde.fr/m-styles/article/2026/03/26/a-paris-a-chaque-arrondissement-son-restaurant-qui-vaut-le-deplacement_6674302_4497319.html
+            - generic [ref=e332]:
+              - paragraph [ref=e333]: Sélection
+              - paragraph [ref=e334]: Léo Pajon
+              - generic [ref=e336]: Article réservé aux abonnés
+              - paragraph [ref=e337]: "Chaque arrondissement de Paris a son restaurant qui vaut le déplacement : les 20 adresses choisies par « Le Monde »"
+              - paragraph [ref=e338]: Des beignets de butternut dans le 2ᵉ, une choucroute déconstruite dans le 10ᵉ, une soupe tom yum dans le 13ᵉ… Nos adresses pour gourmets et gourmands dans la capitale.
+            - paragraph [ref=e339]: 25 min de lecture
+          - 'link "Tribune Thierry Breton Article réservé aux abonnés Thierry Breton : « Il faut inscrire dans la Constitution française une règle d’or limitant le déficit public à 1 % du PIB à l’horizon 2032 » Un pays qui consacre une part croissante de ses ressources à devoir financer le passé n’est plus maître de son destin, affirme l’ancien ministre des finances, dans une tribune au « Monde », qui décrit son plan pour donner un coup d’arrêt à l’augmentation de la dette publique. 8 min de lecture" [ref=e341] [cursor=pointer]':
+            - /url: https://www.lemonde.fr/idees/article/2026/03/26/thierry-breton-il-faut-inscrire-dans-la-constitution-francaise-une-regle-d-or-limitant-le-deficit-public-a-1-du-pib-a-l-horizon-2032_6674303_3232.html
+            - generic [ref=e344]:
+              - paragraph [ref=e345]: Tribune
+              - paragraph [ref=e346]: Thierry Breton
+              - generic [ref=e348]: Article réservé aux abonnés
+              - paragraph [ref=e349]: "Thierry Breton : « Il faut inscrire dans la Constitution française une règle d’or limitant le déficit public à 1 % du PIB à l’horizon 2032 »"
+              - paragraph [ref=e350]: Un pays qui consacre une part croissante de ses ressources à devoir financer le passé n’est plus maître de son destin, affirme l’ancien ministre des finances, dans une tribune au « Monde », qui décrit son plan pour donner un coup d’arrêt à l’augmentation de la dette publique.
+            - paragraph [ref=e351]: 8 min de lecture
+        - generic [ref=e352]:
+          - heading "Idées" [level=4] [ref=e353]:
+            - link "Idées" [ref=e354] [cursor=pointer]:
+              - /url: /idees/
+          - 'link "Éditorial Editorial du « Monde » : Donald Trump et le piège de l’escalade Le Monde" [ref=e356] [cursor=pointer]':
+            - /url: https://www.lemonde.fr/idees/article/2026/03/26/guerre-en-iran-donald-trump-et-le-piege-de-l-escalade_6674348_3232.html
+            - generic [ref=e357]: Éditorial
+            - paragraph [ref=e358]: "Editorial du « Monde » : Donald Trump et le piège de l’escalade"
+            - generic [ref=e359]: Le Monde
+          - 'link "Chronique S’abonner « Approchant les sables du golfe Arabo-Persique, Donald Trump a été la victime d’un phénomène fréquent en ces lieux : les mirages » Alain Frachon Chroniqueur au « Monde »" [ref=e361] [cursor=pointer]':
+            - /url: https://www.lemonde.fr/idees/article/2026/03/26/approchant-les-sables-du-golfe-arabo-persique-donald-trump-a-ete-la-victime-d-un-phenomene-frequent-en-ces-lieux-les-mirages_6674290_3232.html
+            - generic [ref=e362]: Chronique
+            - generic [ref=e364]: S’abonner
+            - paragraph [ref=e365]: "« Approchant les sables du golfe Arabo-Persique, Donald Trump a été la victime d’un phénomène fréquent en ces lieux : les mirages »"
+            - generic [ref=e367]:
+              - generic [ref=e368]: Alain Frachon
+              - generic [ref=e369]: Chroniqueur au « Monde »
+          - link "Décryptage S’abonner L’anti-antifascisme, une rhétorique qui retourne les armes de la gauche contre elle-même Marion Dupont" [ref=e371] [cursor=pointer]:
+            - /url: https://www.lemonde.fr/idees/article/2026/03/25/l-anti-antifascisme-une-rhetorique-qui-retourne-les-armes-de-la-gauche-contre-elle-meme_6674239_3232.html
+            - generic [ref=e372]: Décryptage
+            - generic [ref=e374]: S’abonner
+            - paragraph [ref=e375]: L’anti-antifascisme, une rhétorique qui retourne les armes de la gauche contre elle-même
+            - generic [ref=e378]: Marion Dupont
+        - generic [ref=e379]:
+          - heading "Les plus lus" [level=4] [ref=e380]
+          - list [ref=e381]:
+            - listitem [ref=e382]:
+              - 'link "Christian Jambet, islamologue : « Les vrais dirigeants de l’Iran sont désormais des soldats qui souhaitent répandre la révolution islamique hors d’Iran »" [ref=e383] [cursor=pointer]':
+                - /url: https://www.lemonde.fr/livres/article/2026/03/26/christian-jambet-islamologue-quand-le-guide-supreme-iranien-est-mort-les-cris-de-joie-saluaient-la-mort-d-un-imposteur_6674360_3260.html
+                - paragraph [ref=e385]: "Christian Jambet, islamologue : « Les vrais dirigeants de l’Iran sont désormais des soldats qui souhaitent répandre la révolution islamique hors d’Iran »"
+            - listitem [ref=e386]:
+              - 'link "Le gouvernement met en garde Bally Bagayoko, nouveau maire LFI de Saint-Denis : « Ecarter un agent pour des motifs politiques » est illégal" [ref=e387] [cursor=pointer]':
+                - /url: https://www.lemonde.fr/politique/article/2026/03/26/le-gouvernement-met-en-garde-le-maire-lfi-de-saint-denis-bally-bagayoko-ecarter-un-agent-pour-des-motifs-politiques-est-illegal_6674358_823448.html
+                - paragraph [ref=e389]: "Le gouvernement met en garde Bally Bagayoko, nouveau maire LFI de Saint-Denis : « Ecarter un agent pour des motifs politiques » est illégal"
+            - listitem [ref=e390]:
+              - link "« En Ukraine, dès qu’un accord de paix ou un cessez-le-feu sera conclu, les Russes pourront se reconstruire », prévient la cheffe des opérations militaires suédoises" [ref=e391] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/international/article/2026/03/26/en-ukraine-des-qu-un-accord-de-paix-ou-un-cessez-le-feu-sera-conclu-les-russes-pourront-se-reconstruire-previent-la-cheffe-des-operations-militaires-suedoises_6674390_3210.html
+                - paragraph [ref=e393]: « En Ukraine, dès qu’un accord de paix ou un cessez-le-feu sera conclu, les Russes pourront se reconstruire », prévient la cheffe des opérations militaires suédoises
+            - listitem [ref=e394]:
+              - 'link "Brésil-France : revivez la victoire des Bleus, réduits à dix, pour leur premier match amical avant la Coupe du monde 2026" [ref=e395] [cursor=pointer]':
+                - /url: https://www.lemonde.fr/sport/live/2026/03/26/en-direct-bresil-france-suivez-la-rencontre-amicale-avant-la-coupe-du-monde-2026_6674421_3242.html
+                - paragraph [ref=e397]: "Brésil-France : revivez la victoire des Bleus, réduits à dix, pour leur premier match amical avant la Coupe du monde 2026"
+            - listitem [ref=e398]:
+              - 'link "Hommage à Lionel Jospin aux Invalides : revivez la cérémonie, suivie des obsèques au cimetière du Montparnasse, ainsi que les réactions politiques" [ref=e399] [cursor=pointer]':
+                - /url: https://www.lemonde.fr/politique/live/2026/03/26/en-direct-hommage-a-lionel-jospin-aux-invalides-avec-lui-c-est-une-part-de-nous-memes-qui-s-en-va-salue-francois-hollande_6674321_823448.html
+                - paragraph [ref=e401]: "Hommage à Lionel Jospin aux Invalides : revivez la cérémonie, suivie des obsèques au cimetière du Montparnasse, ainsi que les réactions politiques"
+            - listitem [ref=e402]:
+              - 'link "Guerre en Iran : Israël et les pays du Golfe s’inquiètent d’une sortie du conflit bâclée par Donald Trump" [ref=e403] [cursor=pointer]':
+                - /url: https://www.lemonde.fr/international/article/2026/03/27/guerre-en-iran-israel-et-les-pays-du-golfe-s-inquietent-d-une-sortie-du-conflit-baclee-par-donald-trump_6674470_3210.html
+                - paragraph [ref=e405]: "Guerre en Iran : Israël et les pays du Golfe s’inquiètent d’une sortie du conflit bâclée par Donald Trump"
+            - listitem [ref=e406]:
+              - link "« Politiser Loana, c’est rappeler qu’elle avait, très tôt, été abandonnée à des violences dont nous continuons de sous-estimer l’ampleur et la gravité »" [ref=e407] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/idees/article/2026/03/26/politiser-loana-c-est-rappeler-qu-elle-avait-tres-tot-ete-abandonnee-a-des-violences-dont-nous-continuons-de-sous-estimer-l-ampleur-et-la-gravite_6674356_3232.html
+                - paragraph [ref=e409]: « Politiser Loana, c’est rappeler qu’elle avait, très tôt, été abandonnée à des violences dont nous continuons de sous-estimer l’ampleur et la gravité »
+            - listitem [ref=e410]:
+              - 'link "Fraude à la Caisse d’assurance-maladie : 58 millions d’euros détournés, sept personnes mises en examen" [ref=e411] [cursor=pointer]':
+                - /url: https://www.lemonde.fr/societe/article/2026/03/26/fraude-a-la-caisse-d-assurance-maladie-58-millions-d-euros-detournes-sept-personnes-mises-en-examen_6674433_3224.html
+                - paragraph [ref=e413]: "Fraude à la Caisse d’assurance-maladie : 58 millions d’euros détournés, sept personnes mises en examen"
+            - listitem [ref=e414]:
+              - link "Les trois Etats baltes redoutent un débordement de la guerre en Ukraine sur leur territoire" [ref=e415] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/international/article/2026/03/26/les-pays-baltes-redoutent-un-debordement-de-la-guerre-en-ukraine-sur-leur-territoire_6674326_3210.html
+                - paragraph [ref=e417]: Les trois Etats baltes redoutent un débordement de la guerre en Ukraine sur leur territoire
+        - text: Publicité Publicité Publicité
+      - generic [ref=e423]:
+        - link "Partenaires" [ref=e424] [cursor=pointer]:
+          - /url: https://www.lemonde.fr/services/
+          - heading "Partenaires" [level=4] [ref=e425]
+        - generic [ref=e426]:
+          - link [ref=e428] [cursor=pointer]:
+            - /url: https://store.magnumphotos.com/pages/square-print-sale?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=part&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e429]:
+            - generic [ref=e430]:
+              - heading "Guides d’achat" [level=3] [ref=e431]
+              - generic [ref=e432]: avec Le Monde
+            - generic [ref=e433]:
+              - link "Les meilleurs pianos numériques pas chers" [ref=e434] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/guides-d-achat/article/2024/11/26/les-meilleurs-pianos-numeriques-pas-chers-pour-debutants_6415845_5306571.html
+                - generic [ref=e436]: Les meilleurs pianos numériques pas chers
+              - link "Les meilleurs robots pâtissiers" [ref=e437] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/guides-d-achat/article/2025/11/13/les-meilleurs-robots-patissiers_6226175_5306572.html
+                - generic [ref=e439]: Les meilleurs robots pâtissiers
+              - link "Comparatif des meilleures perceuses visseuses" [ref=e440] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/guides-d-achat/article/2025/02/06/les-meilleures-visseuses-entre-50-et-100-euros_6171388_5306572.html
+                - generic [ref=e442]: Comparatif des meilleures perceuses visseuses
+              - link "Les meilleures gourdes réutilisables" [ref=e443] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/guides-d-achat/article/2022/06/15/les-meilleures-gourdes-pour-remplacer-les-bouteilles-jetables_6130466_5306571.html#origin=HPcarrousel
+                - generic [ref=e445]: Les meilleures gourdes réutilisables
+              - link "Les meilleures machines à café à grains" [ref=e446] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/guides-d-achat/article/2024/07/31/les-meilleures-machines-a-cafe-a-grains-a-moins-de-500-euros_6262976_5306571.html
+                - generic [ref=e448]: Les meilleures machines à café à grains
+              - link "Meilleurs ventilateurs pour affronter la chaleur" [ref=e449] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/guides-d-achat/article/2023/04/06/les-meilleurs-ventilateurs-pour-affronter-la-chaleur_6168531_5306571.html
+                - generic [ref=e451]: Meilleurs ventilateurs pour affronter la chaleur
+              - link "Les meilleures lunch box isothermes" [ref=e452] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/guides-d-achat/article/2022/09/01/les-meilleures-lunch-box-pour-la-pause-dejeuner_6139786_5306571.html
+                - generic [ref=e454]: Les meilleures lunch box isothermes
+              - link "Tous nos guides" [ref=e455] [cursor=pointer]:
+                - /url: https://www.lemonde.fr/guides-d-achat/
+                - text: Tous nos guides
+          - link [ref=e458] [cursor=pointer]:
+            - /url: https://www.lemonde.fr/chaleur-humaine/article/2025/01/30/mesurez-votre-impact-environnement-avec-le-calculateur-d-empreinte-carbone-et-eau_6523433_6125299.html?lmd_medium=bizdev&lmd_campaign=services_partenaire_lmfr&lmd_creation=ademe
+    - generic [ref=e495]:
+      - generic [ref=e496]:
+        - heading "Le Monde en partenariat avec Magnum Photos" [level=4] [ref=e497]
+        - link "Tous les tirages" [ref=e498] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/pages/square-print-sale?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+        - generic [ref=e499]:
+          - button [disabled]
+          - button [ref=e500] [cursor=pointer]
+      - group "Le Monde en partenariat avec Magnum Photos" [ref=e501]:
+        - link "MAGNUM PHOTOS Vente exceptionnelle de tirages signés jusqu'au 29 mars." [ref=e502] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/pages/square-print-sale?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e503]:
+            - paragraph [ref=e504]: MAGNUM PHOTOS
+            - paragraph [ref=e505]: Vente exceptionnelle de tirages signés jusqu'au 29 mars.
+        - link "CHRIS KILLIP Northumberland, UK, 1984." [ref=e506] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-chris-killip?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e507]:
+            - paragraph [ref=e508]: CHRIS KILLIP
+            - paragraph [ref=e509]: Northumberland, UK, 1984.
+        - link "CRISTINA DE MIDDEL Oaxaca, Mexico, 2018." [ref=e510] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-cristina-de-middel?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e511]:
+            - paragraph [ref=e512]: CRISTINA DE MIDDEL
+            - paragraph [ref=e513]: Oaxaca, Mexico, 2018.
+        - link "ELLIOTT ERWITT New Jersey, USA, 1966." [ref=e514] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-elliott-erwitt?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e515]:
+            - paragraph [ref=e516]: ELLIOTT ERWITT
+            - paragraph [ref=e517]: New Jersey, USA, 1966.
+        - link "EVE ARNOLD Long Island, New York, USA, 1955." [ref=e518] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-eve-arnold?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e519]:
+            - paragraph [ref=e520]: EVE ARNOLD
+            - paragraph [ref=e521]: Long Island, New York, USA, 1955.
+        - link "JEAN GAUMY France, March 2011." [ref=e522] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-jean-gaumy?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e523]:
+            - paragraph [ref=e524]: JEAN GAUMY
+            - paragraph [ref=e525]: France, March 2011.
+        - link "STEVE MCCURRY Pol-e-Khomri, Afghanistan, 2002." [ref=e526] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-steve-mccurry?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e527]:
+            - paragraph [ref=e528]: STEVE MCCURRY
+            - paragraph [ref=e529]: Pol-e-Khomri, Afghanistan, 2002.
+        - link "LARRY TOWELL New York City, USA, September 11, 2001." [ref=e530] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-larry-towell?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e531]:
+            - paragraph [ref=e532]: LARRY TOWELL
+            - paragraph [ref=e533]: New York City, USA, September 11, 2001.
+        - link "MARK POWER Pobierowo, Poland, September 2008." [ref=e534] [cursor=pointer]:
+          - /url: https://store.magnumphotos.com/products/magnum-square-print-odyssey-mark-power?rfsn=613924.b8e164&utm_source=le-monde&utm_medium=blocservice&utm_campaign=square-print-sale-march-2026
+          - generic [ref=e535]:
+            - paragraph [ref=e536]: MARK POWER
+            - paragraph [ref=e537]: Pobierowo, Poland, September 2008.
+  - contentinfo [ref=e538]:
+    - generic [ref=e539]:
+      - generic [ref=e541]:
+        - generic [ref=e542]:
+          - generic [ref=e543]:
+            - heading "Services Le Monde" [level=3] [ref=e544]
+            - list [ref=e545]:
+              - listitem [ref=e546]:
+                - text: •
+                - link "Unes du Monde" [ref=e547] [cursor=pointer]:
+                  - /url: https://boutique.lemonde.fr/30-unes-par-date
+              - listitem [ref=e548]:
+                - text: •
+                - link "Les ateliers du Monde" [ref=e549] [cursor=pointer]:
+                  - /url: https://ateliers.lemonde.fr/
+              - listitem [ref=e550]:
+                - text: •
+                - link "Culture générale" [ref=e551] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/memorable/blog
+              - listitem [ref=e552]:
+                - text: •
+                - link "Mots croisés" [ref=e553] [cursor=pointer]:
+                  - /url: https://jeux.lemonde.fr/mots-croises
+              - listitem [ref=e554]:
+                - text: •
+                - link "Sudokus" [ref=e555] [cursor=pointer]:
+                  - /url: https://jeux.lemonde.fr/sudoku
+              - listitem [ref=e556]:
+                - text: •
+                - link "Résultats des élections municipales 2026" [ref=e557] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/resultats-elections/
+              - listitem [ref=e558]:
+                - text: •
+                - link "Education" [ref=e559] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/education/
+              - listitem [ref=e560]:
+                - text: •
+                - link "Gastronomie" [ref=e561] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/m-gastronomie/
+              - listitem [ref=e562]:
+                - text: •
+                - link "Réutiliser nos contenus" [ref=e563] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/syndication/
+              - listitem [ref=e564]:
+                - text: •
+                - link "Consulter les annonces légales" [ref=e565] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/annonces-legales/list
+              - listitem [ref=e566]:
+                - text: •
+                - link "Le carnet du Monde" [ref=e567] [cursor=pointer]:
+                  - /url: https://carnet.lemonde.fr/annonce
+          - generic [ref=e568]:
+            - heading "Guides d'achat Le Monde" [level=3] [ref=e569]
+            - list [ref=e570]:
+              - listitem [ref=e571]:
+                - text: •
+                - link "Les meilleurs robots pâtissiers" [ref=e572] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/guides-d-achat/article/2024/04/05/les-meilleurs-robots-patissiers_6226175_5306571.html
+              - listitem [ref=e573]:
+                - text: •
+                - link "Les meilleurs robots aspirateurs laveurs" [ref=e574] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/guides-d-achat/article/2025/06/04/les-meilleurs-robots-aspirateurs-laveurs_6188403_5306572.html
+              - listitem [ref=e575]:
+                - text: •
+                - link "Jeux de société pour adultes" [ref=e576] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/guides-d-achat/article/2022/11/23/les-meilleurs-jeux-de-societe-pour-adultes_6151232_5306571.html
+              - listitem [ref=e577]:
+                - text: •
+                - link "Le meilleur antivol pour vélo" [ref=e578] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/guides-d-achat/article/2023/10/17/le-meilleur-antivol-pour-velo_6195018_5306571.html
+              - listitem [ref=e579]:
+                - text: •
+                - link "Les meilleures friteuses sans huile" [ref=e580] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/guides-d-achat/article/2025/06/10/les-meilleures-friteuses-sans-huile_6202128_5306572.html
+              - listitem [ref=e581]:
+                - text: •
+                - link "Les meilleures imprimantes laser" [ref=e582] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/guides-d-achat/article/2023/01/26/les-meilleures-imprimantes-laser_6159425_5306571.html
+          - generic [ref=e583]:
+            - heading "Le Monde à l'international" [level=3] [ref=e584]
+            - list [ref=e585]:
+              - listitem [ref=e586]:
+                - text: •
+                - link "Le Monde in English" [ref=e587] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/en/
+              - listitem [ref=e588]:
+                - text: •
+                - link "Algérie" [ref=e589] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/algerie/
+              - listitem [ref=e590]:
+                - text: •
+                - link "Belgique" [ref=e591] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/belgique/
+              - listitem [ref=e592]:
+                - text: •
+                - link "Canada" [ref=e593] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/canada/
+              - listitem [ref=e594]:
+                - text: •
+                - link "Côte d’Ivoire" [ref=e595] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/cote-d-ivoire/
+              - listitem [ref=e596]:
+                - text: •
+                - link "Mali" [ref=e597] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/mali/
+              - listitem [ref=e598]:
+                - text: •
+                - link "Maroc" [ref=e599] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/maroc/
+              - listitem [ref=e600]:
+                - text: •
+                - link "Sénégal" [ref=e601] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/senegal/
+              - listitem [ref=e602]:
+                - text: •
+                - link "Suisse" [ref=e603] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/suisse/
+              - listitem [ref=e604]:
+                - text: •
+                - link "Tunisie" [ref=e605] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/tunisie/
+          - generic [ref=e606]:
+            - heading "Services Partenaires" [level=3] [ref=e607]
+            - list [ref=e608]:
+              - listitem [ref=e609]:
+                - text: •
+                - link "Nos partenaires" [ref=e610] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/le-monde-services/article/2024/04/26/les-partenaires-du-monde_6230133_447.html
+              - listitem [ref=e611]:
+                - text: •
+                - link "Hits du moment" [ref=e612] [cursor=pointer]:
+                  - /url: https://paroles2chansons.lemonde.fr/
+              - listitem [ref=e613]:
+                - text: •
+                - link "Mahjong solitaire gratuit" [ref=e614] [cursor=pointer]:
+                  - /url: https://arcade.lemonde.fr/mahjong-solitaire/
+              - listitem [ref=e615]:
+                - text: •
+                - link "Jeux gratuits d’arcade" [ref=e616] [cursor=pointer]:
+                  - /url: https://arcade.lemonde.fr/
+              - listitem [ref=e617]:
+                - text: •
+                - link "Bubble Shooter" [ref=e618] [cursor=pointer]:
+                  - /url: https://arcade.lemonde.fr/bubble-shooter/
+              - listitem [ref=e619]:
+                - text: •
+                - link "Le Monde pour les hôtels" [ref=e620] [cursor=pointer]:
+                  - /url: https://about.pressreader.com/hotels/le-monde/?utm_campaign=hospitality-le-monde&utm_source=le-monde&utm_medium=footer
+              - listitem [ref=e621]:
+                - text: •
+                - link "Art et objets avec Ars Mundi" [ref=e622] [cursor=pointer]:
+                  - /url: https://www.lemonde.arsmundi.de/
+          - generic [ref=e623]:
+            - heading "Sites du groupe" [level=3] [ref=e624]
+            - list [ref=e625]:
+              - listitem [ref=e626]:
+                - text: •
+                - link "Le Monde Evènements" [ref=e627] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/le-monde-evenements/
+              - listitem [ref=e628]:
+                - text: •
+                - link "Courrier International" [ref=e629] [cursor=pointer]:
+                  - /url: https://www.courrierinternational.com/
+              - listitem [ref=e630]:
+                - text: •
+                - link "Télérama" [ref=e631] [cursor=pointer]:
+                  - /url: https://www.telerama.fr/
+              - listitem [ref=e632]:
+                - text: •
+                - link "La Vie" [ref=e633] [cursor=pointer]:
+                  - /url: https://www.lavie.fr/
+              - listitem [ref=e634]:
+                - text: •
+                - link "Le HuffPost" [ref=e635] [cursor=pointer]:
+                  - /url: https://www.huffingtonpost.fr/
+              - listitem [ref=e636]:
+                - text: •
+                - link "Le Nouvel Obs" [ref=e637] [cursor=pointer]:
+                  - /url: https://www.nouvelobs.com/
+              - listitem [ref=e638]:
+                - text: •
+                - link "Le Monde diplomatique" [ref=e639] [cursor=pointer]:
+                  - /url: https://www.monde-diplomatique.fr/
+              - listitem [ref=e640]:
+                - text: •
+                - link "La société des lecteurs du Monde" [ref=e641] [cursor=pointer]:
+                  - /url: https://sdllemonde.fr/
+              - listitem [ref=e642]:
+                - text: •
+                - link "Talents" [ref=e643] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/qui-sommes-nous/article/2007/11/17/talents-un-site-d-emploi-coedite-par-le-monde-interactif-et-telerama_978404_3386.html
+              - listitem [ref=e644]:
+                - text: •
+                - link "Source Sûre" [ref=e645] [cursor=pointer]:
+                  - /url: https://ensecurite.sourcesure.eu/
+              - listitem [ref=e646]:
+                - text: •
+                - link "Le Club de l’économie" [ref=e647] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/le-club-de-l-economie/
+              - listitem [ref=e648]:
+                - text: •
+                - link "M Publicité" [ref=e649] [cursor=pointer]:
+                  - /url: https://mpublicite.fr/
+        - generic [ref=e650]:
+          - generic [ref=e651]:
+            - paragraph [ref=e652]: Newsletters du monde
+            - link "Recevoir les newsletters du Monde" [ref=e653] [cursor=pointer]:
+              - /url: /newsletters/
+              - text: Recevoir les newsletters du Monde
+          - generic [ref=e655]:
+            - paragraph [ref=e656]: Applications Mobiles
+            - list [ref=e659]:
+              - listitem [ref=e660]:
+                - link "Sur iPhone" [ref=e661] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/applications-groupe/lemonde/ios/iphone/
+                - text: "|"
+              - listitem [ref=e662]:
+                - link "Sur Android" [ref=e663] [cursor=pointer]:
+                  - /url: https://www.lemonde.fr/applications-groupe/lemonde/android/smartphone/
+          - generic [ref=e664]:
+            - paragraph [ref=e665]: Abonnement
+            - link "Archives du Monde" [ref=e666] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/archives-du-monde/
+              - text: Archives du Monde
+            - link "S’abonner / Se désabonner" [ref=e668] [cursor=pointer]:
+              - /url: https://abo.lemonde.fr/?edi_medium=cta_sabonner&edi_campaign=home_lmfr&edi_position=footer&edi_rubrique=5&edi_type_de_page=Home
+              - text: S’abonner / Se désabonner
+            - link "Se connecter" [ref=e670] [cursor=pointer]:
+              - /url: https://secure.lemonde.fr/sfuser/connexion
+              - text: Se connecter
+            - link "Consulter le Journal du jour" [ref=e672] [cursor=pointer]:
+              - /url: https://journal.lemonde.fr/
+              - text: Consulter le Journal du jour
+            - link "Évenements abonnés" [ref=e674] [cursor=pointer]:
+              - /url: https://evenements-abonnes.lemonde.fr/
+            - link "Jeux-concours abonnés" [ref=e675] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/jeux-abonnes/
+            - link "Contacter Le Monde" [ref=e676] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/faq/?thematic=contacter
+        - text: • • • • •
+      - generic [ref=e677]:
+        - heading "Informations légales le Monde" [level=3] [ref=e678]
+        - list [ref=e679]:
+          - listitem [ref=e680]:
+            - text: •
+            - link "Mentions légales" [ref=e681] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/mentions-legales/
+          - listitem [ref=e682]:
+            - text: •
+            - link "Charte du Groupe" [ref=e683] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/actualite-medias/article/2010/11/03/la-charte-d-ethique-et-de-deontologie-du-groupe-le-monde_1434737_3236.html
+          - listitem [ref=e684]:
+            - text: •
+            - link "Politique de confidentialité" [ref=e685] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/confidentialite/
+          - listitem [ref=e686]:
+            - text: •
+            - link "Gestion des cookies" [ref=e687] [cursor=pointer]:
+              - /url: /#
+          - listitem [ref=e688]:
+            - text: •
+            - link "Conditions générales" [ref=e689] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/cgv/
+          - listitem [ref=e690]:
+            - text: •
+            - link "Aide (FAQ)" [ref=e691] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/faq/
+          - listitem [ref=e692]:
+            - text: •
+            - link "Votre avis sur le site" [ref=e693] [cursor=pointer]:
+              - /url: https://refairelemonde.typeform.com/to/pXJNjoIE#source=footer&device=desktop&abo=gratuit
+      - generic [ref=e694]:
+        - paragraph [ref=e695]: Suivez Le Monde
+        - list [ref=e697]:
+          - listitem [ref=e698]:
+            - link "Facebook" [ref=e699] [cursor=pointer]:
+              - /url: https://www.facebook.com/lemonde.fr
+              - text: Facebook
+          - listitem [ref=e701]:
+            - link "Youtube" [ref=e702] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/LeMonde
+              - text: Youtube
+          - listitem [ref=e704]:
+            - link "Instagram" [ref=e705] [cursor=pointer]:
+              - /url: https://www.instagram.com/lemondefr/?hl=fr
+              - text: Instagram
+          - listitem [ref=e707]:
+            - link "Snapchat" [ref=e708] [cursor=pointer]:
+              - /url: https://www.snapchat.com/discover/Le-Monde/8843708388
+              - text: Snapchat
+          - listitem [ref=e710]:
+            - link "TikTok" [ref=e711] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@lemondefr
+              - text: TikTok
+          - listitem [ref=e713]:
+            - link "Fils RSS" [ref=e714] [cursor=pointer]:
+              - /url: https://www.lemonde.fr/actualite-medias/article/2019/08/12/les-flux-rss-du-monde-fr_5498778_3236.html
+              - text: Fils RSS
+  - iframe
+  - img [ref=e749]

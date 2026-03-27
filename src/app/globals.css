@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,4 +38,27 @@
   .nav-link {
     @apply text-sm font-sans hover:text-lm-red transition-colors duration-200;
   }
+=======
+@import "tailwindcss";
+
+:root {
+  --lemonde-black: #1a1a1a;
+  --lemonde-dark: #2a2a2a;
+  --lemonde-gray: #6b6b6b;
+  --lemonde-light: #f5f5f5;
+  --lemonde-border: #d4d4d4;
+  --lemonde-accent: #d4a843;
+  --lemonde-blue: #0055a4;
+  --lemonde-red: #c03939;
+}
+
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: var(--lemonde-black);
+  background: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Georgia", "Times New Roman", serif;
+>>>>>>> b8af92a (Init : structure projet lemonde — Next.js 16, Prisma, Auth.js, Tailwind)
 }

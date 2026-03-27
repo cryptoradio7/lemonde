@@ -1,0 +1,101 @@
+[    5731ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[   34677ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[   64794ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[   94912ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[  111820ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[  111820ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[  111820ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[  111821ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[  111821ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[  111822ms] Uncaught (in promise) targetSelector not found
+    at value (https://forecast.lemonde.fr/sdk.js:1:261249)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:260893)
+    at value (https://forecast.lemonde.fr/sdk.js:1:260571)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319709)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319917)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319921)
+    at <anonymous> (https://forecast.lemonde.fr/sdk.js:1:319925)
+[  111990ms] TypeError: Cannot read properties of null (reading '__tcfapiCall')
+    at https://www.lemonde.fr/:6:938
+[  113915ms] [ERROR] Attestation check for Protected Audience on https://fast.nexx360.io failed. @ https://www.lemonde.fr/:0
+[  113915ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113915ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113915ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113915ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113916ms] [ERROR] Attestation check for Protected Audience on https://ssb-global.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113916ms] [ERROR] Attestation check for Protected Audience on https://htlb.casalemedia.com failed. @ https://www.lemonde.fr/:0
+[  113916ms] [ERROR] Attestation check for Protected Audience on https://ib.adnxs.com failed. @ https://www.lemonde.fr/:0
+[  113916ms] [ERROR] Attestation check for Protected Audience on https://b1h.outbrain.com failed. @ https://www.lemonde.fr/:0
+[  113916ms] [ERROR] Attestation check for Protected Audience on https://g2.gumgum.com failed. @ https://www.lemonde.fr/:0
+[  113916ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113916ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113916ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://prg.smartadserver.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://pbjs.sskzlabs.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://a.teads.tv failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://tlx.3lift.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://pbs-front.mediasquare.fr failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://shb.richaudience.com failed. @ https://www.lemonde.fr/:0
+[  113917ms] [ERROR] Attestation check for Protected Audience on https://mweb-hb.presage.io failed. @ https://www.lemonde.fr/:0
+[  113919ms] [ERROR] Attestation check for Protected Audience on https://direct.adsrvr.org failed. @ https://www.lemonde.fr/:0
+[  113945ms] [ERROR] Attestation check for Protected Audience on https://grid-bidder.criteo.com failed. @ https://www.lemonde.fr/:0
+[  113948ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/:0
+[  113948ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/:0
+[  113949ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/:0
+[  113949ms] [ERROR] Attestation check for Protected Audience on https://ad.360yield.com failed. @ https://www.lemonde.fr/:0
+[  114250ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[  114364ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.lemonde.fr/:0
+[  114366ms] [ERROR] Attestation check for Attribution Reporting on https://www.facebook.com failed. @ https://www.lemonde.fr/:0
+[  117287ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117298ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117303ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  117307ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  124625ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ https://match.prod.bidr.io/cookie-sync/rp?bee_sync_partners=rp&gdpr_consent=CQhudUAQhudUAFzADBFRCXFsAP_gAEPgAAqII7NB7G_fSSFjcTZ3YLtkaYxfx1Bi4sAhBgIBgywBiBqQoIwGkmEqIAjAAqAKGBIAImRBIQBtGAjABAAAAIABISCEAECAARAAJqBAAEARAgFACAhJGQEAEAAQgEDUAhUAgAIEQFooQNxAEgAgLQAAIAAhAIAFAAAIACAAQAAAAAAAQmAAAAAAAAAAAAAAABAIEEdgARDQqIICwIAAgEBCCBAAoIwgAIEAQAAAAwQAABAwIUAYACDCRAAAAAAAEAAAAAQAAgAAAgAQgAAAAAEAAEAAAAAAAAAAAABAgAAAAgQAAAAQEAIAAAAAAAAAiAAgAQAAAAAgAICgACAAQFgAAAAAAAEAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAECAA.II7NB7G_fSSFjcTZ3YLtkaYxfx1Bi4sAhBgIBgywBiBqQoIwGkmEqIAjAAqAKGBIAImRBIQBtGAjABAAAAIABISCEAECAARAAJqBAAEARAgFACAhJGQEAEAAQgEDUAhUAgAIEQFooQNxAEgAgLQAAIAAhAIAFAAAIACAAQAAAAAAAQmAAAAAAAAAAAAAAABAIEA&gdpr=1&_bee_ppp=1:0
+[  138817ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://id.geistm.com/m/OB/7ff6vTmJ7ZtSjTe6PCPYaXA3sutthq3plUVags7_6O8_-p_lFvN6yac5bWAyT_q6:0
+[  141824ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[  145521ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[  151260ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[  154816ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ https://cs.loudecho.ai/sync?id=20:0
+[  155186ms] [WARNING] The resource https://img.lemde.fr/2026/03/25/0/0/5899/3933/1200/800/75/0/6e86495_upload-1-zm1zt3ecoy51-jmug260324048.jpg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.lemonde.fr/:0
+[  159524ms] [ERROR] Mixed Content: The page at 'https://www.lemonde.fr/' was loaded over HTTPS, but requested an insecure frame 'http://sync.spoutroserve.com/dmp?tid=tdhdynfiYdudUd&S2=4348&s1=NjJkZTdhNzM2MmQ1NTA4Zg'. This request has been blocked; the content must be served over HTTPS. @ https://ads.pubmatic.com/AdServer/js/user_sync.html?kdntuid=1&SPug=true&p=163238&s=&predirect=https%3A%2F%2Fms-cookie-sync.presage.io%2Fuser-sync%3Fgdpr%3D0%26gdpr_consent%3DCQhudUAQhudUAFzADBFRCXFsAP_gAEPgAAqII7NB7G_fSSFjcTZ3YLtkaYxfx1Bi4sAhBgIBgywBiBqQoIwGkmEqIAjAAqAKGBIAImRBIQBtGAjABAAAAIABISCEAECAARAAJqBAAEARAgFACAhJGQEAEAAQgEDUAhUAgAIEQFooQNxAEgAgLQAAIAAhAIAFAAAIACAAQAAAAAAAQmAAAAAAAAAAAAAAABAIEEdgARDQqIICwIAAgEBCCBAAoIwgAIEAQAAAAwQAABAwIUAYACDCRAAAAAAAEAAAAAQAAgAAAgAQgAAAAAEAAEAAAAAAAAAAAABAgAAAAgQAAAAQEAIAAAAAAAAAiAAgAQAAAAAgAICgACAAQFgAAAAAAAEAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAECAA.II7NB7G_fSSFjcTZ3YLtkaYxfx1Bi4sAhBgIBgywBiBqQoIwGkmEqIAjAAqAKGBIAImRBIQBtGAjABAAAAIABISCEAECAARAAJqBAAEARAgFACAhJGQEAEAAQgEDUAhUAgAIEQFooQNxAEgAgLQAAIAAhAIAFAAAIACAAQAAAAAAAQmAAAAAAAAAAAAAAABAIEA%26pubmatic_id%3D&userIdMacro=&gdpr_consent=CQhudUAQhudUAFzADBFRCXFsAP_gAEPgAAqII7NB7G_fSSFjcTZ3YLtkaYxfx1Bi4sAhBgIBgywBiBqQoIwGkmEqIAjAAqAKGBIAImRBIQBtGAjABAAAAIABISCEAECAARAAJqBAAEARAgFACAhJGQEAEAAQgEDUAhUAgAIEQFooQNxAEgAgLQAAIAAhAIAFAAAIACAAQAAAAAAAQmAAAAAAAAAAAAAAABAIEEdgARDQqIICwIAAgEBCCBAAoIwgAIEAQAAAAwQAABAwIUAYACDCRAAAAAAAEAAAAAQAAgAAAgAQgAAAAAEAAEAAAAAAAAAAAABAgAAAAgQAAAAQEAIAAAAAAAAAiAAgAQAAAAAgAICgACAAQFgAAAAAAAEAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAECAA.II7NB7G_fSSFjcTZ3YLtkaYxfx1Bi4sAhBgIBgywBiBqQoIwGkmEqIAjAAqAKGBIAImRBIQBtGAjABAAAAIABISCEAECAARAAJqBAAEARAgFACAhJGQEAEAAQgEDUAhUAgAIEQFooQNxAEgAgLQAAIAAhAIAFAAAIACAAQAAAAAAAQmAAAAAAAAAAAAAAABAIEA&gdpr=0&us_privacy=&gpp=&gpp_sid=:0

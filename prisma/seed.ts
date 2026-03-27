@@ -1,0 +1,357 @@
+import { PrismaClient } from "@prisma/client";
+import { hash } from "bcryptjs";
+
+const prisma = new PrismaClient();
+
+async function main() {
+  // Catégories
+  const categories = await Promise.all([
+    prisma.category.upsert({
+      where: { slug: "international" },
+      update: {},
+      create: { name: "International", slug: "international", description: "Actualité internationale", order: 1 },
+    }),
+    prisma.category.upsert({
+      where: { slug: "politique" },
+      update: {},
+      create: { name: "Politique", slug: "politique", description: "Politique française", order: 2 },
+    }),
+    prisma.category.upsert({
+      where: { slug: "economie" },
+      update: {},
+      create: { name: "Économie", slug: "economie", description: "Économie et finance", order: 3 },
+    }),
+    prisma.category.upsert({
+      where: { slug: "societe" },
+      update: {},
+      create: { name: "Société", slug: "societe", description: "Société et faits divers", order: 4 },
+    }),
+    prisma.category.upsert({
+      where: { slug: "culture" },
+      update: {},
+      create: { name: "Culture", slug: "culture", description: "Culture et arts", order: 5 },
+    }),
+    prisma.category.upsert({
+      where: { slug: "sport" },
+      update: {},
+      create: { name: "Sport", slug: "sport", description: "Actualité sportive", order: 6 },
+    }),
+    prisma.category.upsert({
+      where: { slug: "sciences" },
+      update: {},
+      create: { name: "Sciences", slug: "sciences", description: "Sciences et environnement", order: 7 },
+    }),
+    prisma.category.upsert({
+      where: { slug: "planete" },
+      update: {},
+      create: { name: "Planète", slug: "planete", description: "Environnement et climat", order: 8 },
+    }),
+  ]);
+
+  const [international, politique, economie, societe, culture, sport, sciences, planete] = categories;
+
+  // Articles — 30 articles réalistes en français
+  const articles = [
+    {
+      title: "L'Union européenne adopte un plan de défense commun à 150 milliards d'euros",
+      slug: "ue-plan-defense-commun-150-milliards",
+      excerpt: "Les Vingt-Sept se sont accordés sur un programme d'investissements militaires sans précédent, visant à renforcer l'autonomie stratégique du continent face aux menaces croissantes.",
+      content: "<p>Les dirigeants européens ont conclu un accord historique lors du sommet extraordinaire de Bruxelles, jeudi 20 mars. Le plan « Bouclier européen », doté de 150 milliards d'euros sur sept ans, prévoit des investissements massifs dans la défense aérienne, la cybersécurité et les capacités de projection commune.</p><p>« Nous entrons dans une nouvelle ère de la défense européenne », a déclaré la présidente de la Commission, soulignant que ce programme permettra de mutualiser les efforts industriels et de combler les lacunes capacitaires identifiées depuis 2022.</p><p>Le plan prévoit notamment la création d'un quartier général opérationnel permanent, le développement de drones de combat européens et le renforcement des stocks de munitions. La France et l'Allemagne, moteurs de l'initiative, ont obtenu que 40 % des contrats soient réservés à l'industrie européenne.</p>",
+      author: "Philippe Ricard",
+      categoryId: international.id,
+      publishedAt: new Date("2026-03-20T14:30:00"),
+    },
+    {
+      title: "Sommet sur l'intelligence artificielle : les grandes puissances s'accordent sur un cadre éthique minimal",
+      slug: "sommet-ia-cadre-ethique-grandes-puissances",
+      excerpt: "Réunis à Genève, les représentants de quarante pays ont signé une déclaration commune sur les principes de gouvernance de l'IA, malgré des divergences profondes.",
+      content: "<p>Après trois jours de négociations tendues, le sommet mondial sur l'intelligence artificielle s'est conclu par l'adoption d'une déclaration commune fixant des principes de base : transparence des algorithmes, interdiction des systèmes d'armes autonomes létales, et obligation de signaler les contenus générés par IA.</p><p>La Chine et les États-Unis, longtemps opposés sur la portée du texte, ont accepté un compromis sur la question de la surveillance. « Ce n'est qu'un premier pas, mais c'est un pas nécessaire », a commenté le secrétaire général des Nations unies.</p>",
+      author: "Martin Untersinger",
+      categoryId: international.id,
+      publishedAt: new Date("2026-03-19T10:15:00"),
+    },
+    {
+      title: "Guerre en Ukraine : Moscou et Kiev acceptent un cessez-le-feu temporaire de trente jours",
+      slug: "ukraine-cessez-le-feu-temporaire-trente-jours",
+      excerpt: "Sous la médiation turque, les deux parties ont convenu d'une trêve humanitaire, la première depuis le début du conflit, pour permettre l'acheminement de l'aide aux civils.",
+      content: "<p>Le cessez-le-feu, qui entrera en vigueur samedi à minuit, couvre l'ensemble de la ligne de front. Il prévoit la création de corridors humanitaires dans les régions de Kherson et de Zaporijia, ainsi qu'un échange de prisonniers de guerre.</p><p>Les observateurs restent prudents. « Les violations sont probables dans les premières heures, mais le mécanisme de surveillance mis en place avec la Croix-Rouge internationale devrait permettre de maintenir la pression », analyse un diplomate occidental sous couvert d'anonymat.</p>",
+      author: "Rémy Ourdan",
+      categoryId: international.id,
+      publishedAt: new Date("2026-03-18T16:45:00"),
+    },
+    {
+      title: "Réforme des retraites : le gouvernement ouvre la voie à des aménagements pour les carrières longues",
+      slug: "reforme-retraites-amenagements-carrieres-longues",
+      excerpt: "Le premier ministre a annoncé une série de mesures correctrices pour répondre aux critiques persistantes sur l'équité du système de retraite réformé en 2023.",
+      content: "<p>Trois ans après l'adoption de la réforme contestée, le gouvernement reconnaît la nécessité d'ajustements. Les travailleurs ayant commencé avant 18 ans pourront désormais partir à 61 ans au lieu de 62, et un dispositif de pénibilité renforcé est prévu pour les métiers les plus exposés.</p><p>Les syndicats, tout en saluant « un premier geste », maintiennent leur demande d'abrogation complète de la réforme. La CGT a d'ores et déjà appelé à une journée de mobilisation le 15 avril.</p>",
+      author: "Raphaëlle Besse Desmoulières",
+      categoryId: politique.id,
+      publishedAt: new Date("2026-03-21T08:00:00"),
+    },
+    {
+      title: "Élections régionales : la gauche unie progresse dans les sondages à six mois du scrutin",
+      slug: "elections-regionales-gauche-unie-sondages",
+      excerpt: "L'alliance entre socialistes, écologistes et insoumis semble porter ses fruits dans plusieurs régions clés, selon les dernières enquêtes d'opinion.",
+      content: "<p>À six mois des élections régionales de septembre, les sondages dessinent une dynamique favorable à la gauche unie. En Île-de-France, l'alliance progressiste atteint 34 % des intentions de vote au premier tour, contre 28 % pour la droite et 22 % pour le Rassemblement national.</p><p>En Provence-Alpes-Côte d'Azur et en Hauts-de-France, les configurations sont plus ouvertes, avec des triangulaires probables au second tour.</p>",
+      author: "Alexandre Lemarié",
+      categoryId: politique.id,
+      publishedAt: new Date("2026-03-20T11:30:00"),
+    },
+    {
+      title: "Le Parlement adopte une loi sur la régulation des réseaux sociaux pour les mineurs",
+      slug: "loi-regulation-reseaux-sociaux-mineurs",
+      excerpt: "Le texte impose aux plateformes la vérification de l'âge et interdit l'accès aux moins de 15 ans sans consentement parental, sous peine de lourdes amendes.",
+      content: "<p>Adoptée à une large majorité, la loi « Protection numérique des mineurs » contraint les plateformes à mettre en place des systèmes de vérification d'âge certifiés par la CNIL. Les contrevenants s'exposent à des amendes pouvant atteindre 6 % de leur chiffre d'affaires mondial.</p><p>Meta, TikTok et Snap ont exprimé leurs réserves sur la faisabilité technique du dispositif, tandis que les associations de protection de l'enfance ont salué « une avancée majeure ».</p>",
+      author: "Alexandre Piquard",
+      categoryId: politique.id,
+      publishedAt: new Date("2026-03-17T19:00:00"),
+    },
+    {
+      title: "La BCE maintient ses taux directeurs et signale une pause prolongée",
+      slug: "bce-maintien-taux-directeurs-pause",
+      excerpt: "La Banque centrale européenne a décidé de maintenir son taux de dépôt à 2,5 %, estimant que l'inflation sous-jacente reste trop élevée pour justifier une nouvelle baisse.",
+      content: "<p>Christine Lagarde a souligné lors de sa conférence de presse que « les risques inflationnistes persistent, notamment dans le secteur des services ». La BCE anticipe une inflation de 2,3 % en 2026, légèrement au-dessus de son objectif de 2 %.</p><p>Les marchés, qui espéraient un signal plus accommodant, ont réagi négativement : l'euro s'est renforcé face au dollar et les indices boursiers européens ont cédé en moyenne 0,8 %.</p>",
+      author: "Éric Albert",
+      categoryId: economie.id,
+      publishedAt: new Date("2026-03-20T15:00:00"),
+    },
+    {
+      title: "Le marché immobilier français montre des signes de reprise après deux ans de crise",
+      slug: "marche-immobilier-reprise-france",
+      excerpt: "Les transactions repartent à la hausse au premier trimestre 2026, portées par la baisse des taux de crédit et un ajustement des prix dans les grandes métropoles.",
+      content: "<p>Selon les chiffres des notaires publiés jeudi, le nombre de transactions immobilières a progressé de 12 % au premier trimestre par rapport à la même période de 2025. Les prix, en revanche, restent en recul de 5 à 8 % dans les grandes villes par rapport à leur pic de 2022.</p><p>Paris fait figure d'exception avec une stabilisation autour de 9 200 euros le mètre carré, après avoir perdu près de 15 % en deux ans.</p>",
+      author: "Isabelle Rey-Lefebvre",
+      categoryId: economie.id,
+      publishedAt: new Date("2026-03-19T09:00:00"),
+    },
+    {
+      title: "Airbus dépasse Boeing en commandes pour la cinquième année consécutive",
+      slug: "airbus-depasse-boeing-commandes-cinquieme-annee",
+      excerpt: "L'avionneur européen a engrangé 1 850 commandes nettes en 2025, consolidant sa domination sur le marché mondial de l'aviation commerciale.",
+      content: "<p>Airbus confirme sa position de leader mondial avec un carnet de commandes record de plus de 8 600 appareils. Le succès de la famille A320neo, particulièrement prisée des compagnies low-cost et moyen-courrier, explique l'essentiel de cette performance.</p><p>Boeing, de son côté, peine à retrouver la confiance du marché après les crises successives liées au 737 MAX et aux problèmes de qualité de production.</p>",
+      author: "Guy Dutheil",
+      categoryId: economie.id,
+      publishedAt: new Date("2026-03-18T11:00:00"),
+    },
+    {
+      title: "Canicule précoce : alerte orange dans huit départements du sud de la France",
+      slug: "canicule-precoce-alerte-orange-sud-france",
+      excerpt: "Des températures dépassant 35 °C sont attendues dès ce week-end dans le Midi, un phénomène inhabituel pour un mois de mars, selon Météo-France.",
+      content: "<p>Météo-France a placé huit départements en alerte orange canicule, de l'Hérault aux Bouches-du-Rhône. Les températures pourraient atteindre 37 °C samedi, battant les records de chaleur pour un mois de mars établis en 2023.</p><p>Les autorités sanitaires recommandent aux personnes vulnérables de limiter leurs déplacements et de s'hydrater régulièrement. Les préfectures ont activé les plans « chaleur » dans les Ehpad et les hôpitaux.</p>",
+      author: "Stéphane Mandard",
+      categoryId: societe.id,
+      publishedAt: new Date("2026-03-21T07:30:00"),
+    },
+    {
+      title: "Éducation : la France recule encore dans le classement PISA en mathématiques",
+      slug: "education-france-recul-classement-pisa-mathematiques",
+      excerpt: "Les résultats de l'enquête PISA 2025 confirment la tendance baissière des performances des élèves français, désormais en dessous de la moyenne de l'OCDE.",
+      content: "<p>Avec un score moyen de 468 points en mathématiques (contre 472 en 2022 et 495 en 2018), la France poursuit sa glissade dans le classement international. Le rapport pointe les inégalités sociales persistantes : l'écart entre les élèves les plus favorisés et les plus défavorisés reste l'un des plus élevés de l'OCDE.</p><p>Le ministre de l'Éducation a annoncé un plan de « remise à niveau » incluant le dédoublement des classes de mathématiques au collège et la revalorisation de la filière enseignante.</p>",
+      author: "Violaine Morin",
+      categoryId: societe.id,
+      publishedAt: new Date("2026-03-19T14:00:00"),
+    },
+    {
+      title: "Le nombre de sans-abri en France atteint un niveau record, selon la Fondation Abbé-Pierre",
+      slug: "sans-abri-france-record-fondation-abbe-pierre",
+      excerpt: "Le rapport annuel de la Fondation dénombre plus de 330 000 personnes sans domicile fixe, une augmentation de 15 % en deux ans.",
+      content: "<p>La Fondation Abbé-Pierre tire la sonnette d'alarme dans son 32e rapport sur le mal-logement. Le nombre de personnes sans domicile a atteint 330 000, dont 45 000 enfants. L'augmentation est particulièrement marquée en Île-de-France et dans les grandes métropoles régionales.</p><p>Le rapport préconise la construction de 150 000 logements sociaux par an et la réquisition des logements vacants dans les zones tendues.</p>",
+      author: "Sylvia Zappi",
+      categoryId: societe.id,
+      publishedAt: new Date("2026-03-17T10:30:00"),
+    },
+    {
+      title: "Cannes 2026 : Jacques Audiard présidera le jury du 79e Festival",
+      slug: "cannes-2026-jacques-audiard-president-jury",
+      excerpt: "Le cinéaste français, Palme d'or en 2024, dirigera le jury de la compétition officielle. Une première pour un réalisateur français depuis 2014.",
+      content: "<p>Jacques Audiard, couronné pour « Emilia Pérez » en 2024, succède à Greta Gerwig à la présidence du jury. « C'est un honneur immense et une responsabilité que j'aborde avec humilité », a déclaré le réalisateur dans un communiqué.</p><p>Le festival, qui se tiendra du 12 au 23 mai, a également dévoilé les premiers noms de la sélection officielle, avec des films très attendus de Wong Kar-wai, Céline Sciamma et Bong Joon-ho.</p>",
+      author: "Mathieu Macheret",
+      categoryId: culture.id,
+      publishedAt: new Date("2026-03-21T10:00:00"),
+    },
+    {
+      title: "Le Louvre bat un nouveau record de fréquentation avec 11,2 millions de visiteurs en 2025",
+      slug: "louvre-record-frequentation-2025",
+      excerpt: "Le musée parisien a dépassé son précédent record de 2018, porté par l'exposition événement consacrée à Vermeer et la réouverture de l'aile Richelieu rénovée.",
+      content: "<p>Avec 11,2 millions d'entrées en 2025, le Louvre confirme son statut de musée le plus visité au monde. L'exposition « Vermeer, maître de la lumière », qui a attiré à elle seule 1,4 million de visiteurs entre septembre et décembre, a contribué significativement à ce résultat.</p><p>La direction du musée a annoncé la mise en place d'un système de réservation obligatoire pour 2026, afin de mieux répartir les flux de visiteurs.</p>",
+      author: "Philippe Dagen",
+      categoryId: culture.id,
+      publishedAt: new Date("2026-03-18T12:00:00"),
+    },
+    {
+      title: "Le nouveau roman de Leïla Slimani explore les racines de la violence coloniale",
+      slug: "leila-slimani-nouveau-roman-violence-coloniale",
+      excerpt: "Avec « Les Jardins de cendres », l'écrivaine franco-marocaine livre une fresque familiale ambitieuse sur trois générations, entre Casablanca et Paris.",
+      content: "<p>Publié chez Gallimard, « Les Jardins de cendres » conclut la trilogie commencée avec « Le Pays des autres ». Leïla Slimani y retrace le destin d'une famille marocaine de l'indépendance à nos jours, interrogeant les héritages de la colonisation et les identités multiples.</p><p>La critique est unanime : « Un chef-d'œuvre de sensibilité et de précision historique », écrit Le Figaro littéraire. Le livre est donné favori pour le prix Goncourt 2026.</p>",
+      author: "Florence Bouchy",
+      categoryId: culture.id,
+      publishedAt: new Date("2026-03-16T09:00:00"),
+    },
+    {
+      title: "Ligue 1 : le PSG s'impose dans le classique face à l'OM et prend le large en tête",
+      slug: "ligue-1-psg-om-classique-victoire",
+      excerpt: "Grâce à des buts de Dembélé et Kang-in Lee, le Paris Saint-Germain s'est imposé 2-0 au Vélodrome et compte désormais onze points d'avance.",
+      content: "<p>Dans un Vélodrome bouillant, le PSG a fait parler sa supériorité technique. Ousmane Dembélé a ouvert le score d'une frappe enroulée à la 23e minute, avant que Kang-in Lee ne double la mise sur un contre éclair en seconde période (67e).</p><p>Avec cette 25e victoire en 28 journées, le club parisien file vers un treizième titre de champion de France, le quatrième consécutif sous l'ère Luis Enrique.</p>",
+      author: "Rémi Dupré",
+      categoryId: sport.id,
+      publishedAt: new Date("2026-03-21T00:30:00"),
+    },
+    {
+      title: "Roland-Garros : le tournoi innove avec un toit rétractable sur le court Suzanne-Lenglen",
+      slug: "roland-garros-toit-retractable-suzanne-lenglen",
+      excerpt: "Après le court Philippe-Chatrier en 2020, la Fédération française de tennis équipe son deuxième plus grand court d'une couverture amovible.",
+      content: "<p>Le nouveau toit, d'un coût de 80 millions d'euros, sera opérationnel pour l'édition 2026 du tournoi. Cette structure en acier et verre de 6 200 mètres carrés peut s'ouvrir ou se fermer en quinze minutes.</p><p>« Roland-Garros rattrape son retard sur les autres Grand Chelem », a commenté la présidente de la FFT. L'Open d'Australie et l'US Open disposent déjà de toits sur leurs deux courts principaux.</p>",
+      author: "Franck Ramella",
+      categoryId: sport.id,
+      publishedAt: new Date("2026-03-19T16:00:00"),
+    },
+    {
+      title: "JO 2030 : les Alpes françaises dévoilent le plan de mobilité durable pour les épreuves",
+      slug: "jo-2030-alpes-mobilite-durable",
+      excerpt: "Le comité d'organisation mise sur le rail et les navettes électriques pour limiter l'empreinte carbone des Jeux olympiques d'hiver.",
+      content: "<p>Le plan de transport présenté prévoit un réseau de navettes électriques entre les sites de compétition et un renforcement massif des lignes TGV et TER. L'objectif est de limiter à 20 % la part du transport routier individuel, contre 60 % habituellement pour ce type d'événement.</p><p>Les organisateurs promettent également 100 % d'énergie renouvelable pour alimenter les sites olympiques, grâce à des contrats avec des producteurs d'hydroélectricité alpine.</p>",
+      author: "Clément Guillou",
+      categoryId: sport.id,
+      publishedAt: new Date("2026-03-17T08:00:00"),
+    },
+    {
+      title: "Une nouvelle thérapie génique guérit la drépanocytose chez 90 % des patients traités",
+      slug: "therapie-genique-drepanocytose-resultats",
+      excerpt: "Les résultats de l'essai clinique de phase 3, publiés dans le New England Journal of Medicine, ouvrent la voie à un traitement curatif de cette maladie génétique.",
+      content: "<p>L'essai, mené sur 120 patients dans quinze centres hospitaliers, montre une rémission complète chez 90 % des sujets traités, sans rechute après trois ans de suivi. La thérapie, basée sur la technologie CRISPR-Cas9, corrige directement la mutation responsable de la maladie dans les cellules souches du patient.</p><p>Le coût du traitement, estimé à 2,1 millions d'euros par patient, pose toutefois la question de l'accès équitable, notamment en Afrique subsaharienne où la maladie est la plus répandue.</p>",
+      author: "Sandrine Cabut",
+      categoryId: sciences.id,
+      publishedAt: new Date("2026-03-20T06:00:00"),
+    },
+    {
+      title: "La mission Artemis IV réussit le premier alunissage habité depuis 1972",
+      slug: "artemis-iv-alunissage-habite-lune",
+      excerpt: "Deux astronautes américains ont foulé le sol lunaire dans la région du pôle Sud, marquant le retour de l'humanité sur la Lune après plus de cinquante ans.",
+      content: "<p>Le module Starship HLS s'est posé dans le cratère Shackleton à 15 h 42 (heure de Paris), après un voyage de quatre jours. Les astronautes Jessica Watkins et Michael Lopez-Alegria ont effectué une sortie extravéhiculaire de six heures pour collecter des échantillons de glace dans les zones d'ombre permanente.</p><p>« Un petit pas pour l'homme, un bond de géant pour l'exploration durable de l'espace », a déclaré la commandante Watkins, en écho aux mots de Neil Armstrong. La NASA prévoit l'installation d'une base lunaire permanente d'ici 2032.</p>",
+      author: "Pierre Barthélémy",
+      categoryId: sciences.id,
+      publishedAt: new Date("2026-03-15T18:00:00"),
+    },
+    {
+      title: "Des chercheurs français découvrent un mécanisme clé dans la maladie d'Alzheimer",
+      slug: "alzheimer-decouverte-mecanisme-chercheurs-francais",
+      excerpt: "L'équipe de l'Inserm a identifié une protéine qui accélère la propagation des plaques amyloïdes, ouvrant de nouvelles pistes thérapeutiques.",
+      content: "<p>La protéine TDP-43, déjà connue dans d'autres maladies neurodégénératives, jouerait un rôle central dans la propagation des plaques amyloïdes caractéristiques d'Alzheimer. L'étude, publiée dans Nature Neuroscience, montre que son inhibition réduit de 60 % la formation de plaques chez la souris.</p><p>« Si ces résultats se confirment chez l'humain, nous pourrions disposer d'un traitement préventif d'ici dix ans », estime le professeur Luc Bhatt, directeur de l'étude à l'Inserm de Bordeaux.</p>",
+      author: "Hervé Morin",
+      categoryId: sciences.id,
+      publishedAt: new Date("2026-03-14T07:00:00"),
+    },
+    {
+      title: "Climat : les émissions mondiales de CO2 ont atteint un nouveau pic en 2025",
+      slug: "emissions-co2-mondial-pic-2025",
+      excerpt: "Malgré la croissance des énergies renouvelables, les émissions de gaz à effet de serre ont augmenté de 1,1 % l'an dernier, selon le Global Carbon Project.",
+      content: "<p>Les émissions mondiales de CO2 ont atteint 40,6 gigatonnes en 2025, un record historique. L'Inde et l'Asie du Sud-Est portent l'essentiel de la hausse, tandis que l'Union européenne et les États-Unis voient leurs émissions baisser respectivement de 3 % et 1,5 %.</p><p>Le charbon reste le principal responsable, représentant 40 % des émissions. Les scientifiques du GIEC rappellent que pour limiter le réchauffement à 1,5 °C, les émissions mondiales doivent baisser de 43 % d'ici 2030.</p>",
+      author: "Audrey Garric",
+      categoryId: planete.id,
+      publishedAt: new Date("2026-03-21T06:00:00"),
+    },
+    {
+      title: "La Grande Barrière de corail subit son sixième épisode de blanchissement massif",
+      slug: "grande-barriere-corail-blanchissement-massif",
+      excerpt: "Les relevés aériens montrent que 80 % des récifs sont touchés, un niveau sans précédent attribué aux températures océaniques record.",
+      content: "<p>L'Autorité du parc marin de la Grande Barrière de corail a confirmé l'étendue du blanchissement : 80 % des 3 000 récifs sont affectés, contre 60 % lors de l'épisode précédent en 2024. Les températures de surface de la mer de Corail dépassent de 2,5 °C les moyennes saisonnières.</p><p>Les scientifiques alertent sur le risque de mortalité massive si les conditions ne s'améliorent pas rapidement. « Au-delà de quatre semaines de stress thermique, le corail ne peut pas récupérer », prévient le professeur Terry Hughes de l'université James Cook.</p>",
+      author: "Martine Valo",
+      categoryId: planete.id,
+      publishedAt: new Date("2026-03-18T08:00:00"),
+    },
+    {
+      title: "L'Amazonie a perdu 12 000 km² de forêt en 2025, malgré les promesses du Brésil",
+      slug: "amazonie-deforestation-2025-bresil",
+      excerpt: "Le taux de déforestation repart à la hausse après deux ans de baisse, mettant en péril les engagements climatiques brésiliens.",
+      content: "<p>Les données satellitaires de l'INPE (Institut national de recherche spatiale) révèlent une augmentation de 22 % de la déforestation en Amazonie brésilienne par rapport à 2024. Les incendies volontaires pour l'élevage bovin et la culture du soja restent les principales causes.</p><p>Le président Lula, qui avait promis « zéro déforestation » d'ici 2030, fait face à une pression croissante du lobby agricole au Congrès. Les ONG environnementales dénoncent un « recul dramatique » de la politique de protection forestière.</p>",
+      author: "Bruno Meyerfeld",
+      categoryId: planete.id,
+      publishedAt: new Date("2026-03-16T12:00:00"),
+    },
+    {
+      title: "Tensions autour de Taïwan : Pékin multiplie les manœuvres navales dans le détroit",
+      slug: "taiwan-chine-manoeuvres-navales-detroit",
+      excerpt: "L'armée chinoise a déployé un nombre record de navires et d'avions militaires autour de l'île, provoquant une vive réaction de Washington et de Tokyo.",
+      content: "<p>Pendant quatre jours, la marine chinoise a mené des exercices d'ampleur inédite dans le détroit de Taïwan et autour de l'île, mobilisant 70 navires et 120 avions. Pékin qualifie ces manœuvres de « réponse légitime » à la visite d'un sénateur américain à Taipei.</p><p>Les États-Unis ont renforcé leur présence navale dans la région avec le déploiement du porte-avions USS Gerald Ford. Le Japon a relevé son niveau d'alerte militaire. Taïwan a activé ses systèmes de défense antimissile.</p>",
+      author: "Frédéric Lemaître",
+      categoryId: international.id,
+      publishedAt: new Date("2026-03-16T20:00:00"),
+    },
+    {
+      title: "La tech européenne lève un montant record de 45 milliards d'euros en 2025",
+      slug: "tech-europeenne-levees-fonds-record-2025",
+      excerpt: "L'écosystème start-up du continent rattrape son retard, porté par l'intelligence artificielle, la deeptech et la transition énergétique.",
+      content: "<p>Selon le rapport annuel d'Atomico, les start-up européennes ont levé 45 milliards d'euros en 2025, soit une hausse de 35 % par rapport à 2024. L'intelligence artificielle concentre à elle seule 30 % des investissements, avec des tours de table spectaculaires pour Mistral AI (2 milliards), Aleph Alpha (1,5 milliard) et DeepL (800 millions).</p><p>Paris se classe deuxième hub européen derrière Londres, avec 8,5 milliards levés, devant Berlin (6,2 milliards) et Stockholm (3,1 milliards).</p>",
+      author: "Alexandre Piquard",
+      categoryId: economie.id,
+      publishedAt: new Date("2026-03-15T10:00:00"),
+    },
+    {
+      title: "Procès des PFAS : l'État condamné pour inaction face aux polluants éternels",
+      slug: "proces-pfas-etat-condamne-inaction",
+      excerpt: "Le tribunal administratif de Lyon a reconnu la responsabilité de l'État dans la contamination par les substances per- et polyfluoroalkylées dans la vallée de la chimie.",
+      content: "<p>Le jugement, qualifié d'« historique » par les plaignants, établit que l'État a manqué à son obligation de protection en ne régulant pas les rejets industriels de PFAS malgré les alertes scientifiques répétées depuis 2015.</p><p>Le tribunal ordonne à l'État de mettre en place un plan de dépollution dans un délai de six mois et d'indemniser les 2 000 habitants de la zone contaminée. Le ministère de la Transition écologique a annoncé faire appel.</p>",
+      author: "Stéphane Foucart",
+      categoryId: societe.id,
+      publishedAt: new Date("2026-03-14T14:00:00"),
+    },
+    {
+      title: "NBA : Victor Wembanyama élu joueur le plus utile de la saison à 22 ans",
+      slug: "nba-wembanyama-mvp-saison",
+      excerpt: "Le Français des San Antonio Spurs devient le plus jeune MVP européen de l'histoire de la NBA, confirmant son statut de joueur générationnel.",
+      content: "<p>Avec des moyennes de 28,5 points, 12,3 rebonds et 3,8 contres par match, Victor Wembanyama a dominé la saison régulière et mené les Spurs à la quatrième place de la conférence Ouest. Il devance Luka Dončić et Jayson Tatum dans les votes.</p><p>« Victor est le futur de ce sport, mais il est aussi son présent », a déclaré le coach Gregg Popovich. Le joueur de 22 ans devient le premier Français élu MVP de la NBA.</p>",
+      author: "Clément Guillou",
+      categoryId: sport.id,
+      publishedAt: new Date("2026-03-16T04:00:00"),
+    },
+    {
+      title: "Intelligence artificielle : GPT-5 relance le débat sur la conscience des machines",
+      slug: "gpt-5-debat-conscience-machines",
+      excerpt: "Le dernier modèle d'OpenAI affiche des capacités de raisonnement inédites, poussant philosophes et neuroscientifiques à redéfinir les frontières de l'intelligence.",
+      content: "<p>GPT-5, dévoilé début mars, réussit des tests de raisonnement abstrait jusqu'ici réservés aux humains, notamment le test de compréhension causale de Kahneman et les épreuves de théorie de l'esprit. Ces performances relancent un vieux débat : la machine peut-elle « comprendre » ou ne fait-elle que simuler ?</p><p>« Nous devons distinguer intelligence fonctionnelle et conscience phénoménale », nuance la philosophe Catherine Malabou. « Un système peut résoudre des problèmes complexes sans éprouver quoi que ce soit. »</p>",
+      author: "David Larousserie",
+      categoryId: sciences.id,
+      publishedAt: new Date("2026-03-12T09:00:00"),
+    },
+    {
+      title: "Sécheresse en Espagne : les réservoirs d'eau au plus bas depuis trente ans",
+      slug: "secheresse-espagne-reservoirs-eau-plus-bas",
+      excerpt: "La Catalogne et l'Andalousie font face à une crise hydrique sans précédent, avec des restrictions d'eau drastiques imposées aux particuliers et aux agriculteurs.",
+      content: "<p>Les réservoirs espagnols ne sont remplis qu'à 28 % de leur capacité, le niveau le plus bas depuis 1995. La Catalogne, où les réserves ne dépassent pas 16 %, a interdit le remplissage des piscines et limité la consommation domestique à 200 litres par personne et par jour.</p><p>L'agriculture, qui représente 80 % de la consommation d'eau du pays, est la première touchée. Les producteurs d'olives et d'agrumes anticipent des pertes de récolte de 40 à 60 %.</p>",
+      author: "Sandrine Morel",
+      categoryId: planete.id,
+      publishedAt: new Date("2026-03-13T11:00:00"),
+    },
+  ];
+
+  for (const article of articles) {
+    await prisma.article.upsert({
+      where: { slug: article.slug },
+      update: {},
+      create: article,
+    });
+  }
+
+  // Utilisateur de test
+  const passwordHash = await hash("password123", 12);
+  await prisma.user.upsert({
+    where: { email: "lecteur@lemonde.fr" },
+    update: {},
+    create: {
+      name: "Jean Dupont",
+      email: "lecteur@lemonde.fr",
+      passwordHash,
+    },
+  });
+
+  console.log("Seed terminé : 8 catégories, 30 articles, 1 utilisateur test");
+}
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

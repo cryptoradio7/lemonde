@@ -1,0 +1,82 @@
+"use client";
+
+import { signIn } from "next-auth/react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+export default function SignInPage() {
+  const router = useRouter();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const result = await signIn("credentials", {
+      email: formData.get("email") as string,
+      password: formData.get("password") as string,
+      redirect: false,
+    });
+
+    if (result?.error) {
+      setError("Email ou mot de passe incorrect");
+      setLoading(false);
+    } else {
+      router.push("/espace-perso");
+    }
+  }
+
+  return (
+    <main className="max-w-[400px] mx-auto px-4 py-16">
+      <h1 className="text-2xl font-bold mb-8 text-center">Connexion</h1>
+      {error && (
+        <p className="text-[var(--lemonde-red)] text-sm mb-4 text-center">
+          {error}
+        </p>
+      )}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium mb-1">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className="w-full border border-[var(--lemonde-border)] px-3 py-2 text-sm"
+          />
+        </div>
+        <div>
+          <label htmlFor="password" className="block text-sm font-medium mb-1">
+            Mot de passe
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            required
+            minLength={6}
+            className="w-full border border-[var(--lemonde-border)] px-3 py-2 text-sm"
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-[var(--lemonde-black)] text-white py-2 text-sm font-medium hover:bg-[var(--lemonde-dark)] disabled:opacity-50"
+        >
+          {loading ? "Connexion..." : "Se connecter"}
+        </button>
+      </form>
+      <p className="mt-6 text-center text-sm text-[var(--lemonde-gray)]">
+        Pas encore de compte ?{" "}
+        <a href="/auth/signup" className="text-[var(--lemonde-blue)] hover:underline">
+          Créer un compte
+        </a>
+      </p>
+    </main>
+  );
+}
