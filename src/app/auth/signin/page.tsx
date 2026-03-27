@@ -2,10 +2,14 @@
 
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SignInPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const successMessage = searchParams.get("message") === "compte-cree"
+    ? "Compte créé, connectez-vous"
+    : null;
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -32,6 +36,11 @@ export default function SignInPage() {
   return (
     <main className="max-w-[400px] mx-auto px-4 py-16">
       <h1 className="text-2xl font-bold mb-8 text-center">Connexion</h1>
+      {successMessage && (
+        <p className="text-green-700 text-sm mb-4 text-center bg-green-50 border border-green-200 px-3 py-2">
+          {successMessage}
+        </p>
+      )}
       {error && (
         <p className="text-[var(--lemonde-red)] text-sm mb-4 text-center">
           {error}

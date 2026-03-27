@@ -14,22 +14,29 @@ export default function SignUpPage() {
     setError("");
 
     const formData = new FormData(e.currentTarget);
-    const res = await fetch("/api/auth/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        password: formData.get("password"),
-      }),
-    });
+    let res: Response;
+    try {
+      res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          password: formData.get("password"),
+        }),
+      });
+    } catch {
+      setError("Une erreur est survenue. Veuillez réessayer.");
+      setLoading(false);
+      return;
+    }
 
     if (!res.ok) {
       const data = await res.json();
       setError(data.error || "Erreur lors de la création du compte");
       setLoading(false);
     } else {
-      router.push("/auth/signin");
+      router.push("/auth/signin?message=compte-cree");
     }
   }
 

@@ -4,13 +4,19 @@ import { hash } from "bcryptjs";
 import { z } from "zod";
 
 const signUpSchema = z.object({
-  name: z.string().min(2),
+  name: z.string().trim().min(2),
   email: z.string().email(),
   password: z.string().min(6),
 });
 
 export async function POST(request: NextRequest) {
-  const body = await request.json();
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Corps de requête invalide" }, { status: 400 });
+  }
+
   const parsed = signUpSchema.safeParse(body);
 
   if (!parsed.success) {
