@@ -118,16 +118,16 @@ describe('HeroSection — layout 2 colonnes', () => {
     expect(aside).toBeInTheDocument();
   });
 
-  it('la colonne principale a la classe md:w-[65%]', () => {
+  it('la colonne principale a la classe lg:w-[65%] (desktop)', () => {
     const { container } = render(<HeroSection mainArticle={makeArticle()} sidebarArticles={makeSidebarArticles()} />);
-    const mainCol = container.querySelector('.md\\:w-\\[65\\%\\]');
+    const mainCol = container.querySelector('.lg\\:w-\\[65\\%\\]');
     expect(mainCol).toBeInTheDocument();
   });
 
-  it('la sidebar a la classe md:w-[35%]', () => {
+  it('la sidebar a la classe lg:w-[35%] (desktop)', () => {
     const { container } = render(<HeroSection mainArticle={makeArticle()} sidebarArticles={makeSidebarArticles()} />);
     const aside = container.querySelector('aside');
-    expect(aside?.className).toMatch(/md:w-\[35%\]/);
+    expect(aside?.className).toMatch(/lg:w-\[35%\]/);
   });
 
   it('la section est dans une balise <section>', () => {

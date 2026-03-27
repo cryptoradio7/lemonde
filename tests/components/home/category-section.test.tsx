@@ -95,10 +95,10 @@ describe('CategorySection — en-tête', () => {
 // ─── Tests grille articles ─────────────────────────────────────────────────────
 
 describe('CategorySection — grille articles', () => {
-  it('affiche les articles dans une grille 3 colonnes', () => {
+  it('affiche les articles dans une grille 3 colonnes (lg:grid-cols-3 desktop)', () => {
     const { container } = render(<CategorySection category={makeCategory(3)} />);
     const grid = container.querySelector('.grid');
-    expect(grid?.className).toMatch(/md:grid-cols-3/);
+    expect(grid?.className).toMatch(/lg:grid-cols-3/);
   });
 
   it('affiche 3 articles', () => {

@@ -221,17 +221,29 @@ describe('ArticlePage — Barre métadonnées', () => {
 // ─── Boutons de partage ───────────────────────────────────────────────────────
 
 describe('ArticlePage — ShareButtons', () => {
-  it('affiche le composant ShareButtons', async () => {
+  // Story #20 : 2 instances de ShareButtons (desktop hidden sm:block + mobile sm:hidden)
+  it('affiche le composant ShareButtons (au moins 1 instance)', async () => {
     getArticleBySlugMock.mockResolvedValue(makeArticle());
     await renderPage();
-    expect(screen.getByTestId('share-buttons')).toBeInTheDocument();
+    const shareButtons = screen.getAllByTestId('share-buttons');
+    expect(shareButtons.length).toBeGreaterThanOrEqual(1);
   });
 
-  it('passe le titre correct à ShareButtons', async () => {
+  it('passe le titre correct à ShareButtons (toutes les instances)', async () => {
     getArticleBySlugMock.mockResolvedValue(makeArticle());
     await renderPage();
-    const shareButtons = screen.getByTestId('share-buttons');
-    expect(shareButtons).toHaveAttribute('data-title', 'La réforme de l\'éducation nationale');
+    const shareButtons = screen.getAllByTestId('share-buttons');
+    shareButtons.forEach(btn => {
+      expect(btn).toHaveAttribute('data-title', 'La réforme de l\'éducation nationale');
+    });
+  });
+
+  it('story #20 : 2 instances de ShareButtons (desktop + mobile)', async () => {
+    // Une instance desktop (hidden sm:block) + une instance mobile (sm:hidden)
+    getArticleBySlugMock.mockResolvedValue(makeArticle());
+    await renderPage();
+    const shareButtons = screen.getAllByTestId('share-buttons');
+    expect(shareButtons.length).toBe(2);
   });
 
   it('ShareButtons récupère l\'URL via window.location (pas de prop url)', async () => {
@@ -239,7 +251,8 @@ describe('ArticlePage — ShareButtons', () => {
     // il lit window.location.href via useEffect. On vérifie qu'il est bien rendu.
     getArticleBySlugMock.mockResolvedValue(makeArticle());
     await renderPage('reforme-education');
-    expect(screen.getByTestId('share-buttons')).toBeInTheDocument();
+    const shareButtons = screen.getAllByTestId('share-buttons');
+    expect(shareButtons.length).toBeGreaterThanOrEqual(1);
   });
 });
 
