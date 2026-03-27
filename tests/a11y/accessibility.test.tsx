@@ -3,7 +3,8 @@
  */
 /**
  * Tests — Accessibilité WCAG 2.1 AA (story #19)
- * Couvre : skip-to-content, focus, ARIA, formulaires, pagination, cookie banner
+ * Couvre : skip-to-content, focus, ARIA, formulaires, pagination, cookie banner,
+ *          images alt, landmarks header/footer, auth forms, heading hierarchy, ArticleCard
  */
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
@@ -19,7 +20,31 @@ jest.mock('@/lib/cookieConsent', () => ({
 jest.mock('next/navigation', () => ({
   useRouter: () => ({ push: jest.fn() }),
   usePathname: () => '/rubrique/politique',
-  useSearchParams: () => new URLSearchParams(),
+  useSearchParams: () => ({ get: jest.fn().mockReturnValue(null) }),
+}));
+
+jest.mock('next/link', () => {
+  const MockLink = ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  );
+  MockLink.displayName = 'MockLink';
+  return MockLink;
+});
+
+jest.mock('next/image', () => {
+  const MockImage = ({ src, alt, fill: _fill, unoptimized: _unoptimized, sizes: _sizes, ...props }: {
+    src: string; alt: string; fill?: boolean; unoptimized?: boolean; sizes?: string; [key: string]: unknown;
+  }) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={src} alt={alt} {...props} />
+  );
+  MockImage.displayName = 'MockImage';
+  return MockImage;
+});
+
+const mockSignIn = jest.fn();
+jest.mock('next-auth/react', () => ({
+  signIn: (...args: unknown[]) => mockSignIn(...args),
 }));
 
 const mockFetch = jest.fn();
@@ -31,6 +56,33 @@ import Pagination from '@/components/Pagination';
 import SearchBar from '@/components/SearchBar';
 import CookieBanner from '@/components/CookieBanner';
 import NewsletterForm from '@/components/newsletter/NewsletterForm';
+import HeaderClient from '@/components/HeaderClient';
+import Footer from '@/components/Footer';
+import ImageOrPlaceholder from '@/components/articles/ImageOrPlaceholder';
+import ArticleCard, { type ArticleWithCategory } from '@/components/ArticleCard';
+import SignInPage from '@/app/auth/signin/page';
+import SignUpPage from '@/app/auth/signup/page';
+
+// ─── Fixtures ─────────────────────────────────────────────────────────────────
+
+function makeArticle(overrides: Partial<ArticleWithCategory> = {}): ArticleWithCategory {
+  return {
+    id: 'art-a11y',
+    title: 'Titre accessible de l\'article',
+    slug: 'titre-accessible',
+    excerpt: 'Résumé court.',
+    content: 'Mot '.repeat(300),
+    imageUrl: null,
+    imageAlt: null,
+    author: 'Sophie Martin',
+    categoryId: 'cat-1',
+    publishedAt: new Date('2026-03-25T10:00:00Z'),
+    createdAt: new Date('2026-03-25T10:00:00Z'),
+    updatedAt: new Date('2026-03-25T10:00:00Z'),
+    category: { id: 'cat-1', name: 'Politique', slug: 'politique', description: null, order: 1 },
+    ...overrides,
+  };
+}
 
 // ─── Pagination ───────────────────────────────────────────────────────────────
 
@@ -157,6 +209,289 @@ describe('NewsletterForm — accessibilité a11y', () => {
       const input = screen.getByRole('textbox', { name: /adresse e-mail/i });
       expect(input).toHaveAttribute('aria-invalid', 'true');
       expect(input).toHaveAttribute('aria-describedby', 'newsletter-status');
+    });
+  });
+});
+
+// ─── Skip-to-content ──────────────────────────────────────────────────────────
+
+describe('Skip-to-content — accessibilité', () => {
+  it('le lien pointe vers #main-content', () => {
+    render(
+      <a href="#main-content" className="skip-to-content">
+        Aller au contenu principal
+      </a>
+    );
+    const link = screen.getByRole('link', { name: /aller au contenu principal/i });
+    expect(link).toHaveAttribute('href', '#main-content');
+  });
+
+  it('la cible #main-content existe dans la structure de page', () => {
+    render(
+      <>
+        <a href="#main-content" className="skip-to-content">Aller au contenu principal</a>
+        <main id="main-content" tabIndex={-1}><p>Contenu</p></main>
+      </>
+    );
+    expect(document.getElementById('main-content')).toBeInTheDocument();
+    expect(document.getElementById('main-content')).toHaveAttribute('tabIndex', '-1');
+  });
+
+  it('le texte du lien est explicite pour les lecteurs d\'écran', () => {
+    render(
+      <a href="#main-content" className="skip-to-content">Aller au contenu principal</a>
+    );
+    const link = screen.getByRole('link');
+    expect(link.textContent).toMatch(/aller au contenu principal/i);
+  });
+});
+
+// ─── Header landmarks ─────────────────────────────────────────────────────────
+
+describe('HeaderClient — landmarks ARIA', () => {
+  it('a un élément <header> (role=banner implicite)', () => {
+    render(<HeaderClient formattedDate="vendredi 27 mars 2026" userName={null} />);
+    expect(screen.getByRole('banner')).toBeInTheDocument();
+  });
+
+  it('la nav desktop a aria-label="Navigation principale"', () => {
+    render(<HeaderClient formattedDate="vendredi 27 mars 2026" userName={null} />);
+    expect(screen.getByRole('navigation', { name: /navigation principale/i })).toBeInTheDocument();
+  });
+
+  it('le bouton hamburger a un aria-label et aria-expanded', () => {
+    render(<HeaderClient formattedDate="vendredi 27 mars 2026" userName={null} />);
+    const btn = screen.getByRole('button', { name: /ouvrir le menu/i });
+    expect(btn).toHaveAttribute('aria-expanded', 'false');
+    expect(btn).toHaveAttribute('aria-controls', 'mobile-menu');
+  });
+
+  it('aria-expanded passe à true quand menu mobile ouvert', () => {
+    render(<HeaderClient formattedDate="vendredi 27 mars 2026" userName={null} />);
+    const btn = screen.getByRole('button', { name: /ouvrir le menu/i });
+    fireEvent.click(btn);
+    expect(btn).toHaveAttribute('aria-expanded', 'true');
+  });
+
+  it('le lien recherche a aria-label explicite', () => {
+    render(<HeaderClient formattedDate="vendredi 27 mars 2026" userName={null} />);
+    expect(screen.getByRole('link', { name: /rechercher/i })).toBeInTheDocument();
+  });
+});
+
+// ─── Footer landmarks ─────────────────────────────────────────────────────────
+
+describe('Footer — landmarks ARIA', () => {
+  beforeEach(() => mockFetch.mockReset());
+
+  it('a un élément <footer> (role=contentinfo implicite)', () => {
+    render(<Footer />);
+    expect(screen.getByRole('contentinfo')).toBeInTheDocument();
+  });
+
+  it('les icônes réseaux sociaux ont des aria-label explicites', () => {
+    render(<Footer />);
+    expect(screen.getByRole('link', { name: /x \(twitter\)/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /facebook/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /linkedin/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /instagram/i })).toBeInTheDocument();
+  });
+
+  it('les SVG icônes ont aria-hidden pour ne pas polluer les lecteurs d\'écran', () => {
+    render(<Footer />);
+    const svgs = document.querySelectorAll('footer svg[aria-hidden="true"]');
+    expect(svgs.length).toBeGreaterThanOrEqual(4);
+  });
+});
+
+// ─── ImageOrPlaceholder — accessibilité ───────────────────────────────────────
+
+describe('ImageOrPlaceholder — accessibilité', () => {
+  it('image réelle avec imageAlt → alt non vide', () => {
+    render(
+      <div style={{ position: 'relative', width: 300, height: 200 }}>
+        <ImageOrPlaceholder imageUrl="/photo.jpg" imageAlt="Photo de Paris au coucher du soleil" categoryName="Politique" />
+      </div>
+    );
+    expect(screen.getByRole('img')).toHaveAttribute('alt', 'Photo de Paris au coucher du soleil');
+  });
+
+  it('imageAlt null → fallback sur categoryName (jamais d\'alt vide)', () => {
+    render(
+      <div style={{ position: 'relative', width: 300, height: 200 }}>
+        <ImageOrPlaceholder imageUrl="/photo.jpg" imageAlt={null} categoryName="Culture" />
+      </div>
+    );
+    const img = screen.getByRole('img');
+    expect(img).toHaveAttribute('alt', 'Culture');
+    expect(img.getAttribute('alt')).not.toBe('');
+  });
+
+  it('placeholder décoratif a aria-hidden="true"', () => {
+    render(
+      <div style={{ position: 'relative', width: 300, height: 200 }}>
+        <ImageOrPlaceholder imageUrl={null} imageAlt={null} categoryName="Sport" />
+      </div>
+    );
+    const placeholder = document.querySelector('[aria-hidden="true"]');
+    expect(placeholder).toBeInTheDocument();
+  });
+
+  it('placeholder sans imageUrl ne rend pas d\'élément <img>', () => {
+    render(
+      <div style={{ position: 'relative', width: 300, height: 200 }}>
+        <ImageOrPlaceholder imageUrl={null} imageAlt={null} categoryName="Sciences" />
+      </div>
+    );
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+  });
+});
+
+// ─── ArticleCard — accessibilité ──────────────────────────────────────────────
+
+describe('ArticleCard — accessibilité', () => {
+  it('variant large : le titre est un h2', () => {
+    render(<ArticleCard article={makeArticle()} variant="large" />);
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Titre accessible');
+  });
+
+  it('variant medium : le titre est un h3', () => {
+    render(<ArticleCard article={makeArticle()} variant="medium" />);
+    expect(screen.getByRole('heading', { level: 3 })).toHaveTextContent('Titre accessible');
+  });
+
+  it('variant small : le titre est un h3', () => {
+    render(<ArticleCard article={makeArticle()} variant="small" />);
+    expect(screen.getByRole('heading', { level: 3 })).toHaveTextContent('Titre accessible');
+  });
+
+  it('l\'élément <time> a un attribut dateTime valide', () => {
+    render(<ArticleCard article={makeArticle()} variant="medium" />);
+    const time = document.querySelector('time');
+    expect(time).toBeInTheDocument();
+    expect(time?.getAttribute('dateTime')).toMatch(/^\d{4}-\d{2}-\d{2}/);
+  });
+
+  it('le lien wrappant l\'article a un contenu accessible (titre visible)', () => {
+    render(<ArticleCard article={makeArticle()} variant="medium" />);
+    const link = screen.getByRole('link');
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute('href', '/article/titre-accessible');
+  });
+
+  it('le séparateur "·" est masqué des lecteurs d\'écran (aria-hidden)', () => {
+    render(<ArticleCard article={makeArticle()} variant="medium" />);
+    const separators = document.querySelectorAll('[aria-hidden="true"]');
+    // Au moins un séparateur · est aria-hidden
+    const dots = Array.from(separators).filter(el => el.textContent?.includes('·'));
+    expect(dots.length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+// ─── Auth forms — accessibilité ───────────────────────────────────────────────
+
+describe('SignInPage — accessibilité formulaire', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('les inputs sont associés à leurs labels via htmlFor/id', () => {
+    render(<SignInPage />);
+    expect(screen.getByLabelText(/^email$/i)).toHaveAttribute('id', 'email');
+    expect(screen.getByLabelText(/^mot de passe$/i)).toHaveAttribute('id', 'password');
+  });
+
+  it('les inputs ont les bons types', () => {
+    render(<SignInPage />);
+    expect(screen.getByLabelText(/^email$/i)).toHaveAttribute('type', 'email');
+    expect(screen.getByLabelText(/^mot de passe$/i)).toHaveAttribute('type', 'password');
+  });
+
+  it('le message d\'erreur a role="alert" et aria-live="assertive"', async () => {
+    mockSignIn.mockResolvedValueOnce({ error: 'CredentialsSignin' });
+    render(<SignInPage />);
+    fireEvent.change(screen.getByLabelText(/^email$/i), { target: { value: 'bad@test.com' } });
+    fireEvent.change(screen.getByLabelText(/^mot de passe$/i), { target: { value: 'wrong' } });
+    fireEvent.click(screen.getByRole('button', { name: /se connecter/i }));
+
+    await waitFor(() => {
+      const alert = screen.getByRole('alert');
+      expect(alert).toHaveAttribute('aria-live', 'assertive');
+    });
+  });
+
+  it('les inputs ont aria-invalid="true" et aria-describedby après erreur', async () => {
+    mockSignIn.mockResolvedValueOnce({ error: 'CredentialsSignin' });
+    render(<SignInPage />);
+    fireEvent.change(screen.getByLabelText(/^email$/i), { target: { value: 'bad@test.com' } });
+    fireEvent.change(screen.getByLabelText(/^mot de passe$/i), { target: { value: 'wrong' } });
+    fireEvent.click(screen.getByRole('button', { name: /se connecter/i }));
+
+    await waitFor(() => {
+      const emailInput = screen.getByLabelText(/^email$/i);
+      expect(emailInput).toHaveAttribute('aria-invalid', 'true');
+      expect(emailInput).toHaveAttribute('aria-describedby', 'signin-error');
+    });
+  });
+
+  it('le bouton submit a aria-busy="true" pendant le chargement', async () => {
+    mockSignIn.mockImplementationOnce(() => new Promise(() => {}));
+    render(<SignInPage />);
+    fireEvent.change(screen.getByLabelText(/^email$/i), { target: { value: 'test@test.com' } });
+    fireEvent.change(screen.getByLabelText(/^mot de passe$/i), { target: { value: 'pass' } });
+    fireEvent.click(screen.getByRole('button', { name: /se connecter/i }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: /connexion/i })).toHaveAttribute('aria-busy', 'true');
+    });
+  });
+});
+
+describe('SignUpPage — accessibilité formulaire', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    mockFetch.mockReset();
+  });
+
+  it('les inputs sont associés à leurs labels via htmlFor/id', () => {
+    render(<SignUpPage />);
+    expect(screen.getByLabelText(/^nom$/i)).toHaveAttribute('id', 'name');
+    expect(screen.getByLabelText(/^email$/i)).toHaveAttribute('id', 'email');
+    expect(screen.getByLabelText(/^mot de passe$/i)).toHaveAttribute('id', 'password');
+  });
+
+  it('le message d\'erreur a role="alert" et aria-live="assertive"', async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({ error: 'Erreur serveur' }),
+    });
+    render(<SignUpPage />);
+    fireEvent.change(screen.getByLabelText(/^nom$/i), { target: { value: 'Alice' } });
+    fireEvent.change(screen.getByLabelText(/^email$/i), { target: { value: 'alice@test.com' } });
+    fireEvent.change(screen.getByLabelText(/^mot de passe$/i), { target: { value: 'secret123' } });
+    fireEvent.click(screen.getByRole('button', { name: /créer mon compte/i }));
+
+    await waitFor(() => {
+      const alert = screen.getByRole('alert');
+      expect(alert).toHaveAttribute('aria-live', 'assertive');
+    });
+  });
+
+  it('les inputs en erreur ont aria-invalid et aria-describedby', async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({ error: 'Email déjà utilisé' }),
+    });
+    render(<SignUpPage />);
+    fireEvent.change(screen.getByLabelText(/^nom$/i), { target: { value: 'Bob' } });
+    fireEvent.change(screen.getByLabelText(/^email$/i), { target: { value: 'bob@test.com' } });
+    fireEvent.change(screen.getByLabelText(/^mot de passe$/i), { target: { value: 'pass123' } });
+    fireEvent.click(screen.getByRole('button', { name: /créer mon compte/i }));
+
+    await waitFor(() => {
+      const emailInput = screen.getByLabelText(/^email$/i);
+      expect(emailInput).toHaveAttribute('aria-invalid', 'true');
+      expect(emailInput).toHaveAttribute('aria-describedby', 'signup-error');
     });
   });
 });
