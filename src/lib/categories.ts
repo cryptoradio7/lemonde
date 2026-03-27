@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma';
+import { filterArticlesByTag } from '@/lib/tags';
 
 export const ARTICLES_PER_PAGE = 12;
 
@@ -18,7 +19,6 @@ export async function countCategoryArticles(
     where: { categoryId },
     select: { tags: true },
   });
-  const { filterArticlesByTag } = await import('@/lib/tags');
   return filterArticlesByTag(articles, tag).length;
 }
 
@@ -45,7 +45,6 @@ export async function getCategoryArticles(
     orderBy: { publishedAt: 'desc' },
     include: { category: true },
   });
-  const { filterArticlesByTag } = await import('@/lib/tags');
   const filtered = filterArticlesByTag(all, tag);
   return filtered.slice((page - 1) * perPage, page * perPage);
 }

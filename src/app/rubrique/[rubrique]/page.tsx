@@ -62,10 +62,11 @@ export default async function RubriquePage({ params, searchParams }: Props) {
   const tagData = await getCategoryArticleTagsData(category.id);
   const availableTags = extractTagsFromArticles(tagData);
 
-  // Validation du tag sélectionné : doit exister dans les tags disponibles
-  const activeTag = tag && availableTags.some(
-    (t) => t.toLowerCase() === tag.toLowerCase()
-  ) ? tag : undefined;
+  // Validation du tag sélectionné — retourne la forme canonique (casse d'origine du tag)
+  // pour que le highlighting dans TagFilter (comparaison stricte) fonctionne toujours.
+  const activeTag = tag
+    ? availableTags.find((t) => t.toLowerCase() === tag.toLowerCase())
+    : undefined;
 
   const totalCount = await countCategoryArticles(category.id, activeTag);
   const totalPages = Math.max(1, Math.ceil(totalCount / ARTICLES_PER_PAGE));
