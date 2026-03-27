@@ -8,6 +8,14 @@
   --lm-gray: #6B6B6B;
   --lm-gray-border: #D5D5D5;
   --lm-blue-link: #1A5276;
+
+  /* Aliases --lemonde-* utilisés par les composants auth + espace-perso */
+  --lemonde-black: #1D1D1B;
+  --lemonde-dark: #3D3D3B;
+  --lemonde-gray: #6B6B6B;
+  --lemonde-border: #D5D5D5;
+  --lemonde-blue: #1A5276;
+  --lemonde-red: #E9322D;
 }
 
 @theme {
