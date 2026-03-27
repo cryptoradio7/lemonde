@@ -1,30 +1,37 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { prisma } from '@/lib/prisma';
+import { notFound, redirect } from 'next/navigation';
 import ArticleCard from '@/components/ArticleCard';
 import Breadcrumb from '@/components/Breadcrumb';
+import Pagination from '@/components/Pagination';
+import {
+  getCategoryBySlug,
+  countCategoryArticles,
+  getCategoryArticles,
+  getAllCategorySlugs,
+  ARTICLES_PER_PAGE,
+} from '@/lib/categories';
+import { slugify } from '@/lib/utils';
 
 interface Props {
   params: Promise<{ rubrique: string }>;
   searchParams: Promise<{ page?: string }>;
 }
 
-const ARTICLES_PER_PAGE = 12;
-
 export async function generateStaticParams() {
-  const categories = await prisma.category.findMany({ select: { slug: true } });
-  return categories.map((c) => ({ rubrique: c.slug }));
+  const slugs = await getAllCategorySlugs();
+  return slugs.map((c) => ({ rubrique: c.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { rubrique } = await params;
-  const category = await prisma.category.findUnique({ where: { slug: rubrique } });
-  if (!category) return { title: 'Rubrique non trouvée' };
+  const normalizedSlug = slugify(rubrique);
+  const category = await getCategoryBySlug(normalizedSlug);
+  if (!category) return { title: 'Rubrique non trouvée — Le Monde' };
   return {
-    title: `${category.name} - Toute l'actualité`,
+    title: `${category.name} — Le Monde`,
     description: `Retrouvez toute l'actualité ${category.name} sur Le Monde.`,
     openGraph: {
-      title: `${category.name} - Le Monde`,
+      title: `${category.name} — Le Monde`,
       description: `Retrouvez toute l'actualité ${category.name} sur Le Monde.`,
     },
   };
@@ -34,20 +41,27 @@ export default async function RubriquePage({ params, searchParams }: Props) {
   const { rubrique } = await params;
   const { page } = await searchParams;
 
-  const category = await prisma.category.findUnique({ where: { slug: rubrique } });
+  // Normalisation slug accentué : société → societe
+  const normalizedSlug = slugify(rubrique);
+  if (normalizedSlug !== rubrique) {
+    const queryStr = page && page !== '1' ? `?page=${page}` : '';
+    redirect(`/rubrique/${normalizedSlug}${queryStr}`);
+  }
+
+  const category = await getCategoryBySlug(normalizedSlug);
   if (!category) notFound();
 
-  const totalCount = await prisma.article.count({ where: { categoryId: category.id } });
-  const currentPage = Math.max(1, parseInt(page || '1', 10));
-  const totalPages = Math.ceil(totalCount / ARTICLES_PER_PAGE);
+  const totalCount = await countCategoryArticles(category.id);
+  const totalPages = Math.max(1, Math.ceil(totalCount / ARTICLES_PER_PAGE));
+  const rawPage = parseInt(page || '1', 10);
+  const currentPage = isNaN(rawPage) || rawPage < 1 ? 1 : rawPage;
 
-  const articles = await prisma.article.findMany({
-    where: { categoryId: category.id },
-    orderBy: { publishedAt: 'desc' },
-    skip: (currentPage - 1) * ARTICLES_PER_PAGE,
-    take: ARTICLES_PER_PAGE,
-    include: { category: true },
-  });
+  // Redirect si page demandée dépasse le total
+  if (currentPage > totalPages) {
+    redirect(`/rubrique/${normalizedSlug}?page=${totalPages}`);
+  }
+
+  const articles = await getCategoryArticles(category.id, currentPage);
 
   return (
     <div className="max-w-[1200px] mx-auto px-4 py-6">
@@ -58,15 +72,15 @@ export default async function RubriquePage({ params, searchParams }: Props) {
         ]}
       />
 
-      <h1
-        className="text-3xl md:text-4xl font-bold mt-4 mb-2 text-[#1D1D1B]"
-        style={{ fontFamily: 'Georgia, serif' }}
-      >
-        {category.name.toUpperCase()}
-      </h1>
-      <p className="text-[#6B6B6B] mb-8 font-sans text-sm">
-        Retrouvez toute l&apos;actualité {category.name} en continu sur Le Monde.
-      </p>
+      <div className="mt-4 mb-8">
+        <h1
+          className="text-4xl md:text-5xl font-bold uppercase tracking-wide text-[#1D1D1B]"
+          style={{ fontFamily: 'Georgia, serif' }}
+        >
+          {category.name}
+        </h1>
+        <div className="mt-3 h-[3px] w-16 bg-[#005C9C]" />
+      </div>
 
       {articles.length === 0 ? (
         <p className="text-[#6B6B6B] text-center py-12 font-sans">
@@ -80,45 +94,19 @@ export default async function RubriquePage({ params, searchParams }: Props) {
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {(currentPage === 1 ? articles.slice(1) : articles).map((article) => (
-              <ArticleCard key={article.id} article={article} variant="medium" />
-            ))}
-          </div>
-
-          {totalPages > 1 && (
-            <div className="flex justify-center items-center gap-2 mt-10">
-              {currentPage > 1 && (
-                <a
-                  href={`/rubrique/${rubrique}?page=${currentPage - 1}`}
-                  className="px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
-                >
-                  ← Précédent
-                </a>
-              )}
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                <a
-                  key={p}
-                  href={`/rubrique/${rubrique}?page=${p}`}
-                  className={`px-3 py-2 text-sm border font-sans ${
-                    p === currentPage
-                      ? 'bg-[#1D1D1B] text-white border-[#1D1D1B]'
-                      : 'border-[#D5D5D5] hover:bg-[#F5F5F5]'
-                  }`}
-                >
-                  {p}
-                </a>
+          {(currentPage === 1 ? articles.slice(1) : articles).length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {(currentPage === 1 ? articles.slice(1) : articles).map((article) => (
+                <ArticleCard key={article.id} article={article} variant="medium" />
               ))}
-              {currentPage < totalPages && (
-                <a
-                  href={`/rubrique/${rubrique}?page=${currentPage + 1}`}
-                  className="px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
-                >
-                  Suivant →
-                </a>
-              )}
             </div>
           )}
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            baseUrl={`/rubrique/${normalizedSlug}`}
+          />
         </>
       )}
     </div>
