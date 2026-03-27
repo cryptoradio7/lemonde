@@ -4,24 +4,18 @@
  */
 
 import { prisma } from '@/lib/prisma';
-import type { Article, Category } from '@prisma/client';
+import { formatTime } from '@/lib/utils';
+import type { ArticleWithCategory } from '@/components/ArticleCard';
 
-export type ArticleWithCategory = Article & { category: Category };
+export type { ArticleWithCategory };
 
 /** Nombre maximum d'articles affichés dans le fil "En continu". */
 export const LIVE_FEED_LIMIT = 10;
 
 /**
- * Formate une date en heure HH:MM (format 24h, locale fr-FR).
- * Alias exporté de formatTime pour la testabilité isolée de cette feature.
+ * Alias de formatTime (utils) pour la testabilité isolée de cette feature.
  */
-export function formatHeure(date: Date): string {
-  return date.toLocaleTimeString('fr-FR', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  });
-}
+export const formatHeure = formatTime;
 
 /**
  * Trie un tableau d'articles pour le fil "En continu" :

@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/home/HeroSection";
 import LiveFeed from "@/components/home/LiveFeed";
 import CategorySection from "@/components/home/CategorySection";
+import { getLiveFeedArticles } from "@/lib/liveFeed";
 
 export const metadata: Metadata = {
   title:
@@ -41,11 +42,7 @@ export default async function HomePage() {
   });
 
   // Fil "En continu" : 10 derniers articles par date de publication puis création
-  const liveFeedArticles = await prisma.article.findMany({
-    orderBy: [{ publishedAt: "desc" }, { createdAt: "desc" }],
-    take: 10,
-    include: { category: true },
-  });
+  const liveFeedArticles = await getLiveFeedArticles();
 
   // Rubriques avec leurs articles (ordre défini par Category.order)
   const categories = await prisma.category.findMany({
