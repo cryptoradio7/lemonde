@@ -1,43 +1,12 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import type { Article, Category } from '@prisma/client';
 import { formatDateShort } from '@/lib/utils';
+import ImageOrPlaceholder from '@/components/articles/ImageOrPlaceholder';
 
 type CategoryWithArticles = Category & { articles: Article[] };
 
 interface CategorySectionProps {
   category: CategoryWithArticles;
-}
-
-function ArticleImage({
-  imageUrl,
-  imageAlt,
-  categoryName,
-}: {
-  imageUrl: string | null;
-  imageAlt: string | null;
-  categoryName: string;
-}) {
-  return (
-    <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#D5D5D5]">
-      {imageUrl ? (
-        <Image
-          src={imageUrl}
-          alt={imageAlt ?? categoryName}
-          fill
-          unoptimized
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-      ) : (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-[#6B6B6B] text-xs font-sans uppercase tracking-wider">
-            {categoryName}
-          </span>
-        </div>
-      )}
-    </div>
-  );
 }
 
 export default function CategorySection({ category }: CategorySectionProps) {
@@ -64,11 +33,15 @@ export default function CategorySection({ category }: CategorySectionProps) {
         {category.articles.map((article) => (
           <Link key={article.id} href={`/article/${article.slug}`} className="group block">
             <article>
-              <ArticleImage
-                imageUrl={article.imageUrl}
-                imageAlt={article.imageAlt}
-                categoryName={category.name}
-              />
+              <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#D5D5D5]">
+                <ImageOrPlaceholder
+                  imageUrl={article.imageUrl}
+                  imageAlt={article.imageAlt}
+                  categoryName={category.name}
+                  scale
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
               <div className="pt-3">
                 <h3
                   className="text-base font-bold text-[#1D1D1B] leading-snug mb-2 group-hover:underline decoration-1 underline-offset-2 line-clamp-3"

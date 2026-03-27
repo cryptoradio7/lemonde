@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import type { Article, Category } from '@prisma/client';
 import { formatDateShort } from '@/lib/utils';
+import ImageOrPlaceholder from '@/components/articles/ImageOrPlaceholder';
 
 export type ArticleWithCategory = Article & { category: Category };
 
@@ -13,42 +13,6 @@ interface ArticleCardProps {
 function calcReadingTime(content: string): string {
   const words = content.trim().split(/\s+/).length;
   return `${Math.max(1, Math.ceil(words / 200))} min de lecture`;
-}
-
-function ImageOrPlaceholder({
-  imageUrl,
-  imageAlt,
-  categoryName,
-  className,
-  sizes,
-  scale,
-}: {
-  imageUrl: string | null;
-  imageAlt: string | null;
-  categoryName: string;
-  className?: string;
-  sizes?: string;
-  scale?: boolean;
-}) {
-  if (imageUrl) {
-    return (
-      <Image
-        src={imageUrl}
-        alt={imageAlt ?? categoryName}
-        fill
-        unoptimized
-        className={`object-cover ${scale ? 'group-hover:scale-105 transition-transform duration-500' : ''} ${className ?? ''}`}
-        sizes={sizes}
-      />
-    );
-  }
-  return (
-    <div className="absolute inset-0 bg-[#D5D5D5] flex items-center justify-center">
-      <span className="text-[#6B6B6B] text-xs font-sans uppercase tracking-wider">
-        {categoryName}
-      </span>
-    </div>
-  );
 }
 
 export default function ArticleCard({ article, variant = 'medium' }: ArticleCardProps) {
@@ -68,9 +32,7 @@ export default function ArticleCard({ article, variant = 'medium' }: ArticleCard
               scale
               sizes="100vw"
             />
-            {imageUrl && (
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
               <span className="inline-block px-2 py-1 text-xs font-sans font-semibold uppercase tracking-wider text-white bg-[#E9322D] mb-3">
                 {category.name}
