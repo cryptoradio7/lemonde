@@ -110,24 +110,28 @@ describe('POST /api/newsletter', () => {
     expect(mockFindUnique).not.toHaveBeenCalled();
   });
 
-  it('500 — propage une erreur Prisma findUnique', async () => {
+  it('500 — retourne HTTP 500 si erreur Prisma findUnique', async () => {
     mockFindUnique.mockRejectedValue(new Error('DB connection failed'));
 
     const req = makeRequest({ email: 'test@example.com' });
+    const res = await POST(req as never);
 
-    await expect(POST(req as never)).rejects.toThrow('DB connection failed');
+    expect(res.status).toBe(500);
+    expect(res.body).toEqual({ error: 'Une erreur est survenue' });
   });
 
-  it('500 — propage une erreur Prisma create', async () => {
+  it('500 — retourne HTTP 500 si erreur Prisma create', async () => {
     mockFindUnique.mockResolvedValue(null);
     mockCreate.mockRejectedValue(new Error('Unique constraint'));
 
     const req = makeRequest({ email: 'test@example.com' });
+    const res = await POST(req as never);
 
-    await expect(POST(req as never)).rejects.toThrow('Unique constraint');
+    expect(res.status).toBe(500);
+    expect(res.body).toEqual({ error: 'Une erreur est survenue' });
   });
 
-  it('normalise les emails en minuscules via Zod', async () => {
+  it('accepte un email avec majuscules (Zod ne lowercasifie pas)', async () => {
     mockFindUnique.mockResolvedValue(null);
     mockCreate.mockResolvedValue({ id: '2', email: 'user@example.com' });
 

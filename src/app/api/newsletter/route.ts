@@ -25,23 +25,30 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const existing = await prisma.newsletter.findUnique({
-    where: { email: parsed.data.email },
-  });
+  try {
+    const existing = await prisma.newsletter.findUnique({
+      where: { email: parsed.data.email },
+    });
 
-  if (existing) {
+    if (existing) {
+      return NextResponse.json(
+        { error: "Cette adresse est déjà inscrite" },
+        { status: 409 }
+      );
+    }
+
+    await prisma.newsletter.create({
+      data: { email: parsed.data.email },
+    });
+
     return NextResponse.json(
-      { error: "Cette adresse est déjà inscrite" },
-      { status: 409 }
+      { message: "Inscription réussie" },
+      { status: 201 }
+    );
+  } catch {
+    return NextResponse.json(
+      { error: "Une erreur est survenue" },
+      { status: 500 }
     );
   }
-
-  await prisma.newsletter.create({
-    data: { email: parsed.data.email },
-  });
-
-  return NextResponse.json(
-    { message: "Inscription réussie" },
-    { status: 201 }
-  );
 }

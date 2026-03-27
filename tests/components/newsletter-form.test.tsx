@@ -79,14 +79,16 @@ describe('NewsletterForm — soumission', () => {
     });
   });
 
-  it('400 → affiche message de validation', async () => {
+  it('400 → affiche message de validation (email invalide côté API)', async () => {
     mockFetch.mockResolvedValueOnce({ status: 400 });
 
-    render(<NewsletterForm />);
+    // Soumettre le formulaire directement (simule un contournement de la validation navigateur,
+    // ex: appel API direct ou test d'intégration) pour tester la gestion du 400 serveur.
+    const { container } = render(<NewsletterForm />);
     fireEvent.change(screen.getByRole('textbox', { name: /adresse e-mail/i }), {
       target: { value: 'invalid' },
     });
-    fireEvent.click(screen.getByRole('button', { name: /s'inscrire/i }));
+    fireEvent.submit(container.querySelector('form')!);
 
     await waitFor(() => {
       expect(screen.getByRole('status')).toHaveTextContent('Veuillez saisir une adresse e-mail valide.');
