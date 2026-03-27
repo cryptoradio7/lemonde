@@ -2,19 +2,16 @@
 
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
+import { getConsent } from '@/lib/cookieConsent';
 
 export default function PlausibleAnalytics() {
   const [consent, setConsent] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem('cookie_consent');
-    if (stored === 'true') {
-      setConsent(true);
-    }
+    setConsent(getConsent() === 'true');
 
     const handler = () => {
-      const updated = localStorage.getItem('cookie_consent');
-      setConsent(updated === 'true');
+      setConsent(getConsent() === 'true');
     };
     window.addEventListener('storage', handler);
     window.addEventListener('consent-updated', handler);
