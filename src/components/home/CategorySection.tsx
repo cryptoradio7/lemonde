@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Article, Category } from '@prisma/client';
-import { formatDateShort } from '@/lib/utils';
+import { formatRelativeDate } from '@/lib/utils';
 import ImageOrPlaceholder from '@/components/articles/ImageOrPlaceholder';
 
 type CategoryWithArticles = Category & { articles: Article[] };
@@ -61,7 +61,7 @@ export default function CategorySection({ category }: CategorySectionProps) {
                   <span>{article.author}</span>
                   <span className="mx-1">&middot;</span>
                   <time dateTime={article.publishedAt.toISOString()}>
-                    {formatDateShort(new Date(article.publishedAt))}
+                    {formatRelativeDate(new Date(article.publishedAt))}
                   </time>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { formatDateShort } from '@/lib/utils';
+import { formatRelativeDate } from '@/lib/utils';
 import type { ArticleWithCategory } from '@/components/ArticleCard';
 
 interface HeroSectionProps {
@@ -36,7 +36,7 @@ export default function HeroSection({ mainArticle, sidebarArticles }: HeroSectio
             {mainArticle.author}
             <span className="mx-2 text-[#D5D5D5]">|</span>
             <time dateTime={mainArticle.publishedAt.toISOString()}>
-              {formatDateShort(new Date(mainArticle.publishedAt))}
+              {formatRelativeDate(new Date(mainArticle.publishedAt))}
             </time>
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function HeroSection({ mainArticle, sidebarArticles }: HeroSectio
                   dateTime={article.publishedAt.toISOString()}
                   className="block mt-1 text-xs text-[#6B6B6B] font-sans"
                 >
-                  {formatDateShort(new Date(article.publishedAt))}
+                  {formatRelativeDate(new Date(article.publishedAt))}
                 </time>
               </Link>
               {index < sidebarArticles.length - 1 && (
