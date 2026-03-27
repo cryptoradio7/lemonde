@@ -3,7 +3,105 @@
  * Couvre : slugify, formatDateShort
  */
 
-import { slugify, formatDateShort } from '@/lib/utils';
+import { slugify, formatDateShort, formatRelativeDate } from '@/lib/utils';
+
+// ─── formatRelativeDate ───────────────────────────────────────────────────────
+
+describe('formatRelativeDate', () => {
+  const NOW = new Date('2026-03-27T12:00:00Z').getTime();
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+    jest.setSystemTime(NOW);
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  describe('happy path', () => {
+    it('< 1 min → "À l\'instant"', () => {
+      const date = new Date(NOW - 30 * 1000);
+      expect(formatRelativeDate(date)).toBe('À l\'instant');
+    });
+
+    it('exactement 0ms → "À l\'instant"', () => {
+      const date = new Date(NOW);
+      expect(formatRelativeDate(date)).toBe('À l\'instant');
+    });
+
+    it('5 minutes → "Il y a 5 min"', () => {
+      const date = new Date(NOW - 5 * 60 * 1000);
+      expect(formatRelativeDate(date)).toBe('Il y a 5 min');
+    });
+
+    it('59 minutes → "Il y a 59 min"', () => {
+      const date = new Date(NOW - 59 * 60 * 1000);
+      expect(formatRelativeDate(date)).toBe('Il y a 59 min');
+    });
+
+    it('1 heure → "Il y a 1h"', () => {
+      const date = new Date(NOW - 60 * 60 * 1000);
+      expect(formatRelativeDate(date)).toBe('Il y a 1h');
+    });
+
+    it('3 heures → "Il y a 3h"', () => {
+      const date = new Date(NOW - 3 * 60 * 60 * 1000);
+      expect(formatRelativeDate(date)).toBe('Il y a 3h');
+    });
+
+    it('23 heures → "Il y a 23h"', () => {
+      const date = new Date(NOW - 23 * 60 * 60 * 1000);
+      expect(formatRelativeDate(date)).toBe('Il y a 23h');
+    });
+
+    it('1 jour → "Il y a 1 jours"', () => {
+      const date = new Date(NOW - 24 * 60 * 60 * 1000);
+      expect(formatRelativeDate(date)).toBe('Il y a 1 jours');
+    });
+
+    it('3 jours → "Il y a 3 jours"', () => {
+      const date = new Date(NOW - 3 * 24 * 60 * 60 * 1000);
+      expect(formatRelativeDate(date)).toBe('Il y a 3 jours');
+    });
+
+    it('6 jours → "Il y a 6 jours"', () => {
+      const date = new Date(NOW - 6 * 24 * 60 * 60 * 1000);
+      expect(formatRelativeDate(date)).toBe('Il y a 6 jours');
+    });
+
+    it('7 jours → date absolue', () => {
+      const date = new Date(NOW - 7 * 24 * 60 * 60 * 1000);
+      const result = formatRelativeDate(date);
+      expect(result).toContain('mars');
+      expect(result).toContain('2026');
+    });
+
+    it('> 7 jours → date absolue avec mois en français', () => {
+      const date = new Date(NOW - 30 * 24 * 60 * 60 * 1000);
+      const result = formatRelativeDate(date);
+      expect(result).toMatch(/\d+ [\w\u00C0-\u024F]+ \d{4}/);
+      expect(result).not.toMatch(/Il y a/);
+    });
+  });
+
+  describe('edge cases', () => {
+    it('date dans le futur → date absolue', () => {
+      const date = new Date(NOW + 60 * 60 * 1000);
+      const result = formatRelativeDate(date);
+      expect(result).not.toMatch(/Il y a/);
+      expect(result).not.toBe('À l\'instant');
+      expect(result).toContain('2026');
+    });
+
+    it('date très ancienne → date absolue', () => {
+      const date = new Date('2020-01-01T00:00:00Z');
+      const result = formatRelativeDate(date);
+      expect(result).toContain('2020');
+      expect(result).toContain('janvier');
+    });
+  });
+});
 
 // ─── slugify ─────────────────────────────────────────────────────────────────
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Article, Category } from '@prisma/client';
-import { formatDateShort } from '@/lib/utils';
+import { formatRelativeDate } from '@/lib/utils';
 import ImageOrPlaceholder from '@/components/articles/ImageOrPlaceholder';
 import { calcReadingTime } from '@/utils/readingTime';
 
@@ -13,7 +13,7 @@ interface ArticleCardProps {
 
 export default function ArticleCard({ article, variant = 'medium' }: ArticleCardProps) {
   const { title, excerpt, author, publishedAt, category, imageUrl, imageAlt, slug, content } = article;
-  const formattedDate = formatDateShort(new Date(publishedAt));
+  const formattedDate = formatRelativeDate(new Date(publishedAt));
   const readingTime = calcReadingTime(content);
 
   if (variant === 'large') {

@@ -7,7 +7,7 @@ import { getArticleBySlug, getRelatedArticles, getAllArticleSlugs } from '@/lib/
 import Breadcrumb from '@/components/Breadcrumb';
 import ShareButtons from '@/components/articles/ShareButtons';
 import ArticleCard from '@/components/ArticleCard';
-import { formatDateShort } from '@/lib/utils';
+import { formatDateWithTime } from '@/lib/utils';
 import { calcReadingTime } from '@/utils/readingTime';
 
 type Props = {
@@ -65,7 +65,7 @@ export default async function ArticlePage({ params }: Props) {
 
   const safeContent = DOMPurify.sanitize(article.content);
 
-  const formattedDate = formatDateShort(new Date(article.publishedAt));
+  const formattedDate = formatDateWithTime(new Date(article.publishedAt));
   const readingTime = calcReadingTime(article.content);
 
   const breadcrumbItems = [
