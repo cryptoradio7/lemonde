@@ -1,3 +1,4 @@
+import type { Article, Category } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 
 export const SEARCH_RESULTS_PER_PAGE = 12;
@@ -31,8 +32,10 @@ export function buildSearchWhere(query: string, rubrique: string) {
   };
 }
 
+export type ArticleWithCategory = Article & { category: Category };
+
 export interface SearchResult {
-  articles: Awaited<ReturnType<typeof prisma.article.findMany>>;
+  articles: ArticleWithCategory[];
   total: number;
   totalPages: number;
   currentPage: number;
@@ -63,7 +66,7 @@ export async function searchArticles(
       include: { category: true },
       skip: (currentPage - 1) * SEARCH_RESULTS_PER_PAGE,
       take: SEARCH_RESULTS_PER_PAGE,
-    }),
+    }) as Promise<ArticleWithCategory[]>,
   ]);
 
   return {

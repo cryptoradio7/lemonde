@@ -12,7 +12,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const params = await searchParams;
   const query = truncateQuery(params.q || '');
   return {
-    title: query ? `Recherche : ${query}` : 'Recherche',
+    title: query ? `Recherche\u00a0: ${query} \u2014 Le Monde` : 'Recherche \u2014 Le Monde',
     description: `Résultats de recherche pour "${query}" sur Le Monde.`,
   };
 }

@@ -25,13 +25,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
 
+  const description =
+    article.excerpt ||
+    article.content
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 160);
+
   return {
     title: `${article.title} — Le Monde`,
-    description: article.excerpt,
+    description,
     openGraph: {
       type: 'article',
       title: article.title,
-      description: article.excerpt,
+      description,
       url: `${baseUrl}/article/${article.slug}`,
       images: article.imageUrl
         ? [{ url: article.imageUrl, alt: article.imageAlt ?? article.title }]

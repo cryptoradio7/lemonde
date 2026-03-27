@@ -1,43 +1,53 @@
-import { MetadataRoute } from 'next';
-import { articles, getAllRubriques } from '@/data/articles';
+import type { MetadataRoute } from 'next';
+import { prisma } from '@/lib/prisma';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://lemonde-clone.vercel.app';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
 
-  const articleUrls = articles.map((article) => ({
-    url: `${baseUrl}/article/${article.slug}`,
-    lastModified: new Date(article.date),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [articles, categories] = await Promise.all([
+    prisma.article.findMany({
+      select: { slug: true, updatedAt: true },
+      orderBy: { publishedAt: 'desc' },
+    }),
+    prisma.category.findMany({
+      select: { slug: true },
+    }),
+  ]);
 
-  const rubriqueUrls = getAllRubriques().map((rubrique) => ({
-    url: `${baseUrl}/rubrique/${rubrique.toLowerCase()}`,
-    lastModified: new Date(),
-    changeFrequency: 'daily' as const,
-    priority: 0.7,
-  }));
-
-  return [
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: BASE_URL,
       lastModified: new Date(),
       changeFrequency: 'hourly',
       priority: 1,
     },
     {
-      url: `${baseUrl}/recherche`,
+      url: `${BASE_URL}/recherche`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/politique-de-confidentialite`,
+      url: `${BASE_URL}/politique-de-confidentialite`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.3,
     },
-    ...rubriqueUrls,
-    ...articleUrls,
   ];
+
+  const categoryRoutes: MetadataRoute.Sitemap = categories.map((c) => ({
+    url: `${BASE_URL}/rubrique/${c.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'daily' as const,
+    priority: 0.7,
+  }));
+
+  const articleRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
+    url: `${BASE_URL}/article/${a.slug}`,
+    lastModified: a.updatedAt,
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...categoryRoutes, ...articleRoutes];
 }

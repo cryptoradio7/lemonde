@@ -1,4 +1,6 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://lemonde-clone.vercel.app/sitemap.xml',
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }

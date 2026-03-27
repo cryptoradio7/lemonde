@@ -1,11 +1,11 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-export default function SignInPage() {
+function SignInForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const successMessage = searchParams.get("message") === "compte-cree"
@@ -35,8 +35,7 @@ export default function SignInPage() {
   }
 
   return (
-    <main className="max-w-[400px] mx-auto px-4 py-16">
-      <h1 className="text-2xl font-bold mb-8 text-center">Connexion</h1>
+    <>
       {successMessage && (
         <p className="text-green-700 text-sm mb-4 text-center bg-green-50 border border-green-200 px-3 py-2">
           {successMessage}
@@ -87,6 +86,17 @@ export default function SignInPage() {
           Créer un compte
         </Link>
       </p>
+    </>
+  );
+}
+
+export default function SignInPage() {
+  return (
+    <main className="max-w-[400px] mx-auto px-4 py-16">
+      <h1 className="text-2xl font-bold mb-8 text-center">Connexion</h1>
+      <Suspense>
+        <SignInForm />
+      </Suspense>
     </main>
   );
 }

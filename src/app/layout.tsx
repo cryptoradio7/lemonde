@@ -6,8 +6,8 @@ import CookieBanner from "@/components/CookieBanner";
 
 export const metadata: Metadata = {
   title: {
-    default: "Le Monde.fr - Actualités et Infos en France et dans le monde",
-    template: "%s - Le Monde",
+    default: "Le Monde.fr \u2014 Actualités et Infos en France et dans le monde",
+    template: "%s \u2014 Le Monde",
   },
   description:
     "Le Monde.fr - 1er site d'information français. Actu en continu, archives gratuites, galeries photo, vidéo. Retrouvez l'actualité politique, internationale, économique, culturelle, sportive et scientifique.",
