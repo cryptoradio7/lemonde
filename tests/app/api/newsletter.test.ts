@@ -138,4 +138,17 @@ describe('POST /api/newsletter', () => {
     // L'email est valide syntaxiquement, donc 201 (Zod accepte les majuscules)
     expect(res.status).toBe(201);
   });
+
+  it('201 — accepte un email avec espaces (trim avant validation)', async () => {
+    mockFindUnique.mockResolvedValue(null);
+    mockCreate.mockResolvedValue({ id: '3', email: 'test@example.com' });
+
+    const req = makeRequest({ email: '  test@example.com  ' });
+    const res = await POST(req as never);
+
+    expect(res.status).toBe(201);
+    expect(mockCreate).toHaveBeenCalledWith({
+      data: { email: 'test@example.com' },
+    });
+  });
 });

@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { z } from "zod";
 
 const schema = z.object({
-  email: z.string().email(),
+  email: z.string().trim().email(),
 });
 
 export async function POST(request: NextRequest) {

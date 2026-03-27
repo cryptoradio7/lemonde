@@ -81,7 +81,7 @@ describe('Footer — formulaire newsletter', () => {
     fireEvent.click(screen.getByRole('button', { name: /s'inscrire/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent('Vous êtes bien inscrit(e) à notre newsletter.');
+      expect(screen.getByRole('status')).toHaveTextContent('Inscription confirmée !');
     });
   });
 
@@ -94,7 +94,7 @@ describe('Footer — formulaire newsletter', () => {
     fireEvent.click(screen.getByRole('button', { name: /s'inscrire/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent('Cette adresse est déjà inscrite.');
+      expect(screen.getByRole('status')).toHaveTextContent('Cette adresse est déjà inscrite');
     });
   });
 
@@ -120,7 +120,7 @@ describe('Footer — formulaire newsletter', () => {
     fireEvent.click(screen.getByRole('button', { name: /s'inscrire/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent('Une erreur est survenue, réessayez.');
+      expect(screen.getByRole('status')).toHaveTextContent('Une erreur est survenue');
     });
   });
 
@@ -133,7 +133,7 @@ describe('Footer — formulaire newsletter', () => {
     fireEvent.click(screen.getByRole('button', { name: /s'inscrire/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent('Une erreur est survenue, réessayez.');
+      expect(screen.getByRole('status')).toHaveTextContent('Une erreur est survenue');
     });
   });
 
