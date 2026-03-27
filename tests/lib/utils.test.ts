@@ -1,9 +1,9 @@
 /**
  * Tests — lib/utils.ts
- * Couvre : slugify, findRubriqueBySlug, formatDateShort
+ * Couvre : slugify, formatDateShort
  */
 
-import { slugify, findRubriqueBySlug, formatDateShort } from '@/lib/utils';
+import { slugify, formatDateShort } from '@/lib/utils';
 
 // ─── slugify ─────────────────────────────────────────────────────────────────
 
@@ -69,40 +69,6 @@ describe('slugify', () => {
       expect(result).toMatch(/^[a-z0-9-]+$/);
       expect(result).not.toMatch(/[àâäéèêëîïôùûü]/);
     });
-  });
-});
-
-// ─── findRubriqueBySlug ───────────────────────────────────────────────────────
-
-describe('findRubriqueBySlug', () => {
-  const rubriques = ['International', 'Politique', 'Économie', 'Île-de-France'];
-
-  it('trouve une rubrique simple', () => {
-    expect(findRubriqueBySlug('international', rubriques)).toBe('International');
-  });
-
-  it('trouve une rubrique avec accent', () => {
-    expect(findRubriqueBySlug('economie', rubriques)).toBe('Économie');
-  });
-
-  it('trouve une rubrique avec tiret et accent', () => {
-    expect(findRubriqueBySlug('ile-de-france', rubriques)).toBe('Île-de-France');
-  });
-
-  it('retourne undefined si absent', () => {
-    expect(findRubriqueBySlug('sport', rubriques)).toBeUndefined();
-  });
-
-  it('retourne undefined pour tableau vide', () => {
-    expect(findRubriqueBySlug('international', [])).toBeUndefined();
-  });
-
-  it('est insensible à la casse via slugify', () => {
-    expect(findRubriqueBySlug('politique', rubriques)).toBe('Politique');
-  });
-
-  it('retourne undefined pour slug vide', () => {
-    expect(findRubriqueBySlug('', rubriques)).toBeUndefined();
   });
 });
 

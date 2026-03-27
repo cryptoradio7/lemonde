@@ -62,6 +62,7 @@ export default async function RubriquePage({ params, searchParams }: Props) {
   }
 
   const articles = await getCategoryArticles(category.id, currentPage);
+  const remainingArticles = currentPage === 1 ? articles.slice(1) : articles;
 
   return (
     <div className="max-w-[1200px] mx-auto px-4 py-6">
@@ -94,9 +95,9 @@ export default async function RubriquePage({ params, searchParams }: Props) {
             </div>
           )}
 
-          {(currentPage === 1 ? articles.slice(1) : articles).length > 0 && (
+          {remainingArticles.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(currentPage === 1 ? articles.slice(1) : articles).map((article) => (
+              {remainingArticles.map((article) => (
                 <ArticleCard key={article.id} article={article} variant="medium" />
               ))}
             </div>
