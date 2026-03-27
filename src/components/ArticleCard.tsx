@@ -2,18 +2,13 @@ import Link from 'next/link';
 import type { Article, Category } from '@prisma/client';
 import { formatDateShort } from '@/lib/utils';
 import ImageOrPlaceholder from '@/components/articles/ImageOrPlaceholder';
+import { calcReadingTime } from '@/utils/readingTime';
 
 export type ArticleWithCategory = Article & { category: Category };
 
 interface ArticleCardProps {
   article: ArticleWithCategory;
   variant?: 'large' | 'medium' | 'small';
-}
-
-function calcReadingTime(content: string): string {
-  const text = content.replace(/<[^>]+>/g, ' ');
-  const words = text.trim().split(/\s+/).filter(Boolean).length;
-  return `${Math.max(1, Math.ceil(words / 200))} min de lecture`;
 }
 
 export default function ArticleCard({ article, variant = 'medium' }: ArticleCardProps) {
@@ -56,8 +51,12 @@ export default function ArticleCard({ article, variant = 'medium' }: ArticleCard
                 <span>{author}</span>
                 <span aria-hidden="true">&middot;</span>
                 <time dateTime={publishedAt.toISOString()}>{formattedDate}</time>
-                <span aria-hidden="true">&middot;</span>
-                <span>{readingTime}</span>
+                {readingTime && (
+                  <>
+                    <span aria-hidden="true">&middot;</span>
+                    <span>{readingTime}</span>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -82,8 +81,12 @@ export default function ArticleCard({ article, variant = 'medium' }: ArticleCard
             </h3>
             <div className="flex items-center gap-2 mt-2 text-xs text-[#6B6B6B] font-sans">
               <time dateTime={publishedAt.toISOString()}>{formattedDate}</time>
-              <span aria-hidden="true">&middot;</span>
-              <span>{readingTime}</span>
+              {readingTime && (
+                <>
+                  <span aria-hidden="true">&middot;</span>
+                  <span>{readingTime}</span>
+                </>
+              )}
             </div>
           </div>
           <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden">
@@ -134,8 +137,12 @@ export default function ArticleCard({ article, variant = 'medium' }: ArticleCard
             <span>{author}</span>
             <div className="flex items-center gap-2">
               <time dateTime={publishedAt.toISOString()}>{formattedDate}</time>
-              <span aria-hidden="true">&middot;</span>
-              <span>{readingTime}</span>
+              {readingTime && (
+                <>
+                  <span aria-hidden="true">&middot;</span>
+                  <span>{readingTime}</span>
+                </>
+              )}
             </div>
           </div>
         </div>

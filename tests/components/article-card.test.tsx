@@ -201,10 +201,10 @@ describe('ArticleCard — temps de lecture', () => {
     expect(screen.getByText('2 min de lecture')).toBeInTheDocument();
   });
 
-  it('contenu vide → 1 min de lecture (minimum)', () => {
+  it('contenu vide → temps de lecture non affiché', () => {
     const article = makeArticle({ content: '' });
     render(<ArticleCard article={article} />);
-    expect(screen.getByText('1 min de lecture')).toBeInTheDocument();
+    expect(screen.queryByText(/min de lecture/)).not.toBeInTheDocument();
   });
 
   it('contenu d\'un seul mot → 1 min de lecture', () => {

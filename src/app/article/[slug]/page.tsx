@@ -8,6 +8,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import ShareButtons from '@/components/articles/ShareButtons';
 import ArticleCard from '@/components/ArticleCard';
 import { formatDateShort } from '@/lib/utils';
+import { calcReadingTime } from '@/utils/readingTime';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -65,7 +66,7 @@ export default async function ArticlePage({ params }: Props) {
   const safeContent = DOMPurify.sanitize(article.content);
 
   const formattedDate = formatDateShort(new Date(article.publishedAt));
-  const readingTime = article.readingTime;
+  const readingTime = calcReadingTime(article.content);
 
   const breadcrumbItems = [
     { label: 'Accueil', href: '/' },
@@ -116,8 +117,12 @@ export default async function ArticlePage({ params }: Props) {
           <span className="font-semibold text-[#1D1D1B]">Par {article.author}</span>
           <span aria-hidden="true">&middot;</span>
           <time dateTime={article.publishedAt.toISOString()}>{formattedDate}</time>
-          <span aria-hidden="true">&middot;</span>
-          <span>{readingTime} min de lecture</span>
+          {readingTime && (
+            <>
+              <span aria-hidden="true">&middot;</span>
+              <span>{readingTime}</span>
+            </>
+          )}
         </div>
 
         {/* Boutons de partage */}
