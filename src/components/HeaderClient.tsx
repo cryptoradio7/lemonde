@@ -21,11 +21,11 @@ interface HeaderClientProps {
 
 export default function HeaderClient({ formattedDate, userName }: HeaderClientProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
+  const [showShadow, setShowShadow] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 80);
+      setShowShadow(window.scrollY > 0);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -33,8 +33,8 @@ export default function HeaderClient({ formattedDate, userName }: HeaderClientPr
 
   return (
     <header
-      className={`w-full bg-white border-b border-[#D5D5D5] z-50 transition-shadow duration-200 ${
-        isSticky ? 'fixed top-0 left-0 shadow-md' : 'relative'
+      className={`w-full bg-white border-b border-[#D5D5D5] z-50 sticky top-0 transition-shadow duration-200 ${
+        showShadow ? 'shadow-md' : ''
       }`}
     >
       {/* Top bar */}
