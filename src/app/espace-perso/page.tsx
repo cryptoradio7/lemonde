@@ -10,7 +10,9 @@ export default async function EspacePersoPage() {
       <h1 className="text-2xl font-bold mb-8">Mon espace personnel</h1>
       <div className="border border-[var(--lemonde-border)] p-6">
         <p className="text-lg mb-2">
-          Bonjour, <strong>{session.user.name}</strong>
+          {session.user.name
+            ? <>Bonjour, <strong>{session.user.name}</strong></>
+            : "Bonjour"}
         </p>
         <p className="text-sm text-[var(--lemonde-gray)] mb-6">
           {session.user.email}
