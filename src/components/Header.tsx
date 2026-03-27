@@ -1,14 +1,6 @@
 import { auth } from '@/lib/auth';
+import { formatDateFr } from '@/utils/formatDate';
 import HeaderClient from './HeaderClient';
-
-function formatDateFr(date: Date): string {
-  return date.toLocaleDateString('fr-FR', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
 
 export default async function Header() {
   const session = await auth();
