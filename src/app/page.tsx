@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/home/HeroSection";
+import LiveFeed from "@/components/home/LiveFeed";
 import CategorySection from "@/components/home/CategorySection";
 
 export const metadata: Metadata = {
@@ -39,6 +40,13 @@ export default async function HomePage() {
     include: { category: true },
   });
 
+  // Fil "En continu" : 10 derniers articles par date de publication puis création
+  const liveFeedArticles = await prisma.article.findMany({
+    orderBy: [{ publishedAt: "desc" }, { createdAt: "desc" }],
+    take: 10,
+    include: { category: true },
+  });
+
   // Rubriques avec leurs articles (ordre défini par Category.order)
   const categories = await prisma.category.findMany({
     orderBy: { order: "asc" },
@@ -61,6 +69,7 @@ export default async function HomePage() {
         mainArticle={heroArticle}
         sidebarArticles={sidebarArticles}
       />
+      <LiveFeed articles={liveFeedArticles} />
       {categoriesWithArticles.map((category) => (
         <CategorySection key={category.id} category={category} />
       ))}

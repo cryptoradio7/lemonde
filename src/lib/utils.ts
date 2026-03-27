@@ -14,3 +14,11 @@ export function formatDateShort(date: Date): string {
     year: 'numeric',
   });
 }
+
+export function formatTime(date: Date): string {
+  return date.toLocaleTimeString('fr-FR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  });
+}
