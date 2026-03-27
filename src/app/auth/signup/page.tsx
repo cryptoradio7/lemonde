@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -97,9 +98,9 @@ export default function SignUpPage() {
       </form>
       <p className="mt-6 text-center text-sm text-[var(--lemonde-gray)]">
         Déjà un compte ?{" "}
-        <a href="/auth/signin" className="text-[var(--lemonde-blue)] hover:underline">
+        <Link href="/auth/signin" className="text-[var(--lemonde-blue)] hover:underline">
           Se connecter
-        </a>
+        </Link>
       </p>
     </main>
   );
