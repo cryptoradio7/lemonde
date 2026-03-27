@@ -1,14 +1,15 @@
 import { Metadata } from 'next';
-import { searchArticles, getAllRubriques } from '@/data/articles';
+import { prisma } from '@/lib/prisma';
 import ArticleCard from '@/components/ArticleCard';
 import SearchBar from '@/components/SearchBar';
 
 interface Props {
-  searchParams: { q?: string; rubrique?: string; page?: string };
+  searchParams: Promise<{ q?: string; rubrique?: string; page?: string }>;
 }
 
-export function generateMetadata({ searchParams }: Props): Metadata {
-  const query = searchParams.q || '';
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const params = await searchParams;
+  const query = params.q || '';
   return {
     title: query ? `Recherche : ${query}` : 'Recherche',
     description: `Résultats de recherche pour "${query}" sur Le Monde.`,
@@ -17,13 +18,37 @@ export function generateMetadata({ searchParams }: Props): Metadata {
 
 const RESULTS_PER_PAGE = 12;
 
-export default function RecherchePage({ searchParams }: Props) {
-  const query = searchParams.q || '';
-  const rubriqueFilter = searchParams.rubrique || '';
-  const currentPage = parseInt(searchParams.page || '1', 10);
-  const rubriques = getAllRubriques();
+export default async function RecherchePage({ searchParams }: Props) {
+  const params = await searchParams;
+  const query = params.q?.trim() || '';
+  const rubriqueFilter = params.rubrique || '';
+  const currentPage = Math.max(1, parseInt(params.page || '1', 10));
 
-  const results = query ? searchArticles(query, rubriqueFilter || undefined) : [];
+  const categories = await prisma.category.findMany({
+    orderBy: { order: 'asc' },
+    select: { name: true, slug: true },
+  });
+
+  const results = query
+    ? await prisma.article.findMany({
+        where: {
+          AND: [
+            {
+              OR: [
+                { title: { contains: query } },
+                { excerpt: { contains: query } },
+              ],
+            },
+            rubriqueFilter
+              ? { category: { slug: rubriqueFilter } }
+              : {},
+          ],
+        },
+        orderBy: { publishedAt: 'desc' },
+        include: { category: true },
+      })
+    : [];
+
   const totalPages = Math.ceil(results.length / RESULTS_PER_PAGE);
   const paginatedResults = results.slice(
     (currentPage - 1) * RESULTS_PER_PAGE,
@@ -31,8 +56,13 @@ export default function RecherchePage({ searchParams }: Props) {
   );
 
   return (
-    <div className="max-w-content mx-auto px-4 py-6">
-      <h1 className="font-serif text-3xl font-bold mb-6">Recherche</h1>
+    <div className="max-w-[1200px] mx-auto px-4 py-6">
+      <h1
+        className="text-3xl font-bold mb-6 text-[#1D1D1B]"
+        style={{ fontFamily: 'Georgia, serif' }}
+      >
+        Recherche
+      </h1>
 
       <div className="max-w-xl mb-8">
         <SearchBar defaultValue={query} />
@@ -42,40 +72,40 @@ export default function RecherchePage({ searchParams }: Props) {
       <div className="flex flex-wrap gap-2 mb-6">
         <a
           href={`/recherche?q=${encodeURIComponent(query)}`}
-          className={`px-3 py-1.5 text-sm border rounded-sm transition-colors ${
+          className={`px-3 py-1.5 text-sm border transition-colors font-sans ${
             !rubriqueFilter
-              ? 'bg-lm-dark text-white border-lm-dark'
-              : 'border-lm-gray-border text-lm-gray hover:bg-lm-gray-light'
+              ? 'bg-[#1D1D1B] text-white border-[#1D1D1B]'
+              : 'border-[#D5D5D5] text-[#6B6B6B] hover:bg-[#F5F5F5]'
           }`}
         >
           Toutes
         </a>
-        {rubriques.map((r) => (
+        {categories.map((c) => (
           <a
-            key={r}
-            href={`/recherche?q=${encodeURIComponent(query)}&rubrique=${encodeURIComponent(r)}`}
-            className={`px-3 py-1.5 text-sm border rounded-sm transition-colors ${
-              rubriqueFilter === r
-                ? 'bg-lm-dark text-white border-lm-dark'
-                : 'border-lm-gray-border text-lm-gray hover:bg-lm-gray-light'
+            key={c.slug}
+            href={`/recherche?q=${encodeURIComponent(query)}&rubrique=${encodeURIComponent(c.slug)}`}
+            className={`px-3 py-1.5 text-sm border transition-colors font-sans ${
+              rubriqueFilter === c.slug
+                ? 'bg-[#1D1D1B] text-white border-[#1D1D1B]'
+                : 'border-[#D5D5D5] text-[#6B6B6B] hover:bg-[#F5F5F5]'
             }`}
           >
-            {r}
+            {c.name}
           </a>
         ))}
       </div>
 
-      {/* Résultats */}
+      {/* Compteur résultats */}
       {query && (
-        <p className="text-sm text-lm-gray mb-4">
+        <p className="text-sm text-[#6B6B6B] mb-4 font-sans">
           {results.length} résultat{results.length !== 1 ? 's' : ''} pour &laquo;{' '}
-          <span className="font-semibold text-lm-dark">{query}</span> &raquo;
-          {rubriqueFilter && ` dans ${rubriqueFilter}`}
+          <span className="font-semibold text-[#1D1D1B]">{query}</span> &raquo;
+          {rubriqueFilter && ` dans ${categories.find(c => c.slug === rubriqueFilter)?.name ?? rubriqueFilter}`}
         </p>
       )}
 
       {!query ? (
-        <div className="text-center py-16 text-lm-gray">
+        <div className="text-center py-16 text-[#6B6B6B]">
           <svg
             className="w-16 h-16 mx-auto mb-4 opacity-30"
             fill="none"
@@ -89,12 +119,21 @@ export default function RecherchePage({ searchParams }: Props) {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-          <p className="text-lg font-serif">Recherchez un article, un sujet, un auteur...</p>
+          <p
+            className="text-lg"
+            style={{ fontFamily: 'Georgia, serif' }}
+          >
+            Recherchez un article, un sujet, un auteur…
+          </p>
         </div>
       ) : results.length === 0 ? (
-        <div className="text-center py-16 text-lm-gray">
-          <p className="text-lg font-serif mb-2">Aucun résultat trouvé</p>
-          <p className="text-sm">Essayez avec d&apos;autres mots-clés ou modifiez les filtres.</p>
+        <div className="text-center py-16 text-[#6B6B6B]">
+          <p className="text-lg mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+            Aucun résultat trouvé
+          </p>
+          <p className="text-sm font-sans">
+            Essayez avec d&apos;autres mots-clés ou modifiez les filtres.
+          </p>
         </div>
       ) : (
         <>
@@ -109,7 +148,7 @@ export default function RecherchePage({ searchParams }: Props) {
               {currentPage > 1 && (
                 <a
                   href={`/recherche?q=${encodeURIComponent(query)}${rubriqueFilter ? `&rubrique=${encodeURIComponent(rubriqueFilter)}` : ''}&page=${currentPage - 1}`}
-                  className="px-4 py-2 text-sm border border-lm-gray-border hover:bg-lm-gray-light"
+                  className="px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
                 >
                   ← Précédent
                 </a>
@@ -118,10 +157,10 @@ export default function RecherchePage({ searchParams }: Props) {
                 <a
                   key={page}
                   href={`/recherche?q=${encodeURIComponent(query)}${rubriqueFilter ? `&rubrique=${encodeURIComponent(rubriqueFilter)}` : ''}&page=${page}`}
-                  className={`px-3 py-2 text-sm border ${
+                  className={`px-3 py-2 text-sm border font-sans ${
                     page === currentPage
-                      ? 'bg-lm-dark text-white border-lm-dark'
-                      : 'border-lm-gray-border hover:bg-lm-gray-light'
+                      ? 'bg-[#1D1D1B] text-white border-[#1D1D1B]'
+                      : 'border-[#D5D5D5] hover:bg-[#F5F5F5]'
                   }`}
                 >
                   {page}
@@ -130,7 +169,7 @@ export default function RecherchePage({ searchParams }: Props) {
               {currentPage < totalPages && (
                 <a
                   href={`/recherche?q=${encodeURIComponent(query)}${rubriqueFilter ? `&rubrique=${encodeURIComponent(rubriqueFilter)}` : ''}&page=${currentPage + 1}`}
-                  className="px-4 py-2 text-sm border border-lm-gray-border hover:bg-lm-gray-light"
+                  className="px-4 py-2 text-sm border border-[#D5D5D5] hover:bg-[#F5F5F5] font-sans"
                 >
                   Suivant →
                 </a>
